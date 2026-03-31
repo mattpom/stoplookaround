@@ -1821,18 +1821,13 @@
     document.body.style.overflow = 'hidden';
 
     try {
-      const response = await fetch('https://api.anthropic.com/v1/messages', {
+      const response = await fetch('https://sla-travel-sheets.mattpom01.workers.dev', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
-          max_tokens: 1000,
-          system: 'You are a witty, well-traveled writer for StopLookAround.com — a quirky anti-selfie travel community. Generate a punchy one-page travel sheet. Use HTML with <h3> for section headers and <p> or <ul><li> for content. Keep each section tight — 2-4 sentences or bullet points max. Tone: honest, funny, useful. No fluff. Sections: Best Time to Go, Visa & Entry, Currency & Money Tips, Must-See Places (the famous AND one hidden gem), What to Eat, One Thing Nobody Tells You. End with a one-line quote about the country in italics.',
-          messages: [{ role: 'user', content: `Generate a travel sheet for ${country}. HTML format only, no markdown, no preamble.` }]
-        })
+        body: JSON.stringify({ country })
       });
       const data = await response.json();
-      const content = data.content && data.content[0] ? data.content[0].text : 'Something went wrong — try again.';
+      const content = data.content || 'Something went wrong — try again.';
       document.getElementById('sheetBody').innerHTML = '<div class="sheet-content">' + content + '</div>';
       document.getElementById('printBtn').style.display = 'inline-block';
     } catch(err) {
