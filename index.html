@@ -1239,6 +1239,14 @@
     .gear-grid { grid-template-columns: 1fr 1fr; }
     .sheet-modal { padding: 28px; }
   }
+
+  @media print {
+    body > *:not(.sheet-modal-overlay) { display: none !important; }
+    .sheet-modal-overlay { position: static !important; background: none !important; display: block !important; opacity: 1 !important; pointer-events: all !important; }
+    .sheet-modal { box-shadow: none !important; max-height: none !important; transform: none !important; }
+    .sheet-modal-close, .sheet-print-btn, .sheet-modal-tag { display: none !important; }
+    .sheet-modal-country { font-size: 2rem !important; }
+  }
 </style>
 </head>
 <body>
