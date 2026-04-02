@@ -1351,7 +1351,14 @@
     box-sizing: border-box !important;
   }
   /* Prevent bad page breaks */
-  h1, h2, h3,
+  h1, h2, h3 {
+  break-after: avoid !important;
+  page-break-after: avoid !important;
+}
+
+h2, h3 {
+  padding-top: 0.12in !important;
+}
   p, ul, li,
   blockquote,
   .page-section,
