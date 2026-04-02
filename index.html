@@ -2207,10 +2207,31 @@ document.addEventListener("DOMContentLoaded", () => {
         const raw = item["Upload your photo"];
         if (!raw) return;
 
-        const match = raw.match(/id=([^&]+)/);
-        if (!match) return;
+        let fileId = "";
 
-        const imgUrl = `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
+if (raw.includes("id=")) {
+  fileId = raw.split("id=")[1].split("&")[0];
+} else if (raw.includes("/d/")) {
+  fileId = raw.split("/d/")[1].split("/")[0];
+} else {
+  return;
+}
+     
+
+        const raw = item["Upload your photo"];
+if (!raw) return;
+
+let fileId = "";
+
+if (raw.includes("id=")) {
+  fileId = raw.split("id=")[1].split("&")[0];
+} else if (raw.includes("/d/")) {
+  fileId = raw.split("/d/")[1].split("/")[0];
+} else {
+  return;
+}
+
+const imgUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
 
         const card = document.createElement("div");
         card.className = "wall-photo";
