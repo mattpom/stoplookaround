@@ -439,18 +439,19 @@
     text-transform: uppercase;
   }
 
-  .photo-wall {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 240px 180px;
-    gap: 4px;
-  }
+.photo-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding: 40px 0;
+}
 
-  .wall-photo {
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
-  }
+ .wall-photo {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 220px;
+}
 
   .wall-photo:nth-child(1) { grid-column: span 2; grid-row: span 2; }
   .wall-photo:nth-child(4) { grid-column: span 2; }
