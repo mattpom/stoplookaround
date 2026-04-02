@@ -2086,5 +2086,42 @@
     });
   }
 </script>
+   <script>
+fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.querySelector(".places-grid");
+
+    if (!gallery) {
+      console.error("Gallery not found");
+      return;
+    }
+
+    gallery.innerHTML = "";
+
+    data.forEach(item => {
+      let raw = item["Upload your photo"];
+      if (!raw) return;
+
+      let fileIdMatch = raw.match(/id=([^&]+)/);
+      if (!fileIdMatch) return;
+
+      let fileId = fileIdMatch[1];
+      let imgUrl = `https://drive.google.com/uc?export=view&id=${fileId}`;
+
+      const card = document.createElement("div");
+      card.className = "place-card";
+
+      card.innerHTML = `
+        <img src="${imgUrl}" style="width:100%; margin-bottom:10px;">
+        <h3>${item["Where is this place?"]}</h3>
+        <p>${item["Tell us about this place"]}</p>
+      `;
+
+      gallery.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Error:", err));
+</script>
 </body>
 </html>
