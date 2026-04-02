@@ -2162,5 +2162,35 @@ fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   })
 .catch(err => console.error(err));
 </script>
+   <script>
+fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.querySelector(".photo-wall");
+    if (!gallery) return;
+
+    data.forEach(item => {
+      const raw = item["Upload your photo"];
+      if (!raw) return;
+
+      const match = raw.match(/id=([^&]+)/);
+      if (!match) return;
+
+      const imgUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+
+      const card = document.createElement("div");
+      card.className = "wall-photo";
+      card.innerHTML = `
+        <img src="${imgUrl}" alt="${item["Where is this place?"]}" style="width:100%; height:100%; object-fit:cover;">
+        <div class="wall-overlay">
+          <div class="wall-place">${item["Where is this place?"]}</div>
+          <div class="wall-meta">Submitted anonymously</div>
+        </div>
+      `;
+      gallery.appendChild(card);
+    });
+  })
+  .catch(err => console.error(err));
+</script>
 </body>
 </html>
