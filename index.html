@@ -2178,7 +2178,7 @@ const gallery = document.querySelector(".places-grid");
       const match = raw.match(/id=([^&]+)/);
       if (!match) return;
 
-      const imgUrl = `https://drive.google.com/uc?export=view&id=${match[1]}`;
+     const imgUrl = `https://drive.google.com/thumbnail?id=${match[1]}&sz=w1000`;
 
       const card = document.createElement("div");
       card.className = "wall-photo";
