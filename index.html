@@ -1376,6 +1376,42 @@
     margin: 0.9in 0.85in 0.9in 0.85in;
   }
 }
+ @media print {
+
+  /* Hide UI junk */
+  header,
+  nav,
+  .upload-btn,
+  .graffiti-section {
+    display: none !important;
+  }
+
+  /* Simplify layout */
+  .photo-wall {
+    display: block !important;
+  }
+
+  /* Fix images */
+  .wall-photo img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 250px;
+    object-fit: cover;
+  }
+
+  /* Prevent splits */
+  .wall-photo {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 20px;
+  }
+
+  /* Clean background */
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}
 </style>
 </head>
 <body>
