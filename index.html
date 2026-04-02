@@ -2129,13 +2129,38 @@ fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   .then(data => {
     console.log("DATA:", data);
 
-  const gallery = document.querySelector(".photo-wall");
-    if (!gallery) {
-      alert("Gallery not found");
-      return;
-    }
+  const gallery = document.querySelector(".places-grid");
+if (!gallery) return;
 
-    gallery.innerHTML = "";
+gallery.innerHTML = "";
+
+data.forEach(item => {
+  const raw = item["Upload your photo"];
+  if (!raw) return;
+
+  let fileId = "";
+
+  if (raw.includes("id=")) {
+    fileId = raw.split("id=")[1].split("&")[0];
+  } else if (raw.includes("/d/")) {
+    fileId = raw.split("/d/")[1].split("/")[0];
+  } else {
+    return;
+  }
+
+  const imgUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w1200`;
+
+  const card = document.createElement("div");
+  card.className = "place-card";
+
+  card.innerHTML = `
+    <img src="${imgUrl}" alt="${item["Where is this place?"]}" style="width:100%; height:100%; object-fit:cover;">
+    <h3>${item["Where is this place?"]}</h3>
+    <p>${item["Tell us about this place"]}</p>
+  `;
+
+  gallery.appendChild(card);
+});;
 
     data.forEach(item => {
       let raw = item["Upload your photo"];
