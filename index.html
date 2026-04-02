@@ -2129,8 +2129,7 @@ fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   .then(data => {
     console.log("DATA:", data);
 
-    const gallery = document.querySelector(".places-grid");
-
+  const gallery = document.querySelector(".photo-wall");
     if (!gallery) {
       alert("Gallery not found");
       return;
