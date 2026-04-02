@@ -2168,7 +2168,7 @@ fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
 fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   .then(res => res.json())
   .then(data => {
-    const gallery = document.querySelector(".photo-wall");
+const gallery = document.querySelector(".photo-wall");
     if (!gallery) return;
 
     data.forEach(item => {
