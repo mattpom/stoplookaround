@@ -2161,8 +2161,10 @@ fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   })
   })
 .catch(err => console.error(err));
+    });
 </script>
    <script>
+    document.addEventListener("DOMContentLoaded", () => {
 fetch("https://sheetdb.io/api/v1/f6isf0swrtqcl/search?Approved=yes")
   .then(res => res.json())
   .then(data => {
