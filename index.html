@@ -1412,6 +1412,77 @@
     color: black !important;
   }
 }
+ @media print {
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    overflow: visible !important;
+  }
+
+  header,
+  nav,
+  footer,
+  .upload-btn,
+  .graffiti-section,
+  .wall-section,
+  .wall-header {
+    display: none !important;
+  }
+
+  .sheet-modal,
+  .sheet-modal-content,
+  .sheet-content,
+  .travel-sheet,
+  .print-sheet,
+  .sheet-body {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    background: #fff !important;
+  }
+
+  .sheet-modal-content,
+  .travel-sheet,
+  .print-sheet {
+    padding-top: 0.45in !important;
+    padding-bottom: 0.2in !important;
+  }
+
+  section,
+  .page-section,
+  .content-block,
+  .sheet-section,
+  .sheet-block,
+  .bullet-list,
+  .quote-block {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  h1, h2, h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0.75in 0.7in 0.85in 0.7in;
+  }
+}
 </style>
 </head>
 <body>
