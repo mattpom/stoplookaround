@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Argentina Guide — Print Test</title>
+<style>
+body{font-family:Arial;margin:40px;color:#1c1c1c}
+h1,h2{text-transform:uppercase;letter-spacing:.05em}
+.section{margin-bottom:30px;page-break-inside:avoid;break-inside:avoid}
+@media print{
+  @page{margin:0.7in 0.65in}
+  body{margin:0}
+  .section{page-break-inside:avoid;break-inside:avoid}
+  h1,h2{page-break-after:avoid}
+}
+</style>
+</head>
+<body>
+<h1>Argentina</h1>
+<div class="section"><h2>Must-See Places</h2><p>Buenos Aires, Patagonia, Mendoza, Iguazu Falls</p></div>
+<div class="section"><h2>What to Eat</h2><p>Asado, empanadas, milanesa, medialunas</p></div>
+<div class="section"><h2>What to Skip</h2><p>Overpacking your itinerary and rushing between regions</p></div>
+<div class="section"><h2>One Thing Nobody Tells You</h2><p>The culture runs late. If you try to operate on a strict early schedule, you’ll miss the energy of the place.</p></div>
+</body>
+</html>
