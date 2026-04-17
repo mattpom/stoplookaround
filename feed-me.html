@@ -36,13 +36,19 @@
   body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; }
 
   /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; background: #fdfaf4; border-bottom: 2px solid var(--light-dust); }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
-  .nav-logo .dot { color: var(--rust); }
-  .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
-  .nav-links a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
-  .nav-upload { background: var(--rust) !important; color: var(--cream) !important; padding: 10px 22px; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 200; display: flex; justify-content: space-between; align-items: center; padding: 14px 48px; background: #fdfaf4; border-bottom: 2px solid #e8e0d4; }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.12em; color: #1c1c1c; text-decoration: none; flex-shrink: 0; }
+  .nav-logo .dot { color: #c4522a; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 26px; height: 2px; background: #1c1c1c; transition: all 0.3s; }
+  .nav-mobile { display: none; position: fixed; top: 55px; left: 0; right: 0; background: #fdfaf4; border-bottom: 2px solid #e8e0d4; padding: 8px 0; z-index: 199; flex-direction: column; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8c7b6b; text-decoration: none; padding: 14px 48px; border-bottom: 1px solid #e8e0d4; display: block; transition: color 0.2s; }
+  .nav-mobile a:last-of-type { border-bottom: none; }
+  .nav-mobile a:hover { color: #c4522a; background: #f7f2e8; }
+  .nav-upload-mobile { background: #c4522a !important; color: #f7f2e8 !important; margin: 12px 48px !important; text-align: center !important; border: none !important; }
+  .nav-upload-mobile:hover { background: #b04525 !important; color: #f7f2e8 !important; }
 
   /* HERO */
   .hero { padding: 140px 72px 72px; background: var(--ink); position: relative; overflow: hidden; }
@@ -138,8 +144,7 @@
   .nav-mobile a { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--light-dust); display: block; transition: color 0.2s; }
   .nav-mobile a:last-child { border-bottom: none; }
   .nav-mobile a:hover { color: var(--rust); }
-  .nav-mobile .nav-upload { margin-top: 12px; text-align: center; padding: 12px !important; border-bottom: none !important; }
-  @media (max-width: 900px) { .nav-links { display: none !important; } .nav-hamburger { display: flex; } }
+  .nav-mobile .nav-upload { margin-top: 12px; text-align: center; padding: 12px !important; border-bottom: none !important; } }
 
 </style>
 </head>
@@ -167,7 +172,7 @@
   <a href="travel-guides.html">Guides</a>
   <a href="feed-me.html">Feed Me 🍜</a>
   <a href="shop.html">Gift Shop</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload-mobile">Upload →</a>
 </div>
 <script>
 (function(){
