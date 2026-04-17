@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Guides — StopLookAround</title>
+<meta name="description" content="Free travel guides for people who stop and look around. Japan, Portugal, Europe, Morocco, Greece, Colombia, solo travel tips, packing lists, and more.">
+<link rel="canonical" href="https://stoplookaround.com/travel-guides.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stoplookaround.com/travel-guides.html">
+<meta property="og:title" content="Travel Guides — StopLookAround">
+<meta property="og:description" content="Free travel guides for people who stop and look around. No selfies. Just places.">
+<meta property="og:site_name" content="StopLookAround">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream: #f7f2e8; --warm-white: #fdfaf4; --ink: #1c1c1c; --rust: #c4522a; --mustard: #d4a843; --dusty: #8c7b6b; --light-dust: #e8e0d4; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--warm-white); color: var(--ink); font-family: 'Karla', sans-serif; font-weight: 300; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(253,250,244,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--light-dust); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+  .nav-logo .dot { color: var(--rust); }
+  .nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dusty); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-upload { background: var(--rust) !important; color: var(--cream) !important; padding: 10px 22px; }
+  .page-hero { padding: 140px 72px 72px; max-width: 860px; }
+  .page-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 20px; }
+  .page-hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 7vw, 5.5rem); line-height: 0.95; letter-spacing: 0.03em; color: var(--ink); margin-bottom: 24px; }
+  .page-hero p { font-family: 'Lora', serif; font-style: italic; font-size: 1.15rem; color: var(--dusty); line-height: 1.75; max-width: 640px; }
+  .guides-section { padding: 0 72px 100px; }
+  .section-label { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 12px; margin-top: 3rem; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 24px; }
+  .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 3rem; }
+  .guide-card { border: 1px solid var(--light-dust); padding: 1.8rem; text-decoration: none; display: block; background: var(--warm-white); transition: border-color 0.2s, transform 0.2s; }
+  .guide-card:hover { border-color: var(--rust); transform: translateY(-2px); }
+  .guide-cat { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 0.8rem; }
+  .guide-title { font-family: 'Lora', serif; font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.4; margin-bottom: 0.6rem; }
+  .guide-desc { font-size: 0.85rem; color: var(--dusty); line-height: 1.6; }
+  footer { background: var(--ink); color: var(--cream); padding: 48px 72px; }
+  .footer-bottom { font-size: 0.8rem; color: rgba(247,242,232,0.35); border-top: 1px solid rgba(247,242,232,0.06); padding-top: 20px; margin-top: 20px; }
+  @media (max-width: 900px) { nav { padding: 14px 24px; } .nav-links { display: none; } .page-hero { padding: 100px 24px 48px; } .guides-section { padding: 0 24px 60px; } .guides-grid { grid-template-columns: 1fr 1fr; } footer { padding: 48px 24px; } }
+  @media (max-width: 540px) { .guides-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links">
+    <li><a href="index.html#explore">Explore</a></li>
+    <li><a href="index.html#rules">The Rules</a></li>
+    <li><a href="index.html#dutyfree">Duty Free ✈️</a></li>
+    <li><a href="index.html#bag">Bigger Bag 🎒</a></li>
+    <li><a href="travel-guides.html">Guides</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <span class="page-eyebrow">Free Travel Guides</span>
+  <h1>STOP.<br>LOOK.<br>READ.</h1>
+  <p>Guides for people who actually go places. No selfies, no sponsored content, no lists of obvious things. Just honest advice about what's worth seeing and how to see it.</p>
+</div>
+
+<div class="guides-section">
+
+  <span class="section-label">Destination Guides</span>
+  <h2 class="section-title">Places Worth Going</h2>
+  <div class="guides-grid">
+    <a href="best-places-to-visit-in-japan.html" class="guide-card">
+      <span class="guide-cat">Japan</span>
+      <span class="guide-title">Best Places to Visit in Japan</span>
+      <span class="guide-desc">Beyond Tokyo — ancient temples, mountain towns, coastal villages, and places most tourists never find.</span>
+    </a>
+    <a href="best-places-to-visit-in-portugal.html" class="guide-card">
+      <span class="guide-cat">Portugal</span>
+      <span class="guide-title">Best Places to Visit in Portugal</span>
+      <span class="guide-desc">Medieval villages, dramatic coastlines, wine country, and the Europe that hasn't been Instagram-ified yet.</span>
+    </a>
+    <a href="best-hidden-gems-in-europe.html" class="guide-card">
+      <span class="guide-cat">Europe</span>
+      <span class="guide-title">Hidden Gems in Europe Most Tourists Never Find</span>
+      <span class="guide-desc">Ghent, Slovenia, Kotor, Plovdiv, the Faroe Islands — the places that change how you think about travel.</span>
+    </a>
+    <a href="best-places-to-visit-in-morocco.html" class="guide-card">
+      <span class="guide-cat">Morocco</span>
+      <span class="guide-title">Best Places to Visit in Morocco</span>
+      <span class="guide-desc">Ancient medinas, Sahara desert camps, mountain villages, and Atlantic coastline on Africa's northwestern edge.</span>
+    </a>
+    <a href="best-places-to-visit-in-greece.html" class="guide-card">
+      <span class="guide-cat">Greece</span>
+      <span class="guide-title">Best Places in Greece Beyond the Islands</span>
+      <span class="guide-desc">The Peloponnese, Zagori villages, Meteora, Ikaria, and Milos — what Greece looks like when you go further.</span>
+    </a>
+    <a href="best-places-to-visit-in-colombia.html" class="guide-card">
+      <span class="guide-cat">Colombia</span>
+      <span class="guide-title">Best Places to Visit in Colombia</span>
+      <span class="guide-desc">Cartagena's walled city, the coffee region, the Lost City trek, and Medellín's extraordinary transformation.</span>
+    </a>
+  </div>
+
+  <span class="section-label">How to Travel</span>
+  <h2 class="section-title">Practical Guides</h2>
+  <div class="guides-grid">
+    <a href="solo-travel-tips-first-time.html" class="guide-card">
+      <span class="guide-cat">Solo Travel</span>
+      <span class="guide-title">Solo Travel Tips for First-Timers</span>
+      <span class="guide-desc">How to plan your first solo trip, stay safe, meet people, and make the most of traveling alone.</span>
+    </a>
+    <a href="budget-travel-tips-europe.html" class="guide-card">
+      <span class="guide-cat">Budget Travel</span>
+      <span class="guide-title">Budget Travel Tips for Europe</span>
+      <span class="guide-desc">Cheap flights, free activities, budget food, and how to see the continent without paying tourist prices.</span>
+    </a>
+    <a href="best-train-journeys-in-europe.html" class="guide-card">
+      <span class="guide-cat">Rail Travel</span>
+      <span class="guide-title">Best Train Journeys in Europe</span>
+      <span class="guide-desc">The Glacier Express, Oslo to Bergen, the Douro Line — routes where the journey itself is the point.</span>
+    </a>
+    <a href="best-travel-photography-tips.html" class="guide-card">
+      <span class="guide-cat">Photography</span>
+      <span class="guide-title">Travel Photography Tips for Non-Photographers</span>
+      <span class="guide-desc">How to take better travel photos without expensive gear. What to look for, not what to buy.</span>
+    </a>
+    <a href="what-to-pack-for-a-two-week-trip.html" class="guide-card">
+      <span class="guide-cat">Packing</span>
+      <span class="guide-title">What to Pack for a Two-Week Trip</span>
+      <span class="guide-desc">The definitive carry-on packing list. Everything you actually need, nothing you don't.</span>
+    </a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2026 StopLookAround.com &mdash; No selfies. Ever.</p>
+    <p style="margin-top:8px">Built for people who actually go places. Some links are affiliate links &mdash; we earn a small commission at no cost to you.</p>
+  </div>
+</footer>
+
+</body>
+</html>
