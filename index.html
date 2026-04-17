@@ -1622,7 +1622,7 @@ async function loadApprovedPhotos() {
         <div class="photo-scene" style="background-image:url('${photo.imageUrl}');background-size:cover;background-position:center;font-size:0"></div>
         <div class="wall-overlay">
           <div class="wall-place">${photo.place}</div>
-          <div class="wall-meta">${photo.description || 'Submitted anonymously'}</div>
+          <div class="wall-meta" style="display:flex;align-items:center;gap:6px;"><span style="background:var(--rust);color:var(--cream);font-size:0.6rem;letter-spacing:0.1em;padding:2px 6px;font-family:'Bebas Neue',sans-serif;">✦ COMMUNITY</span>${photo.description || ''}</div>
         </div>`;
       wall.insertBefore(div, submitCard);
     });
