@@ -1297,8 +1297,10 @@
   .sheet-modal-close,
   .sheet-print-btn,
   .sheet-loading,
-  .sheet-modal-tag {
+  .sheet-modal-tag,
+  .sheet-modal-country {
     display: none !important;
+    visibility: hidden !important;
   }
   /* Core layout fix */
   #sheetBody {
@@ -2041,6 +2043,12 @@
       const content = data.content || 'Something went wrong — try again.';
       // Strip markdown code fences the AI sometimes adds
       let clean = content.replace(/```html/gi, '').replace(/```/g, '').trim();
+      // Fix plain text bullet lines — convert "- item" or "• item" to proper <li>
+      clean = clean.replace(/^[-•]\s+(.+)$/gm, '<li>$1</li>');
+      // Wrap orphaned <li> blocks in <ul> if not already wrapped
+      clean = clean.replace(/(<li>(?:(?!<\/ul>)[\s\S])*?<\/li>)(?!\s*<\/ul>)/g, '<ul>$1</ul>');
+      // Remove duplicate <ul> wrapping
+      clean = clean.replace(/<ul>\s*<ul>/g, '<ul>').replace(/<\/ul>\s*<\/ul>/g, '</ul>');
 
       const wrapper = document.createElement('div');
       wrapper.className = 'sheet-content';
