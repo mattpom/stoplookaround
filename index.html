@@ -2145,26 +2145,62 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
   });
 
   // Graffiti wall
+  const GRAFFITI_WORKER = 'https://sla-graffiti-wall.mattpom01.workers.dev';
   const colors = ['gn-1','gn-2','gn-3','gn-4','gn-5','gn-6','gn-7','gn-8'];
-  function addNote() {
+
+  function renderNote(note, prepend = true) {
+    const el = document.createElement('div');
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    el.className = 'graffiti-note ' + color;
+    el.style.opacity = '0';
+    el.style.transform = 'scale(0.8)';
+    el.innerHTML = (note.place ? `<span class="note-place">📍 ${note.place}</span>` : '') + `"${note.text}"`;
+    const wall = document.getElementById('graffitiWall');
+    if (prepend) wall.prepend(el);
+    else wall.appendChild(el);
+    setTimeout(() => {
+      el.style.transition = 'opacity 0.4s, transform 0.4s';
+      el.style.opacity = '1';
+      el.style.transform = `scale(1) rotate(${(Math.random()*4-2).toFixed(1)}deg)`;
+    }, 10);
+  }
+
+  async function loadNotes() {
+    try {
+      const res = await fetch(GRAFFITI_WORKER);
+      const data = await res.json();
+      if (!data.notes || data.notes.length === 0) return;
+      // Clear default hardcoded notes first
+      document.getElementById('graffitiWall').innerHTML = '';
+      data.notes.forEach(note => renderNote(note, false));
+    } catch(e) { /* keep hardcoded notes on failure */ }
+  }
+
+  async function addNote() {
     const text = document.getElementById('graffitiText').value.trim();
     const place = document.getElementById('graffitiPlace').value.trim();
     if (!text) return;
-    const note = document.createElement('div');
-    const color = colors[Math.floor(Math.random() * colors.length)];
-    note.className = 'graffiti-note ' + color;
-    note.style.opacity = '0';
-    note.style.transform = 'scale(0.8) rotate(0deg)';
-    note.innerHTML = (place ? `<span class="note-place">📍 ${place}</span>` : '') + `"${text}"`;
-    document.getElementById('graffitiWall').prepend(note);
-    setTimeout(() => {
-      note.style.transition = 'opacity 0.4s, transform 0.4s';
-      note.style.opacity = '1';
-      note.style.transform = `scale(1) rotate(${(Math.random()*4-2).toFixed(1)}deg)`;
-    }, 10);
-    document.getElementById('graffitiText').value = '';
-    document.getElementById('graffitiPlace').value = '';
+    try {
+      const res = await fetch(GRAFFITI_WORKER, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, place })
+      });
+      const data = await res.json();
+      if (data.ok) {
+        renderNote(data.note, true);
+        document.getElementById('graffitiText').value = '';
+        document.getElementById('graffitiPlace').value = '';
+      }
+    } catch(e) {
+      // Fallback — show locally even if save failed
+      renderNote({ text, place }, true);
+      document.getElementById('graffitiText').value = '';
+      document.getElementById('graffitiPlace').value = '';
+    }
   }
+
+  document.addEventListener('DOMContentLoaded', loadNotes);
 
   function printSheet() {
     var sheetBody = document.getElementById("sheetBody");
