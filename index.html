@@ -454,9 +454,10 @@
   }
 
   .wall-photo:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-  .wall-photo:nth-child(4) { grid-column: span 2; }
-  .wall-photo:nth-child(8) { grid-column: span 2; }
-  .wall-photo:nth-child(11) { grid-column: span 2; }
+  .wall-photo:nth-child(2) { grid-column: span 1; }
+  .wall-photo:nth-child(3) { grid-column: span 2; }
+  .wall-photo:nth-child(6) { grid-column: span 2; }
+  .wall-photo:nth-child(9) { grid-column: span 2; }
 
   .photo-scene {
     width: 100%;
@@ -1518,13 +1519,6 @@
   </div>
 
   <div class="photo-wall" id="photoWall">
-    <div class="wall-photo">
-      <div class="photo-scene" style="background-image:url('santorini.jpeg');background-size:cover;background-position:center;font-size:0"></div>
-      <div class="wall-overlay">
-        <div class="wall-place">Santorini, Greece</div>
-        <div class="wall-meta">Submitted anonymously</div>
-      </div>
-    </div>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" rel="noopener" class="wall-photo" style="text-decoration:none;">
       <div class="photo-scene" style="background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;">
         <div style="font-size:2rem;">📷</div>
@@ -1620,8 +1614,8 @@ async function loadApprovedPhotos() {
     const data = await res.json();
     if (!data.photos || data.photos.length === 0) return;
     const wall = document.getElementById('photoWall');
-    const insertAfter = wall.children[1];
-    data.photos.forEach(photo => {
+    const submitCard = wall.children[0];
+    data.photos.reverse().forEach(photo => {
       const div = document.createElement('div');
       div.className = 'wall-photo';
       div.innerHTML = `
@@ -1630,7 +1624,7 @@ async function loadApprovedPhotos() {
           <div class="wall-place">${photo.place}</div>
           <div class="wall-meta">${photo.description || 'Submitted anonymously'}</div>
         </div>`;
-      insertAfter.after(div);
+      wall.insertBefore(div, submitCard);
     });
   } catch(e) { /* silently fail — placeholders remain */ }
 }
