@@ -1658,6 +1658,7 @@
         <p>Tokyo to Kyoto, ramen to ryokan. Everything you actually need to know before you land.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Japan', '🇯🇵')">Grab the Sheet</button>
+        <a href="best-places-to-visit-in-japan.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Japan Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
@@ -1666,6 +1667,7 @@
         <p>Lisbon tiles, Algarve cliffs, Douro wine. Europe's best value destination, broken down simply.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Portugal', '🇵🇹')">Grab the Sheet</button>
+        <a href="best-places-to-visit-in-portugal.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Portugal Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
@@ -1674,6 +1676,7 @@
         <p>Medinas, deserts, mountains and mint tea. The most photographed country on earth — here's why.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Morocco', '🇲🇦')">Grab the Sheet</button>
+        <a href="best-places-to-visit-in-morocco.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Morocco Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
@@ -1682,6 +1685,7 @@
         <p>Patagonia, Buenos Aires, Mendoza wine country. Big country, bigger landscapes.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Argentina', '🇦🇷')">Grab the Sheet</button>
+        <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
@@ -1690,6 +1694,7 @@
         <p>Petra, Wadi Rum, the Dead Sea. One of the most dramatic landscapes on the planet.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Jordan', '🇯🇴')">Grab the Sheet</button>
+        <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
@@ -1698,6 +1703,7 @@
         <p>Atacama to Patagonia — the longest country in the world has something for every kind of traveler.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
         <button class="sheet-grab" onclick="grabSheet('Chile', '🇨🇱')">Grab the Sheet</button>
+        <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
     </div>
 
@@ -2039,9 +2045,22 @@
       const wrapper = document.createElement('div');
       wrapper.className = 'sheet-content';
 
+      // Full sheet header with branding + country title
       const header = document.createElement('div');
-      header.style.cssText = 'border-bottom: 2px solid #c4522a; padding-bottom: 14px; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: flex-end;';
-      header.innerHTML = '<div style="font-family: \'Bebas Neue\', sans-serif; font-size: 1.8rem; letter-spacing: 0.1em; color: #1c1c1c;">STOP.LOOK.AROUND</div><div style="text-align: right; font-size: 0.68rem; color: #8c7b6b; position: absolute; right: 0; top: 0;">stoplookaround.com</div>';
+      header.style.cssText = 'margin-bottom: 28px;';
+      header.innerHTML = `
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 2px solid #c4522a; padding-bottom: 12px; margin-bottom: 20px;">
+          <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.15em; color:#c4522a;">STOP<span style="color:#d4a843">.</span>LOOK<span style="color:#d4a843">.</span>AROUND</div>
+          <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#8c7b6b;">stoplookaround.com &nbsp;·&nbsp; It's Your Duty Free ✈️</div>
+        </div>
+        <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
+          <div style="font-size:3.5rem; line-height:1;">${flag}</div>
+          <div>
+            <div style="font-family:'Bebas Neue',sans-serif; font-size:3rem; letter-spacing:0.06em; color:#1c1c1c; line-height:0.95;">${country.toUpperCase()}</div>
+            <div style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#c4522a; margin-top:4px;">Free Travel Sheet</div>
+          </div>
+        </div>
+        <div style="height:2px; background:linear-gradient(to right, #c4522a, #d4a843, transparent); margin-bottom:24px;"></div>`;
 
       const body = document.createElement('div');
       body.innerHTML = clean;
