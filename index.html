@@ -1140,7 +1140,16 @@
     display: flex; flex-direction: column;
   }
   .sheet-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(28,28,28,0.08); }
-  .sheet-flag { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+  .sheet-flag {
+    display: inline-block;
+    background: var(--rust);
+    color: var(--cream);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    padding: 6px 12px;
+    margin-bottom: 16px;
+  }
   .sheet-card h3 {
     font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
     letter-spacing: 0.06em; color: var(--ink); margin-bottom: 8px;
@@ -1644,182 +1653,182 @@
     <div class="sheets-grid">
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇯🇵</span>
+        <span class="sheet-flag"><span class="sheet-flag">JP</span></span>
         <h3>Japan</h3>
         <p>Tokyo to Kyoto, ramen to ryokan. Everything you actually need to know before you land.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Japan', '🇯🇵')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Japan', 'JP')">Grab the Sheet</button>
         <a href="best-places-to-visit-in-japan.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Japan Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇵🇹</span>
+        <span class="sheet-flag"><span class="sheet-flag">PT</span></span>
         <h3>Portugal</h3>
         <p>Lisbon tiles, Algarve cliffs, Douro wine. Europe's best value destination, broken down simply.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Portugal', '🇵🇹')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Portugal', 'PT')">Grab the Sheet</button>
         <a href="best-places-to-visit-in-portugal.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Portugal Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇲🇦</span>
+        <span class="sheet-flag"><span class="sheet-flag">MA</span></span>
         <h3>Morocco</h3>
         <p>Medinas, deserts, mountains and mint tea. The most photographed country on earth — here's why.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Morocco', '🇲🇦')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Morocco', 'MA')">Grab the Sheet</button>
         <a href="best-places-to-visit-in-morocco.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Morocco Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇦🇷</span>
+        <span class="sheet-flag"><span class="sheet-flag">AR</span></span>
         <h3>Argentina</h3>
         <p>Patagonia, Buenos Aires, Mendoza wine country. Big country, bigger landscapes.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Argentina', '🇦🇷')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Argentina', 'AR')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇯🇴</span>
+        <span class="sheet-flag"><span class="sheet-flag">JO</span></span>
         <h3>Jordan</h3>
         <p>Petra, Wadi Rum, the Dead Sea. One of the most dramatic landscapes on the planet.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Jordan', '🇯🇴')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Jordan', 'JO')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇨🇱</span>
+        <span class="sheet-flag"><span class="sheet-flag">CL</span></span>
         <h3>Chile</h3>
         <p>Atacama to Patagonia — the longest country in the world has something for every kind of traveler.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Chile', '🇨🇱')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Chile', 'CL')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇮🇹</span>
+        <span class="sheet-flag"><span class="sheet-flag">IT</span></span>
         <h3>Italy</h3>
         <p>Rome, Florence, the Amalfi Coast, and the villages nobody photographs. The country that ruins everywhere else.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Italy', '🇮🇹')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Italy', 'IT')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇬🇷</span>
+        <span class="sheet-flag"><span class="sheet-flag">GR</span></span>
         <h3>Greece</h3>
         <p>Beyond Santorini — ancient ruins, forgotten islands, and mountain villages that haven't changed in centuries.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Greece', '🇬🇷')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Greece', 'GR')">Grab the Sheet</button>
         <a href="best-places-to-visit-in-greece.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Greece Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇻🇳</span>
+        <span class="sheet-flag"><span class="sheet-flag">VN</span></span>
         <h3>Vietnam</h3>
         <p>Hanoi to Ho Chi Minh, Ha Long Bay to Hoi An. One of the most rewarding countries on earth for the curious traveler.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Vietnam', '🇻🇳')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Vietnam', 'VN')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇪🇸</span>
+        <span class="sheet-flag"><span class="sheet-flag">ES</span></span>
         <h3>Spain</h3>
         <p>Barcelona, Seville, San Sebastián, and the interior nobody visits. Europe's most underrated country for food.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Spain', '🇪🇸')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Spain', 'ES')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇹🇭</span>
+        <span class="sheet-flag"><span class="sheet-flag">TH</span></span>
         <h3>Thailand</h3>
         <p>Temples, islands, street food, and the north that most tourists never reach. Southeast Asia's most complete destination.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Thailand', '🇹🇭')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Thailand', 'TH')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇨🇴</span>
+        <span class="sheet-flag"><span class="sheet-flag">CO</span></span>
         <h3>Colombia</h3>
         <p>Cartagena, the coffee region, Medellín's transformation. The country that surprises everyone who goes.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Colombia', '🇨🇴')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Colombia', 'CO')">Grab the Sheet</button>
         <a href="best-places-to-visit-in-colombia.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">Read the Colombia Guide →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇮🇸</span>
+        <span class="sheet-flag"><span class="sheet-flag">IS</span></span>
         <h3>Iceland</h3>
         <p>Northern lights, geysers, lava fields, and roads that go nowhere in the best possible way.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Iceland', '🇮🇸')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Iceland', 'IS')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇮🇳</span>
+        <span class="sheet-flag"><span class="sheet-flag">IN</span></span>
         <h3>India</h3>
         <p>Rajasthan palaces, Kerala backwaters, Himalayan villages. The most overwhelming and rewarding country on earth.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('India', '🇮🇳')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('India', 'IN')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇵🇪</span>
+        <span class="sheet-flag"><span class="sheet-flag">PE</span></span>
         <h3>Peru</h3>
         <p>Machu Picchu, the Sacred Valley, Lake Titicaca, and Lima's world-class food scene. South America's crown jewel.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Peru', '🇵🇪')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Peru', 'PE')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇿🇦</span>
+        <span class="sheet-flag"><span class="sheet-flag">ZA</span></span>
         <h3>South Africa</h3>
         <p>Cape Town, the Garden Route, safari country, and wine regions that belong in a different conversation entirely.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('South Africa', '🇿🇦')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('South Africa', 'ZA')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇳🇿</span>
+        <span class="sheet-flag"><span class="sheet-flag">NZ</span></span>
         <h3>New Zealand</h3>
         <p>Two islands, every landscape on earth compressed into one country. The road trip destination of a lifetime.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('New Zealand', '🇳🇿')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('New Zealand', 'NZ')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇹🇷</span>
+        <span class="sheet-flag"><span class="sheet-flag">TR</span></span>
         <h3>Turkey</h3>
         <p>Istanbul's impossible skyline, Cappadocia's rock chimneys, the Aegean coast. Where East meets West and both win.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Turkey', '🇹🇷')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Turkey', 'TR')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇲🇽</span>
+        <span class="sheet-flag"><span class="sheet-flag">MX</span></span>
         <h3>Mexico</h3>
         <p>Beyond the resorts — Mexico City's world-class museums, Oaxaca's food scene, and Yucatán cenotes.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Mexico', '🇲🇽')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Mexico', 'MX')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
       <div class="sheet-card">
         <div class="sheet-free-badge">FREE</div>
-        <span class="sheet-flag">🇸🇬</span>
+        <span class="sheet-flag"><span class="sheet-flag">SG</span></span>
         <h3>Singapore</h3>
         <p>The world's best airport, hawker centres that beat any restaurant, and a city that actually works perfectly.</p>
         <div class="sheet-topics"><span class="sheet-topic">Visa</span><span class="sheet-topic">Currency</span><span class="sheet-topic">Best Time</span><span class="sheet-topic">Hidden Gems</span><span class="sheet-topic">Food</span></div>
-        <button class="sheet-grab" onclick="grabSheet('Singapore', '🇸🇬')">Grab the Sheet</button>
+        <button class="sheet-grab" onclick="grabSheet('Singapore', 'SG')">Grab the Sheet</button>
         <a href="travel-guides.html" style="display:block;margin-top:10px;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--rust);text-decoration:none;">See All Guides →</a>
       </div>
     </div>
@@ -2177,7 +2186,7 @@
           <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#8c7b6b;">stoplookaround.com &nbsp;·&nbsp; It's Your Duty Free ✈️</div>
         </div>
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
-          <div style="font-size:3.5rem; line-height:1;">${flag}</div>
+          <div style="background:#c4522a;color:#f7f2e8;font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:0.15em;padding:10px 16px;line-height:1;">${flag}</div>
           <div>
             <div style="font-family:'Bebas Neue',sans-serif; font-size:3rem; letter-spacing:0.06em; color:#1c1c1c; line-height:0.95;">${country.toUpperCase()}</div>
             <div style="font-size:0.72rem; letter-spacing:0.2em; text-transform:uppercase; color:#c4522a; margin-top:4px;">Free Travel Sheet</div>
