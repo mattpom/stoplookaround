@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Not Your Little Brother's McDonald's — StopLookAround</title>
+<meta name="description" content="The world's best places to eat. Street food stalls, hidden restaurants, iconic markets — from $2 bowls to splurge-worthy dinners. No golden arches.">
+<link rel="canonical" href="https://stoplookaround.com/feed-me.html">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stoplookaround.com/feed-me.html">
+<meta property="og:title" content="Not Your Little Brother's McDonald's — StopLookAround">
+<meta property="og:description" content="The world's best places to eat. Street food to splurge-worthy. No golden arches.">
+<meta property="og:site_name" content="StopLookAround">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Not Your Little Brother's McDonald's — StopLookAround">
+<meta name="twitter:description" content="The world's best places to eat. Street food to splurge-worthy. No golden arches.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"Not Your Little Brother's McDonald's","description":"The world's best places to eat around the world.","url":"https://stoplookaround.com/feed-me.html","publisher":{"@type":"Organization","name":"StopLookAround","url":"https://stoplookaround.com"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTZ0K371Q6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MTZ0K371Q6');
+  </script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --cream: #f7f2e8; --warm-white: #fdfaf4; --ink: #1c1c1c; --rust: #c4522a; --mustard: #d4a843; --sage: #7a9e7e; --dusty: #8c7b6b; --light-dust: #e8e0d4; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--warm-white); color: var(--ink); font-family: 'Karla', sans-serif; font-weight: 300; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; opacity: 0.4; }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 18px 48px; background: rgba(253,250,244,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid var(--light-dust); }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.12em; color: var(--ink); text-decoration: none; }
+  .nav-logo .dot { color: var(--rust); }
+  .nav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-upload { background: var(--rust) !important; color: var(--cream) !important; padding: 10px 22px; }
+
+  /* HERO */
+  .hero { padding: 140px 72px 72px; background: var(--ink); position: relative; overflow: hidden; }
+  .hero::before { content: '🍜'; position: absolute; right: 72px; top: 50%; transform: translateY(-50%); font-size: 18rem; opacity: 0.04; line-height: 1; }
+  .hero-inner { max-width: 860px; position: relative; }
+  .eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 16px; }
+  .hero h1 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 7vw, 5.5rem); line-height: 0.92; letter-spacing: 0.03em; color: var(--cream); margin-bottom: 24px; }
+  .hero h1 em { color: var(--mustard); font-style: normal; }
+  .hero p { font-family: 'Lora', serif; font-style: italic; font-size: 1.1rem; color: rgba(247,242,232,0.6); line-height: 1.75; max-width: 600px; }
+
+  /* PRICE FILTER */
+  .price-filter { background: var(--cream); border-bottom: 1px solid var(--light-dust); padding: 0 72px; display: flex; gap: 0; }
+  .price-filter a { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--dusty); text-decoration: none; padding: 18px 24px; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.2s; }
+  .price-filter a:hover, .price-filter a.active { color: var(--rust); border-bottom-color: var(--rust); }
+
+  /* INTRO */
+  .intro { padding: 72px 72px 48px; max-width: 860px; }
+  .intro h2 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.05em; color: var(--ink); margin-bottom: 16px; }
+  .intro p { font-size: 1rem; line-height: 1.85; color: #3a3530; margin-bottom: 1rem; }
+
+  /* FOOD SECTIONS */
+  .food-section { padding: 0 72px 72px; }
+  .section-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 32px; }
+  .section-eyebrow { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.04em; color: var(--ink); }
+  .price-badge { font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 0.1em; padding: 4px 10px; }
+  .price-cheap { background: var(--sage); color: white; }
+  .price-mid { background: var(--mustard); color: var(--ink); }
+  .price-splurge { background: var(--rust); color: var(--cream); }
+
+  /* FOOD CARDS */
+  .food-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 20px; }
+  .food-card { border: 1px solid var(--light-dust); padding: 28px 24px; background: var(--warm-white); position: relative; }
+  .food-card:hover { border-color: var(--rust); }
+  .food-location { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 10px; }
+  .food-card h3 { font-family: 'Lora', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.4; }
+  .food-card p { font-size: 0.88rem; color: var(--dusty); line-height: 1.7; margin-bottom: 14px; }
+  .food-price { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.08em; color: var(--ink); }
+  .food-tag { display: inline-block; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--cream); color: var(--dusty); padding: 3px 8px; margin-top: 8px; border: 1px solid var(--light-dust); }
+
+  /* SUBMIT CTA */
+  .submit-cta { background: var(--ink); padding: 60px 72px; margin: 0; }
+  .submit-cta-inner { max-width: 860px; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  .submit-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2.5rem; letter-spacing: 0.04em; color: var(--cream); line-height: 0.95; }
+  .submit-cta h2 em { color: var(--mustard); font-style: normal; }
+  .submit-cta p { font-family: 'Lora', serif; font-style: italic; font-size: 0.95rem; color: rgba(247,242,232,0.5); margin-top: 12px; max-width: 400px; line-height: 1.7; }
+  .submit-btn { background: var(--rust); color: var(--cream); border: none; padding: 18px 36px; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.12em; cursor: pointer; text-decoration: none; display: inline-block; white-space: nowrap; }
+  .submit-btn:hover { background: #b04525; }
+
+  /* BOOK STRIP */
+  .book-strip { padding: 60px 72px; background: var(--cream); }
+  .book-strip-inner { max-width: 860px; margin: 0 auto; }
+  .book-strip h2 { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.04em; color: var(--ink); margin-bottom: 8px; }
+  .book-strip p { font-family: 'Lora', serif; font-style: italic; font-size: 0.9rem; color: var(--dusty); margin-bottom: 28px; }
+  .book-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .book-card { background: var(--warm-white); border: 1px solid var(--light-dust); padding: 20px; text-decoration: none; display: block; transition: border-color 0.2s; }
+  .book-card:hover { border-color: var(--rust); }
+  .book-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+  .book-card h3 { font-family: 'Lora', serif; font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.4; }
+  .book-card p { font-size: 0.78rem; color: var(--dusty); line-height: 1.5; margin-bottom: 10px; }
+  .book-link { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--rust); }
+  .book-disclaimer { margin-top: 20px; font-size: 0.72rem; color: var(--dusty); }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--light-dust); margin: 0 72px; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: var(--cream); padding: 60px 72px; }
+  .footer-bottom { font-size: 0.8rem; color: rgba(247,242,232,0.35); border-top: 1px solid rgba(247,242,232,0.06); padding-top: 24px; margin-top: 20px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 14px 24px; } .nav-links { display: none; }
+    .hero { padding: 100px 24px 48px; } .hero::before { display: none; }
+    .price-filter { padding: 0 24px; }
+    .intro { padding: 48px 24px 32px; }
+    .food-section { padding: 0 24px 48px; }
+    .food-grid { grid-template-columns: 1fr 1fr; }
+    .submit-cta { padding: 48px 24px; }
+    .book-strip { padding: 48px 24px; }
+    .book-grid { grid-template-columns: 1fr 1fr; }
+    .divider { margin: 0 24px; }
+    footer { padding: 48px 24px; }
+  }
+  @media (max-width: 540px) {
+    .food-grid { grid-template-columns: 1fr; }
+    .book-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links">
+    <li><a href="index.html#explore">Explore</a></li>
+    <li><a href="index.html#dutyfree">Duty Free ✈️</a></li>
+    <li><a href="travel-guides.html">Guides</a></li>
+    <li><a href="feed-me.html" class="active">Feed Me 🍜</a></li>
+    <li><a href="shop.html">Gift Shop</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">StopLookAround &mdash; Feed Me</span>
+    <h1>NOT YOUR LITTLE<br>BROTHER'S<br><em>McDONALD'S</em></h1>
+    <p>The world's best places to eat. Street food for $2. Markets that change your life. The occasional splurge that's worth every penny. No golden arches. No drive-throughs. Just food worth traveling for.</p>
+  </div>
+</div>
+
+<nav class="price-filter">
+  <a href="#cheap" class="active">🟢 Under $10</a>
+  <a href="#mid">🟡 $10–$50</a>
+  <a href="#splurge">🔴 Worth the Splurge</a>
+  <a href="#markets">🏪 Markets</a>
+  <a href="#submit">Submit a Place</a>
+</nav>
+
+<div class="intro">
+  <h2>HOW THIS WORKS</h2>
+  <p>Every place on this page was either visited by someone in the StopLookAround community or comes from sources we trust. No paid placements. No sponsored restaurants. No "best of" lists assembled by people who've never left the office.</p>
+  <p>The rule is simple: no faces, just places — and that applies to food too. We're not here to photograph ourselves eating. We're here to tell you where to go so you can eat the thing and remember it forever.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- CHEAP EATS -->
+<div class="food-section" id="cheap">
+  <div class="section-header">
+    <span class="section-eyebrow">Under $10</span>
+    <h2 class="section-title">CHEAP EATS WORTH FINDING</h2>
+    <span class="price-badge price-cheap">$ Cheap</span>
+  </div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-location">📍 Bangkok, Thailand</span>
+      <h3>Pad Thai from a Street Cart</h3>
+      <p>The ones that cost 60 baht (~$1.70) from a cart with no English menu are always better than the ones in restaurants. Look for the cart with the line of locals at 7pm. Sit on the plastic stool. Eat it hot.</p>
+      <span class="food-price">~$2</span>
+      <span class="food-tag">Street Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Istanbul, Turkey</span>
+      <h3>Simit from a Street Vendor</h3>
+      <p>A sesame-crusted bread ring sold from carts all over the city for about 10 lira. Eat it while walking along the Bosphorus at sunrise. Breakfast has never cost less or felt more right.</p>
+      <span class="food-price">~$0.50</span>
+      <span class="food-tag">Street Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Rome, Italy</span>
+      <h3>Pizza al Taglio</h3>
+      <p>Pizza sold by the slice, by weight, from a counter. The good places have it displayed in long rectangular trays. You point, they cut, they weigh it. Lunch for €2.50. Romans eat standing up. Do the same.</p>
+      <span class="food-price">~$3</span>
+      <span class="food-tag">Local Staple</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Hanoi, Vietnam</span>
+      <h3>Pho from a Sidewalk Stall</h3>
+      <p>The plastic chairs are low to the ground. The broth has been simmering since before you woke up. A bowl costs 40,000 dong. It will be one of the best things you eat anywhere. Order the beef.</p>
+      <span class="food-price">~$1.75</span>
+      <span class="food-tag">Street Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Mexico City, Mexico</span>
+      <h3>Tacos al Pastor</h3>
+      <p>The vertical spit with pork and pineapple, carved to order, served on a doubled-up corn tortilla with cilantro and onion. Three tacos for $2. The taqueria at the corner at midnight is always the right answer.</p>
+      <span class="food-price">~$2</span>
+      <span class="food-tag">Street Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Singapore</span>
+      <h3>Hawker Centre Anything</h3>
+      <p>Singapore has Michelin-starred hawker stalls. The famous Liao Fan Chicken Rice costs $3. Every hawker centre has something extraordinary if you walk the whole thing before deciding. Never order from the first stall you see.</p>
+      <span class="food-price">~$3–$5</span>
+      <span class="food-tag">Hawker Centre</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MID RANGE -->
+<div class="food-section" id="mid">
+  <div class="section-header">
+    <span class="section-eyebrow">$10–$50</span>
+    <h2 class="section-title">SIT DOWN. STAY A WHILE.</h2>
+    <span class="price-badge price-mid">$$ Mid</span>
+  </div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-location">📍 San Sebastián, Spain</span>
+      <h3>Pintxos Bar Crawl</h3>
+      <p>The Basque Country's answer to tapas. Small bites on bread, displayed on bar counters. Walk from bar to bar in the old town, eat two or three at each, drink a small glass of txakoli. Dinner for €20 that takes three hours.</p>
+      <span class="food-price">~$25</span>
+      <span class="food-tag">Bar Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Marrakech, Morocco</span>
+      <h3>Tagine at a Local Restaurant</h3>
+      <p>Not at the restaurants on Djemaa el-Fna. Walk three blocks into the medina. Find a place with a handwritten menu and plastic tablecloths. Order the lamb tagine with preserved lemon and olives. Take your time.</p>
+      <span class="food-price">~$8</span>
+      <span class="food-tag">Sit Down</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Tokyo, Japan</span>
+      <h3>Ramen at a Counter</h3>
+      <p>Buy your ticket from the vending machine. Sit at the counter. The chef doesn't speak English. Point at the ticket. Eat in something approaching reverent silence. The tonkotsu broth took 20 hours to make.</p>
+      <span class="food-price">~$10</span>
+      <span class="food-tag">Counter Dining</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Lisbon, Portugal</span>
+      <h3>Lunch Menu (Prato do Dia)</h3>
+      <p>The daily special at any neighborhood restaurant: soup, main, bread, wine, and dessert for €10–12. The restaurants don't advertise this to tourists. Ask for the menu do dia. It changes every day and it's always good.</p>
+      <span class="food-price">~$12</span>
+      <span class="food-tag">Daily Special</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Buenos Aires, Argentina</span>
+      <h3>Asado at a Parrilla</h3>
+      <p>Argentina takes beef seriously in the way other countries take art seriously. A proper parrilla with chimichurri and a glass of Malbec costs $15 and lasts two hours. Do not rush this. It cannot be rushed.</p>
+      <span class="food-price">~$15</span>
+      <span class="food-tag">Sit Down</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Naples, Italy</span>
+      <h3>Pizza Napoletana</h3>
+      <p>Naples invented pizza and hasn't stopped perfecting it. The crust chars at the edges in a wood-fired oven in 90 seconds. A margherita at a proper pizzeria costs €5. Eating it anywhere else in the world is now a compromise.</p>
+      <span class="food-price">~$6</span>
+      <span class="food-tag">Local Classic</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SPLURGE -->
+<div class="food-section" id="splurge">
+  <div class="section-header">
+    <span class="section-eyebrow">Worth Every Penny</span>
+    <h2 class="section-title">THE OCCASIONAL SPLURGE</h2>
+    <span class="price-badge price-splurge">$$$ Splurge</span>
+  </div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-location">📍 Lima, Peru</span>
+      <h3>Central or Maido</h3>
+      <p>Two of the world's top-ranked restaurants, both in Lima. Central serves ingredients organized by altitude — from the ocean floor to the Andes. Maido is Nikkei cuisine (Japanese-Peruvian). Book months ahead. Worth the planning.</p>
+      <span class="food-price">~$150–$200</span>
+      <span class="food-tag">World Class</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Copenhagen, Denmark</span>
+      <h3>Noma (or Its Successors)</h3>
+      <p>Noma closed in 2024 but its influence on Nordic cuisine means Copenhagen is still the best food city in Scandinavia. The chefs who trained there opened their own places. Research before you go. Book before you land.</p>
+      <span class="food-price">~$200+</span>
+      <span class="food-tag">Destination Dining</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Kyoto, Japan</span>
+      <h3>Kaiseki Dinner</h3>
+      <p>A multi-course Japanese dinner built around seasonality, technique, and restraint. Each dish is a small artwork. The meal takes three hours. You will remember it for the rest of your life. Some things are worth spending money on.</p>
+      <span class="food-price">~$100–$300</span>
+      <span class="food-tag">Special Occasion</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MARKETS -->
+<div class="food-section" id="markets">
+  <div class="section-header">
+    <span class="section-eyebrow">Go Early</span>
+    <h2 class="section-title">MARKETS WORTH THE MORNING</h2>
+    <span class="price-badge price-cheap">$ Markets</span>
+  </div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-location">📍 Barcelona, Spain</span>
+      <h3>La Boqueria</h3>
+      <p>Go before 9am when it's a working market, not a tourist attraction. The fruit vendors in the back sell the best produce in the city. The jamón ibérico sliced to order at counter stalls. Avoid the overpriced stalls at the entrance.</p>
+      <span class="food-price">Free entry</span>
+      <span class="food-tag">Food Market</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Istanbul, Turkey</span>
+      <h3>Grand Bazaar & Spice Market</h3>
+      <p>The Spice Market (Mısır Çarşısı) is where locals actually buy spices, dried fruits, and Turkish delight. The Grand Bazaar is for everything else. Go to the Spice Market for food. Negotiate. Try before you buy.</p>
+      <span class="food-price">Free entry</span>
+      <span class="food-tag">Spice Market</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Marrakech, Morocco</span>
+      <h3>Mellah Market</h3>
+      <p>The Jewish quarter's market — less touristy than the main souks. Olives, preserved lemons, spices, dried fruits, and fresh bread sold by weight. Get there at 8am and watch the city wake up around you.</p>
+      <span class="food-price">Free entry</span>
+      <span class="food-tag">Local Market</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Tokyo, Japan</span>
+      <h3>Tsukiji Outer Market</h3>
+      <p>The inner market moved to Toyosu but the outer market remains and is still extraordinary. Fresh sushi for breakfast at 7am from stalls that have been doing this for decades. Bring cash. Get there early.</p>
+      <span class="food-price">~$5–$15</span>
+      <span class="food-tag">Fish Market</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Mexico City, Mexico</span>
+      <h3>Mercado de Jamaica</h3>
+      <p>The flower market that also sells food. Pozole, tamales, and aguas frescas from vendors who've been here since before you were born. The city comes here for flowers and leaves having eaten. Follow their lead.</p>
+      <span class="food-price">~$3–$6</span>
+      <span class="food-tag">Market Food</span>
+    </div>
+    <div class="food-card">
+      <span class="food-location">📍 Chiang Mai, Thailand</span>
+      <h3>Saturday Walking Street</h3>
+      <p>Every Saturday evening, Wualai Road closes to traffic and fills with food vendors, artisans, and locals. Northern Thai food — khao soi, sai oua sausage, sticky rice with mango — that you won't find in Bangkok.</p>
+      <span class="food-price">~$2–$5</span>
+      <span class="food-tag">Night Market</span>
+    </div>
+  </div>
+</div>
+
+<!-- SUBMIT CTA -->
+<div class="submit-cta" id="submit">
+  <div class="submit-cta-inner">
+    <div>
+      <h2>YOU KNOW A<br><em>PLACE.</em></h2>
+      <p>The spot nobody else goes to. The market stall that changed how you think about food. The restaurant with no English menu that was the best meal of your trip. Tell us.</p>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" rel="noopener" class="submit-btn">Submit a Place →</a>
+  </div>
+</div>
+
+<!-- BOOK STRIP -->
+<div class="book-strip">
+  <div class="book-strip-inner">
+    <h2>READ BEFORE YOU EAT</h2>
+    <p>The best food travel writing, for people who plan their trips around where they're going to eat.</p>
+    <div class="book-grid">
+      <a href="https://www.amazon.com/s?k=street+food+around+the+world+cookbook&tag=stoplookaround-20" target="_blank" rel="noopener" class="book-card">
+        <span class="book-icon">🍜</span>
+        <h3>Street Food Around the World</h3>
+        <p>The definitive guide to eating where locals eat. Every continent covered.</p>
+        <span class="book-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=anthony+bourdain+kitchen+confidential&tag=stoplookaround-20" target="_blank" rel="noopener" class="book-card">
+        <span class="book-icon">📖</span>
+        <h3>Kitchen Confidential</h3>
+        <p>Bourdain on food, travel, and why you should always eat where the line is longest.</p>
+        <span class="book-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=food+travel+guide+world+best+restaurants&tag=stoplookaround-20" target="_blank" rel="noopener" class="book-card">
+        <span class="book-icon">🌍</span>
+        <h3>World's Best Food Destinations</h3>
+        <p>Cities ranked by food culture. The ones at the top will surprise you.</p>
+        <span class="book-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=lucky+peach+magazine+travel+food&tag=stoplookaround-20" target="_blank" rel="noopener" class="book-card">
+        <span class="book-icon">🍽️</span>
+        <h3>Food & Travel Writing</h3>
+        <p>The best food journalism from the past decade. Read it on the plane.</p>
+        <span class="book-link">Shop on Amazon →</span>
+      </a>
+    </div>
+    <p class="book-disclaimer">Affiliate links — we earn a small commission at no extra cost to you.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2026 StopLookAround.com &mdash; No selfies. Ever.</p>
+    <p style="margin-top:8px">Built for people who actually go places. Some links are affiliate links &mdash; we earn a small commission at no cost to you.</p>
+  </div>
+</footer>
+
+</body>
+</html>
