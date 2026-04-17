@@ -443,7 +443,7 @@
   .photo-wall {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: 240px 180px;
+    grid-template-rows: 240px 180px 200px;
     gap: 4px;
   }
 
@@ -455,6 +455,8 @@
 
   .wall-photo:nth-child(1) { grid-column: span 2; grid-row: span 2; }
   .wall-photo:nth-child(4) { grid-column: span 2; }
+  .wall-photo:nth-child(8) { grid-column: span 2; }
+  .wall-photo:nth-child(11) { grid-column: span 2; }
 
   .photo-scene {
     width: 100%;
@@ -1565,6 +1567,49 @@
         <div class="wall-meta">Submitted anonymously</div>
       </div>
     </div>
+    <div class="wall-photo">
+      <div class="photo-scene" style="background-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800&q=80&fit=crop');background-size:cover;background-position:center;font-size:0"></div>
+      <div class="wall-overlay">
+        <div class="wall-place">Kyoto, Japan</div>
+        <div class="wall-meta">Submitted anonymously</div>
+      </div>
+    </div>
+    <div class="wall-photo">
+      <div class="photo-scene" style="background-image:url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=800&q=80&fit=crop');background-size:cover;background-position:center;font-size:0"></div>
+      <div class="wall-overlay">
+        <div class="wall-place">Santorini, Greece</div>
+        <div class="wall-meta">Submitted anonymously</div>
+      </div>
+    </div>
+    <div class="wall-photo">
+      <div class="photo-scene" style="background-image:url('https://images.unsplash.com/photo-1568454537842-d933259bb258?w=800&q=80&fit=crop');background-size:cover;background-position:center;font-size:0"></div>
+      <div class="wall-overlay">
+        <div class="wall-place">Marrakech, Morocco</div>
+        <div class="wall-meta">Submitted anonymously</div>
+      </div>
+    </div>
+    <div class="wall-photo">
+      <div class="photo-scene" style="background-image:url('https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800&q=80&fit=crop');background-size:cover;background-position:center;font-size:0"></div>
+      <div class="wall-overlay">
+        <div class="wall-place">Amalfi Coast, Italy</div>
+        <div class="wall-meta">Submitted anonymously</div>
+      </div>
+    </div>
+    <div class="wall-photo">
+      <div class="photo-scene" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80&fit=crop');background-size:cover;background-position:center;font-size:0"></div>
+      <div class="wall-overlay">
+        <div class="wall-place">Dolomites, Italy</div>
+        <div class="wall-meta">Submitted anonymously</div>
+      </div>
+    </div>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" rel="noopener" class="wall-photo" style="text-decoration:none;">
+      <div class="photo-scene" style="background:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:24px;text-align:center;">
+        <div style="font-size:2rem;">📷</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:0.1em;color:var(--cream);">Your Photo<br>Could Be Here</div>
+        <div style="font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rust);">No face. Just place. →</div>
+      </div>
+      <div class="wall-overlay" style="opacity:0.6;background:linear-gradient(to top,rgba(196,82,42,0.4),transparent)"></div>
+    </a>
   </div>
 </section>
 
