@@ -1517,7 +1517,7 @@
     <p>All anonymous. All real.</p>
   </div>
 
-  <div class="photo-wall">
+  <div class="photo-wall" id="photoWall">
     <div class="wall-photo">
       <div class="photo-scene" style="background-image:url('santorini.jpeg');background-size:cover;background-position:center;font-size:0"></div>
       <div class="wall-overlay">
@@ -1612,6 +1612,30 @@
     </div>
   </div>
 </section>
+
+<script>
+async function loadApprovedPhotos() {
+  try {
+    const res = await fetch('https://sla-photo-wall.mattpom01.workers.dev');
+    const data = await res.json();
+    if (!data.photos || data.photos.length === 0) return;
+    const wall = document.getElementById('photoWall');
+    const insertAfter = wall.children[1];
+    data.photos.forEach(photo => {
+      const div = document.createElement('div');
+      div.className = 'wall-photo';
+      div.innerHTML = `
+        <div class="photo-scene" style="background-image:url('${photo.imageUrl}');background-size:cover;background-position:center;font-size:0"></div>
+        <div class="wall-overlay">
+          <div class="wall-place">${photo.place}</div>
+          <div class="wall-meta">${photo.description || 'Submitted anonymously'}</div>
+        </div>`;
+      insertAfter.after(div);
+    });
+  } catch(e) { /* silently fail — placeholders remain */ }
+}
+document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
+</script>
 
 <!-- ── GRAFFITI WALL ── -->
 <section class="graffiti-section" id="wall">
