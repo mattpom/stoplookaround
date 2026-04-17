@@ -68,35 +68,91 @@
     letter-spacing: 0.12em;
     color: var(--ink);
     text-decoration: none;
+    flex-shrink: 0;
   }
 
   .nav-logo .dot { color: var(--rust); }
 
   .nav-links {
     display: flex;
-    gap: 32px;
+    gap: 20px;
     list-style: none;
     align-items: center;
+    flex-wrap: nowrap;
   }
 
   .nav-links a {
-    font-size: 0.8rem;
-    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--dusty);
     text-decoration: none;
     transition: color 0.2s;
+    white-space: nowrap;
   }
 
-  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
 
   .nav-upload {
     background: var(--rust) !important;
     color: var(--cream) !important;
-    padding: 10px 22px;
-    font-size: 0.78rem !important;
-    letter-spacing: 0.12em !important;
+    padding: 8px 16px;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1em !important;
     transition: background 0.2s !important;
+  }
+
+  /* HAMBURGER */
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--ink);
+    transition: all 0.3s;
+  }
+
+  /* MOBILE MENU */
+  .nav-mobile {
+    display: none;
+    position: fixed;
+    top: 61px;
+    left: 0; right: 0;
+    background: rgba(253,250,244,0.98);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-dust);
+    padding: 16px 24px;
+    z-index: 99;
+    flex-direction: column;
+    gap: 0;
+  }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a {
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dusty);
+    text-decoration: none;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--light-dust);
+    display: block;
+    transition: color 0.2s;
+  }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile a:hover { color: var(--rust); }
+  .nav-mobile .nav-upload {
+    margin-top: 12px;
+    text-align: center;
+    padding: 12px !important;
+    border-bottom: none !important;
   }
 
   .nav-upload:hover { background: #b04525 !important; color: var(--cream) !important; }
@@ -994,6 +1050,7 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
 
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 60px 28px 40px; }
@@ -1394,7 +1451,7 @@
 <!-- ── NAV ── -->
 <nav>
   <a href="#" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
-    <ul class="nav-links">
+  <ul class="nav-links">
     <li><a href="#explore">Explore</a></li>
     <li><a href="#dutyfree">Duty Free ✈️</a></li>
     <li><a href="#wall">The Wall</a></li>
@@ -1403,7 +1460,28 @@
     <li><a href="shop.html">Gift Shop</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="#explore">Explore</a>
+  <a href="#dutyfree">Duty Free ✈️</a>
+  <a href="#wall">The Wall</a>
+  <a href="travel-guides.html">Guides</a>
+  <a href="feed-me.html">Feed Me 🍜</a>
+  <a href="shop.html">Gift Shop</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a>
+</div>
+<script>
+(function(){
+  var ham = document.getElementById('navHamburger');
+  var mob = document.getElementById('navMobile');
+  if(ham) ham.addEventListener('click', function(){ mob.classList.toggle('open'); });
+  document.querySelectorAll('.nav-mobile a').forEach(function(a){ a.addEventListener('click', function(){ mob.classList.remove('open'); }); });
+})();
+</script>
 
 <!-- ── HERO ── -->
 <section class="hero">

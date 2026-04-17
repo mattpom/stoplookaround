@@ -86,6 +86,17 @@
     .gear-strip { padding: 48px 24px; } .gear-grid { grid-template-columns: 1fr 1fr; }
     .related-strip { padding: 48px 24px; } .related-grid { grid-template-columns: 1fr; }
   }
+
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); transition: all 0.3s; }
+  .nav-mobile { display: none; position: fixed; top: 61px; left: 0; right: 0; background: rgba(253,250,244,0.98); backdrop-filter: blur(8px); border-bottom: 1px solid var(--light-dust); padding: 16px 24px; z-index: 99; flex-direction: column; }
+  .nav-mobile.open { display: flex; }
+  .nav-mobile a { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dusty); text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--light-dust); display: block; transition: color 0.2s; }
+  .nav-mobile a:last-child { border-bottom: none; }
+  .nav-mobile a:hover { color: var(--rust); }
+  .nav-mobile .nav-upload { margin-top: 12px; text-align: center; padding: 12px !important; border-bottom: none !important; }
+  @media (max-width: 900px) { .nav-links { display: none !important; } .nav-hamburger { display: flex; } }
+
 </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MTZ0K371Q6"></script>
@@ -109,7 +120,26 @@
     <li><a href="shop.html">Gift Shop</a></li>
     <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
   </ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="index.html#explore">Explore</a>
+  <a href="index.html#dutyfree">Duty Free ✈️</a>
+  <a href="index.html#wall">The Wall</a>
+  <a href="travel-guides.html">Guides</a>
+  <a href="feed-me.html">Feed Me 🍜</a>
+  <a href="shop.html">Gift Shop</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a>
+</div>
+<script>
+(function(){
+  var ham = document.getElementById('navHamburger');
+  var mob = document.getElementById('navMobile');
+  if(ham) ham.addEventListener('click', function(){ mob.classList.toggle('open'); });
+  document.querySelectorAll('.nav-mobile a').forEach(function(a){ a.addEventListener('click', function(){ mob.classList.remove('open'); }); });
+})();
+</script>
 <div class="article-hero">
   <span class="article-eyebrow">Greece Travel Guide</span>
   <h1>BEST PLACES IN GREECE
