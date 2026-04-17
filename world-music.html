@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>World Music — Sound of Every Place | StopLookAround</title>
+<meta name="description" content="The music of every place you've never been. Street musicians, local genres, regional sounds, and the playlists that make you feel like you're already there.">
+<link rel="canonical" href="https://stoplookaround.com/world-music.html">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://stoplookaround.com/world-music.html">
+<meta property="og:title" content="World Music — Sound of Every Place | StopLookAround">
+<meta property="og:description" content="The music of every place you've never been. Regional sounds, local genres, and the playlists that make you feel like you're already there.">
+<meta property="og:site_name" content="StopLookAround">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"World Music — Sound of Every Place","description":"The music of every place you've never been.","url":"https://stoplookaround.com/world-music.html","publisher":{"@type":"Organization","name":"StopLookAround","url":"https://stoplookaround.com"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTZ0K371Q6"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-MTZ0K371Q6');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--cream:#f7f2e8;--warm-white:#fdfaf4;--ink:#1c1c1c;--rust:#c4522a;--mustard:#d4a843;--sage:#7a9e7e;--dusty:#8c7b6b;--light-dust:#e8e0d4;}
+html{scroll-behavior:smooth;}
+body{background:var(--warm-white);color:var(--ink);font-family:'Karla',sans-serif;font-weight:300;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:14px 48px;background:#fdfaf4;border-bottom:2px solid #e8e0d4;}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:0.12em;color:#1c1c1c;text-decoration:none;flex-shrink:0;}
+.nav-logo .dot{color:#c4522a;}
+.nav-links{display:none;}
+.nav-hamburger{display:flex;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.nav-hamburger span{display:block;width:26px;height:2px;background:#1c1c1c;transition:all 0.3s;}
+.nav-mobile{display:none;position:fixed;top:55px;left:0;right:0;background:#fdfaf4;border-bottom:2px solid #e8e0d4;padding:8px 0;z-index:199;flex-direction:column;box-shadow:0 4px 12px rgba(0,0,0,0.08);}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{font-size:0.8rem;letter-spacing:0.12em;text-transform:uppercase;color:#8c7b6b;text-decoration:none;padding:14px 48px;border-bottom:1px solid #e8e0d4;display:block;transition:color 0.2s;}
+.nav-mobile a:last-of-type{border-bottom:none;}
+.nav-mobile a:hover{color:#c4522a;background:#f7f2e8;}
+.nav-upload-mobile{background:#c4522a !important;color:#f7f2e8 !important;margin:12px 48px !important;text-align:center !important;border:none !important;}
+
+/* HERO */
+.hero{padding:120px 72px 72px;background:var(--ink);position:relative;overflow:hidden;}
+.hero::before{content:'🎵';position:absolute;right:72px;top:50%;transform:translateY(-50%);font-size:20rem;opacity:0.04;line-height:1;}
+.hero-inner{max-width:860px;position:relative;}
+.eyebrow{font-size:0.72rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:16px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,7vw,5.5rem);line-height:0.92;letter-spacing:0.03em;color:var(--cream);margin-bottom:24px;}
+.hero h1 em{color:var(--mustard);font-style:normal;}
+.hero p{font-family:'Lora',serif;font-style:italic;font-size:1.1rem;color:rgba(247,242,232,0.6);line-height:1.75;max-width:620px;}
+
+/* REGION FILTER */
+.region-filter{background:var(--cream);border-bottom:1px solid var(--light-dust);padding:0 72px;display:flex;gap:0;overflow-x:auto;}
+.region-filter a{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dusty);text-decoration:none;padding:16px 20px;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;}
+.region-filter a:hover,.region-filter a.active{color:var(--rust);border-bottom-color:var(--rust);}
+
+/* INTRO */
+.intro{padding:60px 72px 48px;max-width:900px;}
+.intro p{font-size:1rem;line-height:1.85;color:#3a3530;margin-bottom:1rem;}
+
+/* MUSIC SECTIONS */
+.music-section{padding:0 72px 72px;}
+.section-header{margin-bottom:32px;border-left:3px solid var(--rust);padding-left:20px;}
+.section-eyebrow{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:8px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:2.2rem;letter-spacing:0.04em;color:var(--ink);margin-bottom:4px;}
+.section-sub{font-family:'Lora',serif;font-style:italic;font-size:0.9rem;color:var(--dusty);}
+
+/* GENRE GRID */
+.genre-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:40px;}
+.genre-card{border:1px solid var(--light-dust);padding:28px 24px;background:var(--warm-white);transition:border-color 0.2s,transform 0.2s;}
+.genre-card:hover{border-color:var(--rust);transform:translateY(-2px);}
+.genre-flag{font-size:2rem;margin-bottom:12px;display:block;}
+.genre-card h3{font-family:'Lora',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:6px;}
+.genre-location{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:10px;}
+.genre-card p{font-size:0.85rem;color:var(--dusty);line-height:1.7;margin-bottom:14px;}
+.genre-tags{display:flex;flex-wrap:wrap;gap:6px;}
+.genre-tag{font-size:0.65rem;letter-spacing:0.08em;text-transform:uppercase;background:var(--cream);color:var(--dusty);padding:3px 8px;border:1px solid var(--light-dust);}
+
+/* LISTEN STRIP */
+.listen-strip{background:var(--ink);padding:60px 72px;margin:0 0 72px;}
+.listen-inner{max-width:900px;}
+.listen-strip h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--cream);margin-bottom:8px;}
+.listen-strip p{font-family:'Lora',serif;font-style:italic;font-size:0.9rem;color:rgba(247,242,232,0.5);margin-bottom:32px;}
+.playlist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.playlist-card{background:#2a2a2a;padding:20px;text-decoration:none;display:block;transition:background 0.2s;}
+.playlist-card:hover{background:#333;}
+.playlist-icon{font-size:2rem;margin-bottom:10px;display:block;}
+.playlist-card h3{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.08em;color:var(--cream);margin-bottom:6px;}
+.playlist-card p{font-size:0.78rem;color:rgba(247,242,232,0.4);line-height:1.5;margin-bottom:10px;}
+.playlist-link{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--mustard);}
+
+/* GEAR STRIP */
+.gear-strip{padding:0 72px 72px;}
+.gear-strip h2{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:0.04em;color:var(--ink);margin-bottom:8px;}
+.gear-strip p{font-family:'Lora',serif;font-style:italic;font-size:0.9rem;color:var(--dusty);margin-bottom:28px;}
+.gear-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.gear-card{border:1px solid var(--light-dust);padding:20px;text-decoration:none;display:block;background:var(--warm-white);transition:border-color 0.2s;}
+.gear-card:hover{border-color:var(--rust);}
+.gear-icon{font-size:1.5rem;margin-bottom:10px;display:block;}
+.gear-card h3{font-family:'Lora',serif;font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.4;}
+.gear-card p{font-size:0.78rem;color:var(--dusty);line-height:1.5;margin-bottom:10px;}
+.gear-price{font-family:'Bebas Neue',sans-serif;font-size:0.9rem;letter-spacing:0.08em;color:var(--rust);display:block;margin-bottom:8px;}
+.gear-link{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink);border-bottom:1px solid var(--ink);padding-bottom:1px;}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--light-dust);margin:0 72px 72px;}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--cream);padding:60px 72px;}
+.footer-bottom{font-size:0.8rem;color:rgba(247,242,232,0.35);border-top:1px solid rgba(247,242,232,0.06);padding-top:24px;margin-top:20px;}
+
+@media(max-width:900px){
+  nav{padding:14px 24px;}
+  .hero{padding:90px 24px 48px;} .hero::before{display:none;}
+  .region-filter{padding:0 24px;}
+  .intro{padding:40px 24px 32px;}
+  .music-section{padding:0 24px 48px;}
+  .genre-grid{grid-template-columns:1fr 1fr;}
+  .listen-strip{padding:48px 24px;}
+  .playlist-grid{grid-template-columns:1fr 1fr;}
+  .gear-strip{padding:0 24px 48px;}
+  .gear-grid{grid-template-columns:1fr 1fr;}
+  .divider{margin:0 24px 48px;}
+  footer{padding:48px 24px;}
+}
+@media(max-width:540px){
+  .genre-grid{grid-template-columns:1fr;}
+  .playlist-grid{grid-template-columns:1fr 1fr;}
+  .gear-grid{grid-template-columns:1fr 1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links"></ul>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="nav-mobile" id="navMobile">
+  <a href="index.html">Home</a>
+  <a href="index.html#explore">Explore</a>
+  <a href="index.html#dutyfree">Duty Free ✈️</a>
+  <a href="index.html#wall">The Wall</a>
+  <a href="travel-guides.html">Guides</a>
+  <a href="feed-me.html">Feed Me 🍜</a>
+  <a href="world-music.html" style="color:var(--rust);">World Music 🎵</a>
+  <a href="shop.html">Gift Shop</a>
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload-mobile">Upload →</a>
+</div>
+<script>
+(function(){
+  var ham=document.getElementById('navHamburger');
+  var mob=document.getElementById('navMobile');
+  if(ham) ham.addEventListener('click',function(){mob.classList.toggle('open');});
+  document.querySelectorAll('.nav-mobile a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');});});
+})();
+</script>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">StopLookAround — World Music</span>
+    <h1>THE SOUND OF<br>EVERY PLACE<br>YOU <em>HAVEN'T BEEN</em></h1>
+    <p>Music is the fastest way to get somewhere. Before you go, while you're there, and long after you've left — these are the sounds of the places that stop you in your tracks.</p>
+  </div>
+</div>
+
+<div class="region-filter">
+  <a href="#africa" class="active">🌍 Africa</a>
+  <a href="#latin">🌎 Latin America</a>
+  <a href="#europe">🌍 Europe</a>
+  <a href="#asia">🌏 Asia</a>
+  <a href="#middleeast">🕌 Middle East</a>
+  <a href="#caribbean">🏝️ Caribbean</a>
+</div>
+
+<div class="intro">
+  <p>Every place has a sound. Not the music in the tourist bars — the real stuff. The genres that grew out of specific cities, specific struggles, specific celebrations. The music that makes locals stop and feel something.</p>
+  <p>This page is about that. Not a streaming playlist. Not an algorithm. A guide to the music worth finding — and why it sounds the way it does.</p>
+</div>
+
+<div class="divider"></div>
+
+<!-- AFRICA -->
+<div class="music-section" id="africa">
+  <div class="section-header">
+    <span class="section-eyebrow">Africa</span>
+    <h2 class="section-title">THE CONTINENT THAT GAVE MUSIC EVERYTHING</h2>
+    <p class="section-sub">Afrobeats, highlife, gnawa, mbalax — sounds that traveled the world and never lost where they came from.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇳🇬</span>
+      <h3>Afrobeats</h3>
+      <span class="genre-location">Lagos, Nigeria</span>
+      <p>The dominant sound of 21st century Africa. Born in Lagos, now everywhere. Burna Boy, Wizkid, Davido — but the roots go back to Fela Kuti's Afrobeat (one word, different thing). Start with Fela. Work forward.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Modern</span><span class="genre-tag">Global</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇲🇦</span>
+      <h3>Gnawa</h3>
+      <span class="genre-location">Marrakech & Essaouira, Morocco</span>
+      <p>Ancient spiritual music from sub-Saharan African slaves brought to Morocco. Played on the guembri (a three-stringed bass lute) with metal castanets. Hypnotic, repetitive, transcendent. Hear it live at the Essaouira festival.</p>
+      <div class="genre-tags"><span class="genre-tag">Spiritual</span><span class="genre-tag">Traditional</span><span class="genre-tag">Live</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇸🇳</span>
+      <h3>Mbalax</h3>
+      <span class="genre-location">Dakar, Senegal</span>
+      <p>Youssou N'Dour built this genre into a global sound. Complex rhythms from sabar drums layered with electric guitars and vocals that do things Western music doesn't. Dakar's clubs at midnight are the only real way to hear it.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Percussion</span><span class="genre-tag">Club</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇨🇩</span>
+      <h3>Soukous</h3>
+      <span class="genre-location">Kinshasa, DR Congo</span>
+      <p>Electric guitar work so intricate it sounds impossible. The sebene section — an extended guitar improvisation — is one of the most joyful sounds in any music. Franco and Tabu Ley Rochereau are the masters. Start there.</p>
+      <div class="genre-tags"><span class="genre-tag">Guitar</span><span class="genre-tag">Dance</span><span class="genre-tag">Classic</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇪🇹</span>
+      <h3>Ethiojazz</h3>
+      <span class="genre-location">Addis Ababa, Ethiopia</span>
+      <p>Mulatu Astatke fused Ethiopian scales with jazz and Latin rhythms in the 1960s and created something that has no equivalent anywhere. Melancholy and joyful at the same time. The Ethiopiques compilation series is essential.</p>
+      <div class="genre-tags"><span class="genre-tag">Jazz</span><span class="genre-tag">Vintage</span><span class="genre-tag">Essential</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇲🇱</span>
+      <h3>Desert Blues</h3>
+      <span class="genre-location">Mali & Niger</span>
+      <p>Tinariwen — Tuareg rebels who picked up guitars in the Sahara and invented something that sounds like the desert itself. Longing, space, repetition. Ali Farka Touré connected it directly to the American blues it inspired. The circle complete.</p>
+      <div class="genre-tags"><span class="genre-tag">Blues</span><span class="genre-tag">Desert</span><span class="genre-tag">Guitar</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- LATIN AMERICA -->
+<div class="music-section" id="latin">
+  <div class="section-header">
+    <span class="section-eyebrow">Latin America</span>
+    <h2 class="section-title">WHERE RHYTHM RUNS THE WHOLE SHOW</h2>
+    <p class="section-sub">Cumbia, bossa nova, son cubano, vallenato — the hemisphere that made the world dance.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇨🇺</span>
+      <h3>Son Cubano</h3>
+      <span class="genre-location">Santiago de Cuba & Havana</span>
+      <p>The root of salsa. The Buena Vista Social Club brought it back to the world in the 1990s but it never left Cuba. Hear it in a casa de la trova in Santiago — old musicians, afternoon light, cheap rum. Nothing better exists.</p>
+      <div class="genre-tags"><span class="genre-tag">Classic</span><span class="genre-tag">Live</span><span class="genre-tag">Essential</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇧🇷</span>
+      <h3>Bossa Nova</h3>
+      <span class="genre-location">Rio de Janeiro, Brazil</span>
+      <p>João Gilberto, Tom Jobim, Astrud Gilberto. Quiet, precise, sophisticated. Born in Ipanema apartments in the late 1950s. Best heard at low volume on a late afternoon with something cold to drink. Still the most elegant music ever made.</p>
+      <div class="genre-tags"><span class="genre-tag">Jazz</span><span class="genre-tag">Sophisticated</span><span class="genre-tag">Classic</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇨🇴</span>
+      <h3>Cumbia</h3>
+      <span class="genre-location">Barranquilla & Bogotá, Colombia</span>
+      <p>Started on the Caribbean coast of Colombia, traveled to Mexico, Argentina, Peru, and mutated everywhere it landed. The original is simple and hypnotic — drums, flute, accordion. Carlos Vives modernized it. Both versions are essential.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Traditional</span><span class="genre-tag">Global</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇦🇷</span>
+      <h3>Tango</h3>
+      <span class="genre-location">Buenos Aires, Argentina</span>
+      <p>Not the tango in movies. The real thing — close embrace, no space between partners, improvised, serious. Astor Piazzolla's nuevo tango is the entry point. Then find a milonga in San Telmo and watch people who've been dancing together for 40 years.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Live</span><span class="genre-tag">Serious</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇵🇪</span>
+      <h3>Música Criolla</h3>
+      <span class="genre-location">Lima, Peru</span>
+      <p>The mestizo music of coastal Peru — Spanish guitar with African rhythms played on the cajón (a box drum invented in Peru). Melancholy and beautiful. Best heard on a Thursday night at a peña in Barranco. Bring a handkerchief.</p>
+      <div class="genre-tags"><span class="genre-tag">Traditional</span><span class="genre-tag">Live</span><span class="genre-tag">Emotional</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇲🇽</span>
+      <h3>Son Jarocho</h3>
+      <span class="genre-location">Veracruz, Mexico</span>
+      <p>The music of Veracruz — the harp, the jarana guitar, and the requinto. La Bamba is a son jarocho. But hear it played by real musicians at a fandango — a community gathering where people play, sing, and dance all night. Alive and extraordinary.</p>
+      <div class="genre-tags"><span class="genre-tag">Traditional</span><span class="genre-tag">Community</span><span class="genre-tag">Harp</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- EUROPE -->
+<div class="music-section" id="europe">
+  <div class="section-header">
+    <span class="section-eyebrow">Europe</span>
+    <h2 class="section-title">DEEPER THAN WHAT TOURISTS HEAR</h2>
+    <p class="section-sub">Fado, flamenco, rebetiko, klezmer — the music of longing, exile, and everything that can't be said any other way.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇵🇹</span>
+      <h3>Fado</h3>
+      <span class="genre-location">Lisbon & Coimbra, Portugal</span>
+      <p>Saudade made audible. The untranslatable Portuguese longing — for what was lost, what never was, what might have been. Amália Rodrigues defined it. Mariza brought it to the 21st century. Hear it in a casa de fado in Alfama with the lights low.</p>
+      <div class="genre-tags"><span class="genre-tag">Emotional</span><span class="genre-tag">Live</span><span class="genre-tag">Essential</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇪🇸</span>
+      <h3>Flamenco</h3>
+      <span class="genre-location">Andalusia, Spain</span>
+      <p>Not the tourist show. The real thing — in a small venue in Seville or Granada, late night, the dancer's feet telling a story, the guitarist responding. Paco de Lucía. Camarón de la Isla. Deep song (cante jondo) that comes from somewhere ancient and true.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Guitar</span><span class="genre-tag">Live</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇬🇷</span>
+      <h3>Rebetiko</h3>
+      <span class="genre-location">Athens, Greece & Smyrna</span>
+      <p>The Greek blues. Music of refugees, outcasts, hashish dens, and port cities. Born in the early 20th century among Greeks expelled from Turkey. Raw, minor key, bouzouki-driven. Markos Vamvakaris is the father. Completely unlike anything called "Greek music" today.</p>
+      <div class="genre-tags"><span class="genre-tag">Blues</span><span class="genre-tag">Historical</span><span class="genre-tag">Bouzouki</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ASIA -->
+<div class="music-section" id="asia">
+  <div class="section-header">
+    <span class="section-eyebrow">Asia</span>
+    <h2 class="section-title">A BILLION SOUNDS YOU HAVEN'T HEARD YET</h2>
+    <p class="section-sub">Qawwali, gamelan, city pop, mor lam — Asia's musical diversity dwarfs everything else on earth.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇵🇰</span>
+      <h3>Qawwali</h3>
+      <span class="genre-location">Pakistan & Northern India</span>
+      <p>Sufi devotional music designed to induce ecstatic states. Nusrat Fateh Ali Khan is the entrance point — his voice did things that shouldn't be possible. Heard live at a shrine like Lahore's Data Darbar on a Thursday night it will change your relationship with music.</p>
+      <div class="genre-tags"><span class="genre-tag">Spiritual</span><span class="genre-tag">Live</span><span class="genre-tag">Essential</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇮🇩</span>
+      <h3>Gamelan</h3>
+      <span class="genre-location">Bali & Java, Indonesia</span>
+      <p>An orchestra of bronze percussion instruments — gongs, metallophones, drums — that create interlocking patterns of extraordinary complexity. Debussy heard it at a Paris exhibition in 1889 and it changed everything he subsequently wrote. Hear it live in Ubud.</p>
+      <div class="genre-tags"><span class="genre-tag">Traditional</span><span class="genre-tag">Percussion</span><span class="genre-tag">Ceremonial</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇯🇵</span>
+      <h3>City Pop</h3>
+      <span class="genre-location">Tokyo, Japan</span>
+      <p>Japanese pop from the late 1970s and 1980s — bubble economy optimism, smooth production, sophisticated arrangements. Mariya Takeuchi's "Plastic Love" became the internet's discovery a generation later. The whole era is worth exploring. Mellow, urbane, perfect.</p>
+      <div class="genre-tags"><span class="genre-tag">Pop</span><span class="genre-tag">Vintage</span><span class="genre-tag">Urban</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇹🇭</span>
+      <h3>Mor Lam</h3>
+      <span class="genre-location">Northeast Thailand & Laos</span>
+      <p>The music of Isan — northeast Thailand's distinct culture. Fast, jubilant, built around the khaen (a bamboo mouth organ). Deeply tied to agricultural festivals and community celebration. Molam Lao from across the border is equally extraordinary.</p>
+      <div class="genre-tags"><span class="genre-tag">Folk</span><span class="genre-tag">Dance</span><span class="genre-tag">Regional</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇮🇳</span>
+      <h3>Carnatic Music</h3>
+      <span class="genre-location">Chennai & South India</span>
+      <p>The classical music of South India — improvisation within strict form, a system of ragas matched to times of day and seasons. MS Subbulakshmi is the entrance. A full concert can last four hours and never loses you. The most sophisticated improvisational tradition on earth.</p>
+      <div class="genre-tags"><span class="genre-tag">Classical</span><span class="genre-tag">Improvisation</span><span class="genre-tag">Live</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇻🇳</span>
+      <h3>Đờn Ca Tài Tử</h3>
+      <span class="genre-location">Mekong Delta, Vietnam</span>
+      <p>Southern Vietnamese chamber music — small groups improvising together in living rooms and on boats. UNESCO heritage. The đàn tranh (zither) and đàn kìm (moon lute) carry melodies that sound like water. Heard in the Mekong Delta, not in tourist venues.</p>
+      <div class="genre-tags"><span class="genre-tag">Chamber</span><span class="genre-tag">UNESCO</span><span class="genre-tag">Traditional</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- MIDDLE EAST -->
+<div class="music-section" id="middleeast">
+  <div class="section-header">
+    <span class="section-eyebrow">Middle East</span>
+    <h2 class="section-title">THE MUSIC BETWEEN THE NOTES</h2>
+    <p class="section-sub">Maqam, khaleeji, sha'bi — musical systems built on microtones Western ears have to learn to hear.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇪🇬</span>
+      <h3>Umm Kulthum</h3>
+      <span class="genre-location">Cairo, Egypt</span>
+      <p>Not a genre — a person. But her influence on Arabic music is so total she deserves her own entry. Her Thursday night radio broadcasts in the 1950s and 60s stopped traffic across the Arab world. A single song could last an hour. She was possibly the greatest vocalist who ever lived.</p>
+      <div class="genre-tags"><span class="genre-tag">Classic</span><span class="genre-tag">Essential</span><span class="genre-tag">Vocal</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇮🇷</span>
+      <h3>Persian Classical</h3>
+      <span class="genre-location">Tehran & Isfahan, Iran</span>
+      <p>Built on the radif — a collection of melodic frameworks that musicians have memorized and improvised within for centuries. The tar and setar (lutes) and the santur (hammered dulcimer) carry these melodies. Shajarian's vocal work is the pinnacle.</p>
+      <div class="genre-tags"><span class="genre-tag">Classical</span><span class="genre-tag">Improvisation</span><span class="genre-tag">Ancient</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇹🇷</span>
+      <h3>Turkish Classical</h3>
+      <span class="genre-location">Istanbul, Turkey</span>
+      <p>Ottoman court music that survived the republic. Built on makam — a modal system with hundreds of scales. The ney (end-blown flute) and the oud at its center. Taksim — free improvisation — is its highest art. Hear it at Istanbul's concert halls, not the tourist restaurants.</p>
+      <div class="genre-tags"><span class="genre-tag">Classical</span><span class="genre-tag">Modal</span><span class="genre-tag">Oud</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CARIBBEAN -->
+<div class="music-section" id="caribbean">
+  <div class="section-header">
+    <span class="section-eyebrow">Caribbean</span>
+    <h2 class="section-title">SMALL ISLANDS, ENORMOUS SOUNDS</h2>
+    <p class="section-sub">Reggae, kompa, calypso, soca — the Caribbean built genres that conquered the world without ever trying to.</p>
+  </div>
+  <div class="genre-grid">
+    <div class="genre-card">
+      <span class="genre-flag">🇯🇲</span>
+      <h3>Roots Reggae</h3>
+      <span class="genre-location">Kingston, Jamaica</span>
+      <p>Not the beach bar reggae. The real thing — Bob Marley, Burning Spear, Culture, Augustus Pablo. Music with a worldview, a theology, a politics. The Studio One and Channel One recordings from the 1970s are among the greatest recordings ever made anywhere.</p>
+      <div class="genre-tags"><span class="genre-tag">Essential</span><span class="genre-tag">Political</span><span class="genre-tag">Classic</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇭🇹</span>
+      <h3>Kompa</h3>
+      <span class="genre-location">Port-au-Prince, Haiti</span>
+      <p>Haiti's dominant dance music since the 1950s. Nemours Jean-Baptiste invented it. Slow, romantic, built on an irresistible groove. The Haitian diaspora spread it to New York, Miami, Montreal. One of the great underrated dance musics on earth.</p>
+      <div class="genre-tags"><span class="genre-tag">Dance</span><span class="genre-tag">Romantic</span><span class="genre-tag">Underrated</span></div>
+    </div>
+    <div class="genre-card">
+      <span class="genre-flag">🇹🇹</span>
+      <h3>Calypso & Soca</h3>
+      <span class="genre-location">Trinidad & Tobago</span>
+      <p>Calypso is social commentary disguised as party music — Lord Kitchener and Mighty Sparrow used it to say things that couldn't be said any other way. Soca evolved from it in the 1970s — faster, more purely joyful. Carnival in Port of Spain is the only real context.</p>
+      <div class="genre-tags"><span class="genre-tag">Carnival</span><span class="genre-tag">Political</span><span class="genre-tag">Dance</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- LISTEN STRIP -->
+<div class="listen-strip">
+  <div class="listen-inner">
+    <h2>WHERE TO START LISTENING</h2>
+    <p>The best starting points for each region — no algorithm, no playlist fatigue.</p>
+    <div class="playlist-grid">
+      <a href="https://www.amazon.com/s?k=world+music+collection+cd&tag=stoplookaround-20" target="_blank" rel="noopener" class="playlist-card">
+        <span class="playlist-icon">🌍</span>
+        <h3>World Music Collections</h3>
+        <p>Compiled by people who've spent decades in the field.</p>
+        <span class="playlist-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=fela+kuti+vinyl+record&tag=stoplookaround-20" target="_blank" rel="noopener" class="playlist-card">
+        <span class="playlist-icon">🇳🇬</span>
+        <h3>Fela Kuti Vinyl</h3>
+        <p>The best Afrobeat ever recorded. On vinyl it's even better.</p>
+        <span class="playlist-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=buena+vista+social+club+cd+vinyl&tag=stoplookaround-20" target="_blank" rel="noopener" class="playlist-card">
+        <span class="playlist-icon">🇨🇺</span>
+        <h3>Buena Vista Social Club</h3>
+        <p>The album that changed how the world heard Cuban music.</p>
+        <span class="playlist-link">Shop on Amazon →</span>
+      </a>
+      <a href="https://www.amazon.com/s?k=ethiopiques+world+music+series&tag=stoplookaround-20" target="_blank" rel="noopener" class="playlist-card">
+        <span class="playlist-icon">🇪🇹</span>
+        <h3>Ethiopiques Series</h3>
+        <p>25 volumes of Ethiopian music. Start with volume 4. Thank us later.</p>
+        <span class="playlist-link">Shop on Amazon →</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- GEAR STRIP -->
+<div class="gear-strip">
+  <h2>HEAR IT PROPERLY</h2>
+  <p>World music rewards good audio. These are the tools worth using.</p>
+  <div class="gear-grid">
+    <a href="https://www.amazon.com/s?k=over+ear+headphones+audiophile+travel&tag=stoplookaround-20" target="_blank" rel="noopener" class="gear-card">
+      <span class="gear-icon">🎧</span>
+      <h3>Over-Ear Headphones</h3>
+      <p>The only way to hear the detail in world music recordings. Worth the investment.</p>
+      <span class="gear-price">~$80–$200</span>
+      <span class="gear-link">Shop on Amazon →</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=portable+vinyl+record+player+travel&tag=stoplookaround-20" target="_blank" rel="noopener" class="gear-card">
+      <span class="gear-icon">🎵</span>
+      <h3>Portable Record Player</h3>
+      <p>Vinyl sounds better. World music sounds best on vinyl. Simple math.</p>
+      <span class="gear-price">~$60–$150</span>
+      <span class="gear-link">Shop on Amazon →</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=world+music+instrument+oud+kora&tag=stoplookaround-20" target="_blank" rel="noopener" class="gear-card">
+      <span class="gear-icon">🪘</span>
+      <h3>World Instruments</h3>
+      <p>The best souvenir from any trip is an instrument you learned to play there.</p>
+      <span class="gear-price">Varies</span>
+      <span class="gear-link">Shop on Amazon →</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=world+music+book+guide+history&tag=stoplookaround-20" target="_blank" rel="noopener" class="gear-card">
+      <span class="gear-icon">📚</span>
+      <h3>World Music Books</h3>
+      <p>Context makes music better. Read about a genre before you go to where it lives.</p>
+      <span class="gear-price">~$15–$30</span>
+      <span class="gear-link">Shop on Amazon →</span>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2026 StopLookAround.com &mdash; No selfies. Ever.</p>
+    <p style="margin-top:8px">Some links are affiliate links — we earn a small commission at no cost to you.</p>
+  </div>
+</footer>
+
+</body>
+</html>
