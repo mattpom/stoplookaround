@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture — StopLookAround</title>
+<meta name="description" content="The stuff you can't Google before you go. Local customs, unwritten rules, festival calendars, and food culture from around the world.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDFAF4;
+    --ink: #1a1a1a;
+    --rust: #C1440E;
+    --gold: #C9973A;
+    --dusty: #6b6560;
+    --light-dust: rgba(107,101,96,0.15);
+    --card-bg: #F5F0E8;
+    --border: rgba(107,101,96,0.18);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 48px;
+    background: rgba(253,250,244,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-dust);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--rust); }
+
+  .nav-links {
+    display: flex; gap: 24px;
+    list-style: none; align-items: center;
+  }
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dusty);
+    text-decoration: none;
+    transition: color 0.2s;
+    font-weight: 500;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+
+  .nav-upload {
+    background: var(--rust) !important;
+    color: white !important;
+    padding: 8px 16px;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.12em !important;
+  }
+  .nav-upload:hover { background: var(--ink) !important; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 48px 60px;
+    max-width: 860px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 10vw, 8rem);
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 0.9;
+    margin-bottom: 12px;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--dusty);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  /* MAIN */
+  .main-wrap {
+    max-width: 1100px;
+    padding: 60px 48px 100px;
+  }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--dusty);
+    margin-bottom: 24px;
+    display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* FEATURED */
+  .featured-card {
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--border);
+    margin-bottom: 60px;
+    background: var(--card-bg);
+  }
+
+  .feat-visual {
+    background: var(--ink);
+    min-height: 300px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 6rem;
+  }
+
+  .feat-content { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+
+  .feat-cat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 12px;
+  }
+
+  .feat-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    letter-spacing: 0.03em;
+    color: var(--ink); line-height: 1.05;
+    margin-bottom: 16px;
+  }
+
+  .feat-body {
+    font-size: 0.88rem; font-weight: 300;
+    color: var(--dusty); line-height: 1.8;
+    margin-bottom: 20px;
+  }
+
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+  .tag {
+    border: 1px solid var(--border);
+    color: var(--dusty); padding: 3px 10px;
+    font-size: 0.68rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-weight: 500;
+  }
+
+  .read-link {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--rust);
+    text-decoration: none; transition: letter-spacing 0.2s;
+  }
+  .read-link:hover { letter-spacing: 0.22em; }
+
+  /* ARTICLE CARDS */
+  .cards-grid {
+    display: grid; grid-template-columns: repeat(3,1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 60px;
+  }
+
+  .article-card {
+    background: var(--cream);
+    text-decoration: none; color: inherit;
+    display: block; transition: background 0.2s;
+  }
+  .article-card:hover { background: var(--card-bg); }
+
+  .card-visual {
+    height: 120px; background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.5rem;
+  }
+
+  .card-body { padding: 1.2rem; }
+  .card-cat {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.18em;
+    text-transform: uppercase; margin-bottom: 6px;
+  }
+  .card-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem; letter-spacing: 0.03em;
+    color: var(--ink); line-height: 1.15; margin-bottom: 8px;
+  }
+  .card-snippet {
+    font-size: 0.78rem; font-weight: 300;
+    color: var(--dusty); line-height: 1.6;
+  }
+  .card-footer {
+    padding: 10px 1.2rem;
+    border-top: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .card-region {
+    font-size: 0.65rem; color: var(--dusty);
+    letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500;
+  }
+  .card-arrow { color: var(--rust); font-size: 0.8rem; }
+
+  /* UNWRITTEN RULES */
+  .rules-block {
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    padding: 2.5rem; margin-bottom: 60px;
+  }
+  .rules-top {
+    display: flex; align-items: flex-start;
+    justify-content: space-between; gap: 2rem;
+    margin-bottom: 2rem; flex-wrap: wrap;
+  }
+  .rules-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem; letter-spacing: 0.04em;
+    color: var(--ink); line-height: 1;
+  }
+  .rules-sub {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 0.9rem;
+    color: var(--dusty); margin-top: 4px;
+  }
+  .country-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .ctab {
+    border: 1px solid var(--border);
+    color: var(--dusty); padding: 6px 14px;
+    cursor: pointer; font-size: 0.72rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; background: transparent;
+    transition: all 0.18s; font-family: 'Barlow', sans-serif;
+  }
+  .ctab:hover { border-color: var(--ink); color: var(--ink); }
+  .ctab.active { background: var(--ink); border-color: var(--ink); color: white; }
+
+  .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  .rule-item {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 1rem 1.1rem; background: var(--cream);
+    animation: fadeUp 0.3s ease both;
+  }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
+  .rule-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 2px; }
+  .rule-text { font-size: 0.83rem; line-height: 1.6; color: var(--dusty); }
+  .rule-text strong {
+    color: var(--ink); display: block; margin-bottom: 2px;
+    font-size: 0.7rem; letter-spacing: 0.1em;
+    text-transform: uppercase; font-family: 'Barlow', sans-serif;
+  }
+
+  /* FESTIVAL CALENDAR */
+  .festival-grid {
+    display: grid; grid-template-columns: repeat(2,1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); margin-bottom: 60px;
+  }
+  .festival-card {
+    background: var(--cream); padding: 1.3rem 1.5rem;
+    display: flex; gap: 1.2rem; align-items: flex-start;
+    transition: background 0.2s;
+  }
+  .festival-card:hover { background: var(--card-bg); }
+  .fest-month {
+    flex-shrink: 0; width: 48px; text-align: center;
+    border: 1px solid var(--border); padding: 6px 4px;
+  }
+  .fest-month-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--rust); display: block;
+  }
+  .fest-month-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; color: var(--ink); display: block; line-height: 1;
+  }
+  .fest-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem; letter-spacing: 0.04em;
+    color: var(--ink); margin-bottom: 3px;
+  }
+  .fest-location {
+    font-size: 0.7rem; color: var(--rust);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 5px;
+  }
+  .fest-desc { font-size: 0.78rem; color: var(--dusty); line-height: 1.6; }
+
+  /* CTA */
+  .cta-block {
+    background: var(--ink); padding: 3rem;
+    text-align: center;
+  }
+  .cta-block h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    letter-spacing: 0.06em; color: white;
+    margin-bottom: 10px;
+  }
+  .cta-block p {
+    font-size: 0.9rem; font-weight: 300;
+    color: rgba(255,255,255,0.55); line-height: 1.7;
+    max-width: 420px; margin: 0 auto 24px;
+  }
+  .btn-primary {
+    background: var(--rust); color: white; border: none;
+    padding: 14px 36px; cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem; letter-spacing: 0.16em;
+    text-transform: uppercase; transition: all 0.2s;
+    text-decoration: none; display: inline-block;
+  }
+  .btn-primary:hover { background: var(--gold); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 48px; text-align: center;
+  }
+  footer p {
+    font-size: 0.7rem; color: var(--dusty);
+    letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  footer a { color: var(--rust); text-decoration: none; }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.2s; }
+
+  @media(max-width:860px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px; gap: 16px; }
+    .hamburger { display: flex; }
+    .hero { padding: 50px 24px 40px; }
+    .main-wrap { padding: 40px 24px 80px; }
+    .featured-card { grid-template-columns: 1fr; }
+    .feat-visual { min-height: 200px; }
+    .cards-grid { grid-template-columns: 1fr 1fr; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .festival-grid { grid-template-columns: 1fr; }
+    .rules-top { flex-direction: column; }
+    .cta-block { padding: 2rem 1.5rem; }
+    footer { padding: 24px; }
+  }
+  @media(max-width:480px) {
+    .cards-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#photowall">Photo Wall</a></li>
+    <li><a href="travel-sheets.html">Travel Sheets</a></li>
+    <li><a href="culture.html" class="active">Culture</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+    <li><a href="index.html#submit" class="nav-upload">Submit a Photo</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="eyebrow">StopLookAround · Culture</div>
+  <h1 class="hero-title">CULTURE</h1>
+  <p class="hero-tagline">And I'm not talking about yogurt.</p>
+  <p class="hero-sub">The stuff you can't Google before you go. Local customs, unwritten rules, festival calendars, and food culture from every corner of the world.</p>
+</div>
+
+<!-- MAIN -->
+<div class="main-wrap">
+
+  <div class="section-label">Featured</div>
+  <div class="featured-card">
+    <div class="feat-visual">🇯🇵</div>
+    <div class="feat-content">
+      <div class="feat-cat">Customs & Etiquette · Japan</div>
+      <h2 class="feat-title">The Rules of Japanese Hospitality No One Tells You</h2>
+      <p class="feat-body">You researched the temples. You know about shoes at the door. But did you know that pouring your own drink at a dinner table is considered rude? Japan runs on a social code so deep it takes years to fully decode — here's a head start.</p>
+      <div class="tag-row">
+        <span class="tag">Dining</span>
+        <span class="tag">Body Language</span>
+        <span class="tag">Gift Giving</span>
+      </div>
+      <a href="#" class="read-link">Read the Guide →</a>
+    </div>
+  </div>
+
+  <div class="section-label">Latest</div>
+  <div class="cards-grid">
+    <a href="#" class="article-card">
+      <div class="card-visual">🫱</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--rust)">Customs</div>
+        <div class="card-title">Why Your Left Hand Is Offensive in Half the World</div>
+        <div class="card-snippet">In large parts of Africa, the Middle East, and South Asia, the left hand carries a meaning most Westerners never consider.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Middle East · Africa · Asia</span><span class="card-arrow">→</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="card-visual">🍝</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--gold)">Food Culture</div>
+        <div class="card-title">Never Ask for Parmesan in These Parts of Italy</div>
+        <div class="card-snippet">Italians have opinions about food — strong ones. Some cheese-pasta combinations will get you quietly judged for life.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Europe · Italy</span><span class="card-arrow">→</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="card-visual">💐</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--gold)">Gifts & Gestures</div>
+        <div class="card-title">The Flowers You Should Never Bring to a Russian Home</div>
+        <div class="card-snippet">Even numbers of flowers are for funerals. Yellow flowers signal infidelity. Gifting in Russia is an art form with landmines.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Europe · Russia</span><span class="card-arrow">→</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="card-visual">🤝</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--rust)">Language & Gesture</div>
+        <div class="card-title">The Thumbs Up: Innocent in Ohio, Offensive in Iran</div>
+        <div class="card-snippet">Hand gestures that mean one thing at home can mean something wildly different somewhere else.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Global</span><span class="card-arrow">→</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="card-visual">🍵</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--gold)">Food Culture</div>
+        <div class="card-title">Chai Isn't a Drink in India. It's a Social Contract.</div>
+        <div class="card-snippet">Refusing chai in someone's home isn't just about tea — it's about something much deeper.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Asia · India</span><span class="card-arrow">→</span></div>
+    </a>
+    <a href="#" class="article-card">
+      <div class="card-visual">🕐</div>
+      <div class="card-body">
+        <div class="card-cat" style="color:var(--rust)">Customs</div>
+        <div class="card-title">What "On Time" Actually Means in 8 Different Countries</div>
+        <div class="card-snippet">Show up exactly on time to a Brazilian dinner party and you'll be eating alone. Time is cultural.</div>
+      </div>
+      <div class="card-footer"><span class="card-region">Global</span><span class="card-arrow">→</span></div>
+    </a>
+  </div>
+
+  <div class="section-label">Unwritten Rules</div>
+  <div class="rules-block">
+    <div class="rules-top">
+      <div>
+        <div class="rules-title">THE THINGS LOCALS KNOW.</div>
+        <div class="rules-sub">Tourists find out the hard way.</div>
+      </div>
+      <div class="country-tabs">
+        <button class="ctab active" onclick="setCountry(this,'japan')">🇯🇵 Japan</button>
+        <button class="ctab" onclick="setCountry(this,'italy')">🇮🇹 Italy</button>
+        <button class="ctab" onclick="setCountry(this,'india')">🇮🇳 India</button>
+        <button class="ctab" onclick="setCountry(this,'france')">🇫🇷 France</button>
+        <button class="ctab" onclick="setCountry(this,'thailand')">🇹🇭 Thailand</button>
+      </div>
+    </div>
+    <div class="rules-grid" id="rulesGrid"></div>
+  </div>
+
+  <div class="section-label">Festival Calendar — Worth Planning Around</div>
+  <div class="festival-grid">
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Feb</span><span class="fest-month-num">2</span></div>
+      <div><div class="fest-name">CARNAVAL</div><div class="fest-location">📍 Rio de Janeiro, Brazil</div><div class="fest-desc">Five days of samba, elaborate floats, and street celebrations that take over the entire city.</div></div>
+    </div>
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Mar</span><span class="fest-month-num">3</span></div>
+      <div><div class="fest-name">HOLI</div><div class="fest-location">📍 Mathura & Vrindavan, India</div><div class="fest-desc">Streets erupt in clouds of powder dye — wear clothes you'll never care about again.</div></div>
+    </div>
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Apr</span><span class="fest-month-num">4</span></div>
+      <div><div class="fest-name">SONGKRAN</div><div class="fest-location">📍 Chiang Mai, Thailand</div><div class="fest-desc">Thai New Year means a three-day water fight across the entire country. Nobody leaves dry. Nobody minds.</div></div>
+    </div>
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Jul</span><span class="fest-month-num">7</span></div>
+      <div><div class="fest-name">RUNNING OF THE BULLS</div><div class="fest-location">📍 Pamplona, Spain</div><div class="fest-desc">Eight days of chaos, red scarves, and an 825-meter sprint you'll be telling stories about forever.</div></div>
+    </div>
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Sep</span><span class="fest-month-num">9</span></div>
+      <div><div class="fest-name">OKTOBERFEST</div><div class="fest-location">📍 Munich, Germany</div><div class="fest-desc">Six million visitors. Six million liters of beer. More tradition than most people realize — and a dress code to match.</div></div>
+    </div>
+    <div class="festival-card">
+      <div class="fest-month"><span class="fest-month-name">Oct</span><span class="fest-month-num">10</span></div>
+      <div><div class="fest-name">DÍA DE LOS MUERTOS</div><div class="fest-location">📍 Oaxaca, Mexico</div><div class="fest-desc">Not Halloween. A deeply beautiful celebration of life and remembrance. Oaxaca does it like nowhere else on Earth.</div></div>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <h2>KNOW A CULTURAL FACT WORTH SHARING?</h2>
+    <p>Submit a tip, a rule, or a story from somewhere you've actually been. We're building this one local insight at a time.</p>
+    <a href="index.html#submit" class="btn-primary">Submit Your Insight</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 <a href="index.html">StopLookAround.com</a> — No faces · Just places · <a href="culture.html">Culture</a> · <a href="quiz.html">Quiz</a></p>
+</footer>
+
+<script>
+const rulesData = {
+  japan: [
+    { icon:'🚇', title:'On the subway', rule:'No phone calls. Texting is fine. Talking on the phone is considered extremely rude, even on long journeys.' },
+    { icon:'🍜', title:'Eating & walking', rule:'You eat at the stall or the bench. Walking and eating in public is frowned upon in most cities — especially Kyoto.' },
+    { icon:'🍺', title:'Pouring drinks', rule:"Never pour your own drink at a group meal. You pour for others, they pour for you. Pouring your own signals you're not part of the group." },
+    { icon:'💴', title:'Handing money', rule:'Always use the small tray at checkout counters — never hand cash directly to a cashier.' },
+    { icon:'🎁', title:'Receiving gifts', rule:"Don't open a gift in front of the giver. Set it aside graciously. Opening immediately can seem greedy." },
+    { icon:'🚶', title:'Escalators', rule:"Stand on the left side, walk on the right — except in Osaka, where it's reversed. Yes, this matters." }
+  ],
+  italy: [
+    { icon:'☕', title:'Cappuccino after noon', rule:"Ordering a cappuccino after 11am marks you as a tourist immediately. Italians drink milky coffees only in the morning." },
+    { icon:'🍝', title:'Cheese on seafood pasta', rule:"Parmesan on a seafood dish will horrify any Italian chef. Don't do it. Ever." },
+    { icon:'🛵', title:'Traffic rules', rule:"Traffic laws in Italy are more like suggestions, especially in Naples. Crossing the street is a negotiation, not a right." },
+    { icon:'🍽️', title:'Asking for the bill', rule:"The bill will not come until you ask. Leaving it on the table unasked is considered respectful." },
+    { icon:'🤌', title:'Dinner timing', rule:"Dinner rarely starts before 8pm. Show up at 7 to a restaurant and you may be eating alone." },
+    { icon:'👗', title:'Visiting churches', rule:"Shoulders and knees must be covered. Many churches will turn you away at the door without a scarf." }
+  ],
+  india: [
+    { icon:'🦶', title:'Footwear at temples', rule:"Remove shoes before entering temples, mosques, gurudwaras, and many homes. Carry clean socks — floors get hot." },
+    { icon:'🫱', title:'The left hand rule', rule:"Use your right hand for eating, greeting, and giving or receiving anything. The left hand is considered unclean." },
+    { icon:'🫡', title:'Nodding heads', rule:"The Indian head wobble doesn't mean yes or no — it means acknowledgment and 'I understand' all at once." },
+    { icon:'🍵', title:'Refusing chai', rule:"If someone offers you chai in their home, refusing politely twice before accepting is standard form." },
+    { icon:'🚶', title:'Personal space', rule:"Queuing as Westerners know it doesn't always apply. Assertiveness is not rudeness — it's how it works." },
+    { icon:'📸', title:'Photography', rule:"Always ask before photographing people, especially women. In temples and rural areas, a nod goes a long way." }
+  ],
+  france: [
+    { icon:'👋', title:'Greeting strangers', rule:"In small towns, saying 'Bonjour' when entering a shop is expected. Skipping it is considered rude." },
+    { icon:'💬', title:'Starting with French', rule:"Even broken French before switching to English is deeply appreciated. Starting in English without trying can put people off." },
+    { icon:'🥖', title:'Bread etiquette', rule:"Bread goes directly on the tablecloth, not on your plate. The plate is for food. This is just how it works." },
+    { icon:'🍷', title:'Wine at lunch', rule:"Wine with a weekday lunch is completely normal. Don't look surprised. Don't make it a thing." },
+    { icon:'⏰', title:'Punctuality', rule:"For dinner parties, 10-15 minutes late is the polite window. Exactly on time is almost as awkward as being late." },
+    { icon:'🤫', title:'Volume in public', rule:"Loud conversations draw visible disapproval. The French value discretion in shared spaces." }
+  ],
+  thailand: [
+    { icon:'👑', title:'The monarchy', rule:"Criticism of the royal family is not just taboo — it is illegal. This is treated with complete seriousness. Do not test it." },
+    { icon:'🦶', title:'Pointing feet', rule:"Feet are the lowest part of the body, both literally and spiritually. Never point them at people, Buddha images, or shrines." },
+    { icon:'🙏', title:'The wai', rule:"The traditional greeting has a whole hierarchy. Younger people wai first. Monks wai nobody." },
+    { icon:'😊', title:'Losing face', rule:"Public confrontation or anger is deeply avoided. Smile through frustration — causing a scene helps nothing." },
+    { icon:'🏛️', title:'Temple dress code', rule:"Shoulders and knees covered at all temples. Many provide sarongs at entrances. Respect the dress code or you won't get in." },
+    { icon:'🍽️', title:'Street food', rule:"Street food is not lesser food — it is often the best food. Eating standing at a cart is completely normal." }
+  ]
+};
+
+function setCountry(el, country) {
+  document.querySelectorAll('.ctab').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('rulesGrid').innerHTML = rulesData[country].map((r, i) => `
+    <div class="rule-item" style="animation-delay:${i*0.05}s">
+      <span class="rule-icon">${r.icon}</span>
+      <div class="rule-text"><strong>${r.title}</strong>${r.rule}</div>
+    </div>`).join('');
+}
+
+setCountry(document.querySelector('.ctab.active'), 'japan');
+</script>
+</body>
+</html>

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stop. Look. Guess. — Geography Trivia | StopLookAround</title>
+<meta name="description" content="Think you know the world? Take the Stop. Look. Guess. geography trivia quiz. Warning: harder than it looks.">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDFAF4;
+    --ink: #1a1a1a;
+    --rust: #C1440E;
+    --gold: #C9973A;
+    --dusty: #6b6560;
+    --light-dust: rgba(107,101,96,0.15);
+    --card-bg: #F5F0E8;
+    --border: rgba(107,101,96,0.18);
+  }
+
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Barlow', sans-serif;
+    min-height: 100vh;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 48px;
+    background: rgba(253,250,244,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--light-dust);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; letter-spacing: 0.12em;
+    color: var(--ink); text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--rust); }
+  .nav-links { display: flex; gap: 24px; list-style: none; align-items: center; }
+  .nav-links a {
+    font-size: 0.72rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--dusty);
+    text-decoration: none; transition: color 0.2s; font-weight: 500;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+  .nav-upload {
+    background: var(--rust) !important; color: white !important;
+    padding: 8px 16px; font-size: 0.7rem !important; letter-spacing: 0.12em !important;
+  }
+  .nav-upload:hover { background: var(--ink) !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; background: none; border: none; padding: 4px;
+  }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(12px); }
+    to { opacity:1; transform:none; }
+  }
+
+  .screen { display: none; }
+  .screen.active { display: block; animation: fadeUp 0.35s ease both; }
+
+  /* INTRO */
+  .intro-wrap {
+    max-width: 680px; margin: 0 auto;
+    padding: 80px 48px 60px; text-align: center;
+  }
+  .eyebrow {
+    font-size: 0.7rem; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--rust);
+    margin-bottom: 16px; font-weight: 500;
+  }
+  .intro-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 7rem);
+    letter-spacing: 0.04em; color: var(--ink);
+    line-height: 0.9; margin-bottom: 12px;
+  }
+  .intro-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic; font-size: 1.1rem;
+    color: var(--gold); margin-bottom: 20px;
+  }
+  .intro-sub {
+    font-size: 1rem; font-weight: 300;
+    color: var(--dusty); max-width: 460px;
+    margin: 0 auto 3rem; line-height: 1.75;
+  }
+  .stats-row {
+    display: flex; gap: 0; justify-content: center;
+    border: 1px solid var(--border); max-width: 360px;
+    margin: 0 auto 2.5rem; overflow: hidden;
+  }
+  .stat-cell {
+    flex: 1; padding: 1rem 1.2rem;
+    border-right: 1px solid var(--border); text-align: center;
+  }
+  .stat-cell:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem; color: var(--ink); display: block; line-height: 1;
+  }
+  .stat-lbl {
+    font-size: 0.65rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--dusty);
+    margin-top: 3px; display: block; font-weight: 500;
+  }
+  .btn-start {
+    background: var(--rust); color: white; border: none;
+    padding: 14px 40px; cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.05rem; letter-spacing: 0.16em;
+    text-transform: uppercase; transition: all 0.2s;
+  }
+  .btn-start:hover { background: var(--ink); }
+
+  /* LEADERBOARD PEEK */
+  .lb-peek {
+    border: 1px solid var(--border); background: var(--card-bg);
+    max-width: 480px; margin: 3rem auto 0;
+  }
+  .lb-peek-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; border-bottom: 1px solid var(--border);
+    background: rgba(107,101,96,0.06);
+  }
+  .lb-peek-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.85rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink);
+  }
+  .lb-peek-sub { font-size: 0.7rem; color: var(--dusty); }
+
+  /* QUIZ */
+  .quiz-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 48px 5rem; }
+  .quiz-topbar {
+    display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;
+  }
+  .q-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--rust);
+  }
+  .score-pill {
+    border: 1px solid var(--border); color: var(--ink);
+    padding: 4px 12px; font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.06em; font-family: 'Bebas Neue', sans-serif;
+  }
+  .progress-track { height: 2px; background: var(--border); margin-bottom: 2rem; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--rust); transition: width 0.5s ease; }
+  .q-card {
+    background: var(--card-bg); border: 1px solid var(--border);
+    padding: 2rem; margin-bottom: 1.2rem;
+  }
+  .q-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem; letter-spacing: 0.2em;
+    text-transform: uppercase; color: var(--dusty); margin-bottom: 10px;
+  }
+  .q-text {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.3rem, 3vw, 1.8rem);
+    letter-spacing: 0.03em; color: var(--ink); line-height: 1.15;
+  }
+  .options-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); margin-bottom: 1rem;
+  }
+  .opt-btn {
+    background: var(--cream); border: none; color: var(--ink);
+    padding: 1rem 1.1rem; text-align: left; cursor: pointer;
+    font-family: 'Barlow', sans-serif; font-size: 0.9rem;
+    transition: background 0.15s; display: flex; align-items: center; gap: 10px; line-height: 1.3;
+  }
+  .opt-btn:hover:not(:disabled) { background: var(--card-bg); }
+  .opt-btn.correct { background: rgba(193,68,14,0.08); color: var(--rust); }
+  .opt-btn.wrong { background: rgba(107,101,96,0.1); color: var(--dusty); text-decoration: line-through; }
+  .opt-btn:disabled { cursor: default; }
+  .opt-letter {
+    flex-shrink: 0; width: 24px; height: 24px;
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; color: var(--dusty);
+  }
+  .feedback {
+    background: var(--card-bg); border-left: 3px solid var(--rust);
+    padding: 1rem 1.2rem; font-size: 0.87rem;
+    line-height: 1.65; color: var(--dusty); display: none; margin-bottom: 1rem;
+  }
+  .feedback.wrong-fb { border-left-color: var(--dusty); }
+  .feedback.show { display: block; animation: fadeUp 0.3s ease; }
+  .feedback strong { color: var(--ink); }
+  .btn-next {
+    width: 100%; background: transparent; border: 1px solid var(--border);
+    color: var(--dusty); padding: 12px; cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    transition: all 0.2s; display: none;
+  }
+  .btn-next.show { display: block; animation: fadeUp 0.3s ease; }
+  .btn-next:hover { border-color: var(--ink); color: var(--ink); }
+
+  /* NAME ENTRY */
+  .name-wrap { max-width: 500px; margin: 0 auto; padding: 80px 48px; text-align: center; }
+  .name-eyebrow { font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rust); margin-bottom: 12px; font-weight: 500; }
+  .name-score-big { font-family: 'Bebas Neue', sans-serif; font-size: 7rem; color: var(--ink); line-height: 1; }
+  .name-denom { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dusty); font-weight: 500; }
+  .name-verdict { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--gold); margin: 12px 0 24px; }
+  .name-prompt { font-size: 0.85rem; color: var(--dusty); font-weight: 300; margin-bottom: 1.5rem; line-height: 1.6; }
+  .name-input-row { display: flex; gap: 8px; margin-bottom: 10px; }
+  .name-input {
+    flex: 1; background: white; border: 1px solid var(--border);
+    color: var(--ink); padding: 12px 14px;
+    font-family: 'Barlow', sans-serif; font-size: 0.95rem;
+    outline: none; transition: border-color 0.2s;
+  }
+  .name-input:focus { border-color: var(--rust); }
+  .name-input::placeholder { color: var(--dusty); opacity: 0.5; }
+  .btn-submit {
+    background: var(--rust); color: white; border: none;
+    padding: 12px 20px; cursor: pointer;
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    transition: all 0.2s; white-space: nowrap;
+  }
+  .btn-submit:hover { background: var(--ink); }
+  .btn-skip { background: none; border: none; color: var(--dusty); font-size: 0.78rem; cursor: pointer; text-decoration: underline; font-family: 'Barlow', sans-serif; }
+  .btn-skip:hover { color: var(--ink); }
+  .posting-msg { font-size: 0.8rem; color: var(--dusty); margin-top: 8px; min-height: 20px; }
+
+  /* RESULTS */
+  .results-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 48px 5rem; }
+  .result-hero { text-align: center; margin-bottom: 3rem; }
+  .result-score-big { font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem,14vw,9rem); color: var(--ink); line-height: 1; }
+  .result-denom { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dusty); font-weight: 500; }
+  .result-verdict { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.4rem,3.5vw,2rem); letter-spacing: 0.04em; color: var(--ink); margin: 10px 0 8px; }
+  .result-msg { font-size: 0.95rem; font-weight: 300; color: var(--dusty); max-width: 440px; margin: 0 auto 2rem; line-height: 1.75; }
+  .result-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem; }
+  .btn-play-again {
+    background: var(--rust); color: white; border: none; padding: 12px 28px;
+    cursor: pointer; font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase; transition: all 0.2s;
+  }
+  .btn-play-again:hover { background: var(--ink); }
+  .btn-outline {
+    background: transparent; border: 1px solid var(--border); color: var(--dusty);
+    padding: 12px 24px; cursor: pointer; font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem; letter-spacing: 0.14em; text-transform: uppercase;
+    transition: all 0.2s; text-decoration: none; display: inline-block;
+  }
+  .btn-outline:hover { border-color: var(--ink); color: var(--ink); }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.8rem;
+    letter-spacing: 0.25em; text-transform: uppercase; color: var(--dusty);
+    margin-bottom: 16px; display: flex; align-items: center; gap: 16px;
+  }
+  .section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+
+  /* LEADERBOARD */
+  .leaderboard { border: 1px solid var(--border); margin-bottom: 2.5rem; }
+  .lb-header {
+    display: grid; grid-template-columns: 40px 1fr 60px 80px;
+    padding: 8px 16px; border-bottom: 1px solid var(--border);
+    background: rgba(107,101,96,0.06);
+    font-family: 'Bebas Neue', sans-serif; font-size: 0.68rem;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--dusty);
+  }
+  .lb-row {
+    display: grid; grid-template-columns: 40px 1fr 60px 80px;
+    padding: 12px 16px; border-bottom: 1px solid rgba(107,101,96,0.08);
+    align-items: center; background: var(--cream); transition: background 0.15s;
+  }
+  .lb-row:last-child { border-bottom: none; }
+  .lb-row:hover { background: var(--card-bg); }
+  .lb-row.highlight { background: rgba(193,68,14,0.05); border-left: 2px solid var(--rust); }
+  .lb-rank { font-family: 'Bebas Neue', sans-serif; font-size: 1rem; color: var(--dusty); }
+  .lb-rank.gold { color: var(--gold); }
+  .lb-rank.silver { color: #8a8a8a; }
+  .lb-rank.bronze { color: #a0704a; }
+  .lb-name { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+  .lb-score-cell { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; color: var(--rust); text-align: right; }
+  .lb-date { font-size: 0.68rem; color: var(--dusty); text-align: right; font-weight: 500; letter-spacing: 0.04em; }
+  .lb-empty { padding: 2rem; text-align: center; font-size: 0.85rem; color: var(--dusty); font-style: italic; }
+  .lb-loading { padding: 1.5rem; text-align: center; font-size: 0.8rem; color: var(--dusty); letter-spacing: 0.08em; text-transform: uppercase; font-family: 'Bebas Neue', sans-serif; }
+
+  /* ANSWER REVIEW */
+  .review-item { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.84rem; }
+  .review-icon { font-size: 0.9rem; flex-shrink: 0; margin-top: 2px; }
+  .review-q { color: var(--dusty); flex: 1; line-height: 1.4; }
+  .review-ans { color: var(--rust); font-weight: 500; flex-shrink: 0; text-align: right; font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+
+  /* CTA */
+  .cta-block { background: var(--ink); padding: 3rem; text-align: center; margin-top: 2.5rem; }
+  .cta-block h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem,4vw,2.8rem); letter-spacing: 0.06em; color: white; margin-bottom: 10px; }
+  .cta-block p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.5); line-height: 1.7; max-width: 400px; margin: 0 auto 24px; }
+  .btn-primary { background: var(--rust); color: white; border: none; padding: 14px 36px; cursor: pointer; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.16em; text-transform: uppercase; transition: all 0.2s; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { background: var(--gold); }
+
+  footer { border-top: 1px solid var(--border); padding: 28px 48px; text-align: center; }
+  footer p { font-size: 0.7rem; color: var(--dusty); letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; }
+  footer a { color: var(--rust); text-decoration: none; }
+
+  @media(max-width:768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); border-bottom: 1px solid var(--border); padding: 20px 24px; gap: 16px; }
+    .hamburger { display: flex; }
+    .intro-wrap, .name-wrap { padding: 50px 24px 40px; }
+    .quiz-wrap, .results-wrap { padding: 2rem 24px 4rem; }
+    .options-grid { grid-template-columns: 1fr; }
+    .lb-header, .lb-row { grid-template-columns: 36px 1fr 50px 65px; padding: 10px 12px; }
+    footer { padding: 24px; }
+  }
+  @media(max-width:480px) {
+    .result-actions { flex-direction: column; align-items: center; }
+    .name-input-row { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#photowall">Photo Wall</a></li>
+    <li><a href="travel-sheets.html">Travel Sheets</a></li>
+    <li><a href="culture.html">Culture</a></li>
+    <li><a href="quiz.html" class="active">Quiz</a></li>
+    <li><a href="index.html#submit" class="nav-upload">Submit a Photo</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- INTRO -->
+<div id="intro" class="screen active">
+  <div class="intro-wrap">
+    <div class="eyebrow">Geography Challenge</div>
+    <h1 class="intro-title">STOP.<br>LOOK.<br>GUESS.</h1>
+    <p class="intro-tagline">Harder than it looks.</p>
+    <p class="intro-sub">10 questions. No maps, no flags, no silhouettes — just you vs. the world.</p>
+    <div class="stats-row">
+      <div class="stat-cell"><span class="stat-num">10</span><span class="stat-lbl">Questions</span></div>
+      <div class="stat-cell"><span class="stat-num">4</span><span class="stat-lbl">Choices</span></div>
+      <div class="stat-cell"><span class="stat-num">~3</span><span class="stat-lbl">Minutes</span></div>
+    </div>
+    <button class="btn-start" onclick="startQuiz()">Start the Quiz →</button>
+    <div class="lb-peek">
+      <div class="lb-peek-head">
+        <span class="lb-peek-title">🏆 Leaderboard</span>
+        <span class="lb-peek-sub">Top explorers</span>
+      </div>
+      <div id="introPeekRows"></div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="screen">
+  <div class="quiz-wrap">
+    <div class="quiz-topbar">
+      <span class="q-label">Question <span id="qNum">1</span> of 10</span>
+      <span class="score-pill">Score: <span id="scoreLive">0</span></span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+    <div class="q-card">
+      <div class="q-number" id="qNumLabel">Question 1 of 10</div>
+      <div class="q-text" id="qText"></div>
+    </div>
+    <div class="options-grid" id="optionsGrid"></div>
+    <div class="feedback" id="feedbackBar"></div>
+    <button class="btn-next" id="nextBtn" onclick="nextQuestion()">Next →</button>
+  </div>
+</div>
+
+<!-- NAME ENTRY -->
+<div id="nameEntry" class="screen">
+  <div class="name-wrap">
+    <div class="name-eyebrow">Quiz Complete</div>
+    <div class="name-score-big" id="nameScoreDisplay">0</div>
+    <div class="name-denom">out of 10</div>
+    <div class="name-verdict" id="nameVerdict"></div>
+    <p class="name-prompt">Enter your name to get on the leaderboard — or skip to see your results.</p>
+    <div class="name-input-row">
+      <input class="name-input" id="nameInput" type="text" placeholder="Your name or nickname" maxlength="24"/>
+      <button class="btn-submit" id="submitBtn" onclick="submitScore()">Post Score</button>
+    </div>
+    <p class="posting-msg" id="postingMsg"></p>
+    <button class="btn-skip" onclick="showResults(null)">Skip, just show results</button>
+  </div>
+</div>
+
+<!-- RESULTS -->
+<div id="results" class="screen">
+  <div class="results-wrap">
+    <div class="result-hero">
+      <div class="result-score-big" id="finalScoreBig"></div>
+      <div class="result-denom">out of 10</div>
+      <div class="result-verdict" id="resultVerdict"></div>
+      <p class="result-msg" id="resultMsg"></p>
+      <div class="result-actions">
+        <button class="btn-play-again" onclick="restartQuiz()">Play Again</button>
+        <button class="btn-outline" onclick="shareScore()">Share Score</button>
+        <a href="index.html#photowall" class="btn-outline">Photo Wall</a>
+      </div>
+    </div>
+    <div class="section-label">🏆 Leaderboard</div>
+    <div class="leaderboard" id="leaderboardFull"></div>
+    <div class="section-label" style="margin-top:2rem;">Your Answers</div>
+    <div id="answerReview"></div>
+    <div class="cta-block">
+      <h2>SEE THE WORLD'S BEST PLACES</h2>
+      <p>Community-submitted travel photos from every corner of the globe. No faces — just the world at its most beautiful.</p>
+      <a href="index.html#photowall" class="btn-primary">Explore the Photo Wall</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 <a href="index.html">StopLookAround.com</a> — No faces · Just places · <a href="culture.html">Culture</a> · <a href="quiz.html">Quiz</a></p>
+</footer>
+
+<script>
+// ============================================================
+// PASTE YOUR APPS SCRIPT URL HERE AFTER DEPLOYING
+// ============================================================
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwk21DTikygiAdawdp3u34bsSLv_2XVtAeqWP0HrbUtT0hv32aNnoinEaCBRrF6MHfm/exec';
+// ============================================================
+
+const questions = [
+  { q:"Which country has more natural lakes than every other country in the world combined?", opts:["Russia","Finland","Canada","United States"], ans:"Canada", fact:"Canada has an estimated 3 million lakes — roughly 60% of the world's total. More than the rest of the planet combined." },
+  { q:"What is the only country in the world that is both an island and a continent?", opts:["Greenland","New Zealand","Iceland","Australia"], ans:"Australia", fact:"Australia is unique in being both a continent and a sovereign nation. No other country holds that distinction." },
+  { q:"Ulaanbaatar is the capital city of which country?", opts:["Kazakhstan","Kyrgyzstan","Mongolia","Uzbekistan"], ans:"Mongolia", fact:"Ulaanbaatar is the world's coldest capital city by average annual temperature. Mongolia is also the most sparsely populated country on Earth." },
+  { q:"Which African country has more pyramids than Egypt?", opts:["Ethiopia","Sudan","Libya","Chad"], ans:"Sudan", fact:"Sudan has around 200–255 pyramids, nearly twice as many as Egypt. The Nubian pyramids of ancient Kush are smaller and steeper than Egyptian ones." },
+  { q:"Approximately what percentage of the Netherlands sits below sea level?", opts:["About 10%","About 26%","About 40%","About 55%"], ans:"About 26%", fact:"Around 26% of the Netherlands is below sea level, held back by an elaborate system of dikes and pumps." },
+  { q:"Which country has the longest coastline in the world?", opts:["Norway","Russia","Australia","Canada"], ans:"Canada", fact:"Canada's coastline stretches over 202,080 km — roughly five times the circumference of the Earth." },
+  { q:"In which country would you find the world's largest salt flat, Salar de Uyuni?", opts:["Argentina","Peru","Chile","Bolivia"], ans:"Bolivia", fact:"Salar de Uyuni covers over 10,000 sq km at 3,656 meters above sea level. After rain it becomes the world's largest natural mirror." },
+  { q:"What is the smallest country in the world by both area and population?", opts:["Monaco","San Marino","Vatican City","Liechtenstein"], ans:"Vatican City", fact:"Vatican City covers just 0.44 sq km and has a population of around 800. It is an independent nation within Rome." },
+  { q:"Which country spans the most time zones?", opts:["Russia","United States","China","France"], ans:"France", fact:"France spans 12 time zones when counting its overseas territories — more than Russia (11) or the US (11)." },
+  { q:"The Maldives is the world's lowest-lying country. What is its average ground elevation?", opts:["About 8 meters","About 4 meters","About 1.5 meters","About 0.5 meters"], ans:"About 1.5 meters", fact:"The Maldives averages just 1.5 meters above sea level — making it one of the most vulnerable nations to rising seas." }
+];
+
+let currentQ=0, score=0, answered=false, userAnswers=[], finalScore=0, lastPostedName=null;
+
+// ── LEADERBOARD API ──
+async function fetchScores() {
+  try {
+    const r = await fetch(`${APPS_SCRIPT_URL}?action=get`);
+    return await r.json();
+  } catch { return []; }
+}
+
+async function postScore(name, sc) {
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'post', name, score: sc })
+    });
+    return true;
+  } catch { return false; }
+}
+
+// ── RENDER LEADERBOARD ──
+function renderLeaderboard(board, highlightName, containerId, maxRows=10) {
+  const el = document.getElementById(containerId);
+  if (!board || !board.length) { el.innerHTML = '<div class="lb-empty">No scores yet — be the first on the board!</div>'; return; }
+  const rc = i => i===0?'gold':i===1?'silver':i===2?'bronze':'';
+  el.innerHTML = `<div class="lb-header"><span>Rank</span><span>Explorer</span><span style="text-align:right">Score</span><span style="text-align:right">Date</span></div>`
+    + board.slice(0,maxRows).map((e,i) => {
+      const hl = highlightName && e.name===highlightName && e.score===finalScore ? 'highlight' : '';
+      return `<div class="lb-row ${hl}"><span class="lb-rank ${rc(i)}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</span><span class="lb-name">${esc(e.name)}</span><span class="lb-score-cell">${e.score}/10</span><span class="lb-date">${e.date}</span></div>`;
+    }).join('');
+}
+
+async function renderIntroPeek() {
+  const el = document.getElementById('introPeekRows');
+  el.innerHTML = '<div class="lb-loading">Loading...</div>';
+  const board = await fetchScores();
+  if (!board.length) { el.innerHTML = '<div class="lb-empty">No scores yet — be the first!</div>'; return; }
+  const rc = i => i===0?'gold':i===1?'silver':i===2?'bronze':'';
+  el.innerHTML = `<div class="lb-header"><span>Rank</span><span>Explorer</span><span style="text-align:right">Score</span><span style="text-align:right">Date</span></div>`
+    + board.slice(0,5).map((e,i) => `<div class="lb-row"><span class="lb-rank ${rc(i)}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':i+1}</span><span class="lb-name">${esc(e.name)}</span><span class="lb-score-cell">${e.score}/10</span><span class="lb-date">${e.date}</span></div>`).join('');
+}
+
+// ── QUIZ FLOW ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+
+function startQuiz() { currentQ=0; score=0; answered=false; userAnswers=[]; showScreen('quiz'); loadQuestion(); }
+
+function loadQuestion() {
+  const q = questions[currentQ]; answered = false;
+  document.getElementById('progressFill').style.width = ((currentQ/10)*100)+'%';
+  document.getElementById('qNum').textContent = currentQ+1;
+  document.getElementById('qNumLabel').textContent = `Question ${currentQ+1} of 10`;
+  document.getElementById('scoreLive').textContent = score;
+  document.getElementById('qText').textContent = q.q;
+  const L = ['A','B','C','D'];
+  document.getElementById('optionsGrid').innerHTML = q.opts.map((o,i) =>
+    `<button class="opt-btn" onclick="selectAnswer('${escA(o)}',this)"><span class="opt-letter">${L[i]}</span>${o}</button>`).join('');
+  document.getElementById('feedbackBar').className = 'feedback';
+  document.getElementById('feedbackBar').innerHTML = '';
+  const nb = document.getElementById('nextBtn'); nb.className = 'btn-next';
+  nb.textContent = currentQ < 9 ? 'Next Question →' : 'See My Score →';
+}
+
+function selectAnswer(sel, btn) {
+  if (answered) return; answered = true;
+  const q = questions[currentQ]; const ok = sel === q.ans;
+  if (ok) score++;
+  userAnswers.push({ q: q.q, ans: q.ans, correct: ok });
+  document.querySelectorAll('.opt-btn').forEach(b => {
+    b.disabled = true;
+    const t = b.textContent.trim().substring(1).trim();
+    if (t === q.ans) b.classList.add('correct');
+    else if (b === btn && !ok) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('feedbackBar');
+  if (ok) { fb.className='feedback show'; fb.innerHTML=`✓ Correct! <strong>Fun fact:</strong> ${q.fact}`; }
+  else { fb.className='feedback wrong-fb show'; fb.innerHTML=`✗ The answer is <strong>${q.ans}</strong>. ${q.fact}`; }
+  document.getElementById('nextBtn').classList.add('show');
+}
+
+function nextQuestion() { currentQ++; if (currentQ >= 10) goToNameEntry(); else loadQuestion(); }
+
+function goToNameEntry() {
+  finalScore = score;
+  document.getElementById('progressFill').style.width = '100%';
+  document.getElementById('nameScoreDisplay').textContent = finalScore;
+  document.getElementById('nameVerdict').textContent = getVerdict(finalScore).label;
+  document.getElementById('postingMsg').textContent = '';
+  showScreen('nameEntry');
+  document.getElementById('nameInput').focus();
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key==='Enter' && document.getElementById('nameEntry').classList.contains('active')) submitScore();
+});
+
+async function submitScore() {
+  const name = document.getElementById('nameInput').value.trim() || 'Anonymous Explorer';
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('postingMsg');
+  btn.disabled = true; btn.textContent = 'Posting...';
+  msg.textContent = 'Saving your score...';
+  await postScore(name, finalScore);
+  lastPostedName = name;
+  btn.disabled = false; btn.textContent = 'Post Score';
+  msg.textContent = '';
+  showResults(name);
+}
+
+async function showResults(name) {
+  const v = getVerdict(finalScore);
+  document.getElementById('finalScoreBig').textContent = finalScore;
+  document.getElementById('resultVerdict').textContent = v.label;
+  document.getElementById('resultMsg').textContent = v.msg;
+  document.getElementById('answerReview').innerHTML = userAnswers.map(a =>
+    `<div class="review-item"><span class="review-icon">${a.correct?'✓':'✗'}</span><span class="review-q">${a.q}</span><span class="review-ans">${a.ans}</span></div>`).join('');
+  showScreen('results');
+  // Load leaderboard async
+  const lbEl = document.getElementById('leaderboardFull');
+  lbEl.innerHTML = '<div class="lb-loading">Loading leaderboard...</div>';
+  const board = await fetchScores();
+  renderLeaderboard(board, name, 'leaderboardFull', 10);
+}
+
+function restartQuiz() { startQuiz(); }
+
+function shareScore() {
+  const v = getVerdict(finalScore);
+  const text = `I scored ${finalScore}/10 on the Stop. Look. Guess. geography quiz at StopLookAround.com — "${v.label}". Can you beat me?`;
+  if (navigator.share) { navigator.share({ title:'Stop. Look. Guess.', text, url:window.location.href }); }
+  else { navigator.clipboard.writeText(text+' '+window.location.href).then(()=>alert('Score copied to clipboard!')); }
+}
+
+function getVerdict(s) {
+  if (s===10) return { label:"WORLD EXPLORER", msg:"Perfect score. You didn't just stay awake in geography class — you were probably teaching it." };
+  if (s>=8)  return { label:"SEASONED TRAVELER", msg:"Nearly flawless. Your mental map of the world is impressively sharp." };
+  if (s>=6)  return { label:"CURIOUS WANDERER", msg:"Solid effort. You know more about the world than most people at a dinner party." };
+  if (s>=4)  return { label:"GETTING THERE", msg:"The world is big and full of surprises. Hit the photo wall — it's basically free geography class." };
+  return       { label:"FUTURE EXPLORER", msg:"Geography class wasn't your thing, and honestly, same. The good news: the world is still out there." };
+}
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function escA(s) { return String(s).replace(/'/g,"&#39;").replace(/"/g,'&quot;'); }
+
+renderIntroPeek();
+</script>
+</body>
+</html>
