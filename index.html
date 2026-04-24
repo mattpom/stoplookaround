@@ -2109,6 +2109,50 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 </section>
 
 <!-- ── FOOTER ── -->
+
+<!-- EMAIL SIGNUP -->
+<section id="newsletter" style="background:#1a1a1a;padding:60px 48px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);">
+  <div style="max-width:560px;margin:0 auto;">
+    <p style="font-family:'Bebas Neue',sans-serif;font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:#C1440E;margin-bottom:12px;">Join the Community</p>
+    <h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2rem,5vw,3.5rem);letter-spacing:0.04em;color:#FDFAF4;margin-bottom:12px;">NEVER MISS A PLACE</h2>
+    <p style="font-size:0.9rem;font-weight:300;color:rgba(253,250,244,0.55);line-height:1.75;margin-bottom:2rem;">New destination guides, community photos, and travel insights — delivered to your inbox. No spam. Just places.</p>
+    <!-- Brevo Signup Form -->
+    <div id="sla-brevo-form">
+      <div style="display:flex;gap:8px;max-width:440px;margin:0 auto 10px;">
+        <input type="email" id="sla-email" placeholder="Your email address" style="flex:1;background:rgba(253,250,244,0.08);border:1px solid rgba(253,250,244,0.15);color:#FDFAF4;padding:12px 16px;font-family:'Barlow',sans-serif;font-size:0.9rem;outline:none;"/>
+        <button onclick="slaSubscribe()" style="background:#C1440E;color:white;border:none;padding:12px 20px;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;letter-spacing:0.12em;cursor:pointer;white-space:nowrap;transition:background 0.2s;" onmouseover="this.style.background='#C9973A'" onmouseout="this.style.background='#C1440E'">JOIN →</button>
+      </div>
+      <p id="sla-msg" style="font-size:0.78rem;color:rgba(253,250,244,0.4);min-height:20px;"></p>
+    </div>
+  </div>
+</section>
+<script>
+async function slaSubscribe() {
+  const email = document.getElementById('sla-email').value.trim();
+  const msg = document.getElementById('sla-msg');
+  if (!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email address.'; msg.style.color='#C1440E'; return; }
+  msg.textContent = 'Subscribing...'; msg.style.color='rgba(253,250,244,0.4)';
+  // Brevo API — SLA list
+  try {
+    const res = await fetch('https://api.brevo.com/v3/contacts', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'api-key': 'BREVO_API_KEY_PLACEHOLDER' },
+      body: JSON.stringify({ email, listIds: [SLA_LIST_ID_PLACEHOLDER], updateEnabled: true, attributes: { SOURCE: 'SLA Website' } })
+    });
+    if (res.ok || res.status === 204) {
+      msg.textContent = '✓ You're in. Welcome to the community.';
+      msg.style.color = '#C9973A';
+      document.getElementById('sla-email').value = '';
+    } else {
+      throw new Error('API error');
+    }
+  } catch(e) {
+    msg.textContent = 'Something went wrong. Try again or email hello@stoplookaround.com';
+    msg.style.color = '#C1440E';
+  }
+}
+document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
+</script>
 <footer>
   <div class="footer-top">
     <div class="footer-brand">
