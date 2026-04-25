@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://stoplookaround.com/404.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -12,6 +17,11 @@
   </url>
   <url>
     <loc>https://stoplookaround.com/best-hidden-gems-in-europe.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-australia.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,7 +41,17 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-italy.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/best-places-to-visit-in-japan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-mexico.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -56,7 +76,27 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-spain.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-thailand.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/best-places-to-visit-in-turkey.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/best-places-to-visit-in-vietnam.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/best-street-food-cities-world.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,6 +117,11 @@
   </url>
   <url>
     <loc>https://stoplookaround.com/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/cookie.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -132,6 +177,11 @@
   </url>
   <url>
     <loc>https://stoplookaround.com/travel-guides.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/travel-photography-gear-guide.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
