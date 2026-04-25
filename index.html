@@ -2128,6 +2128,35 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 </section>
 <script>
 async function slaSubscribe() {
+  const email = document.getElementById('sla-email').value;
+  if (!email) return;
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = 'https://179420ee.sibforms.com/serve/MUIFAOzSXt3ibAJ-VGbA5dCb0e4OViDlrCM-3--0Tatf0r8jdWsbLhCmcWmpLV34OzfqsRuNi-7svCr4v4sG-rh2hlJ6qy7Wx-7t2VdlXZ99LUt5RoT4PZ0WbhoMsBwB-anJwjx2gHZ6BO_dIV3yVnzPKX-s48PSpijww4Y40Wei7i0jGiQIyYfuxWQT8iUsTpyCSlKS4zBY5UzJyg==';
+  form.target = '_blank';
+  const emailInput = document.createElement('input');
+  emailInput.type = 'hidden';
+  emailInput.name = 'EMAIL';
+  emailInput.value = email;
+  const check = document.createElement('input');
+  check.type = 'hidden';
+  check.name = 'email_address_check';
+  check.value = '';
+  const locale = document.createElement('input');
+  locale.type = 'hidden';
+  locale.name = 'locale';
+  locale.value = 'en';
+  form.appendChild(emailInput);
+  form.appendChild(check);
+  form.appendChild(locale);
+  document.body.appendChild(form);
+  form.submit();
+  document.body.removeChild(form);
+  document.getElementById('sla-msg').textContent = 'Thanks! Check your inbox.';
+  document.getElementById('sla-msg').style.color = '#C1440E';
+  return;
+  // original code below kept for reference
+  const _unused = async function() {
   const email = document.getElementById('sla-email').value.trim();
   const msg = document.getElementById('sla-msg');
   if (!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email address.'; msg.style.color='#C1440E'; return; }
@@ -2151,7 +2180,7 @@ async function slaSubscribe() {
     msg.style.color = '#C1440E';
   }
 }
-document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
+}}; document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
 </script>
 
 <footer>
