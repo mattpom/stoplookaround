@@ -136,7 +136,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://stoplookaround.com/index.html</loc>
+    <loc>https://stoplookaround.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -194,5 +194,10 @@
     <loc>https://stoplookaround.com/world-music.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/feed.xml</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>
