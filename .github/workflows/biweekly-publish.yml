@@ -21,31 +21,49 @@ jobs:
             echo "::warning::No drafts found in _drafts/ - add next article before scheduled run"
             exit 0
           fi
-
           DRAFT=$(ls _drafts/*.html | sort | head -1)
           DRAFT_NAME=$(basename "$DRAFT")
-
           cp "$DRAFT" "$DRAFT_NAME"
           rm "$DRAFT"
-
           TITLE=$(grep -oP '(?<=<title>)[^<]+' "$DRAFT_NAME" | sed "s/ — Stop.*//")
           TODAY=$(date +"%B %-d, %Y")
           TODAY_ISO=$(date +"%Y-%m-%d")
-
           echo "Publishing: $DRAFT_NAME | $TITLE | $TODAY"
-
-          # Update travel-guides.html - update the New This Month section
+          # Update travel-guides.html - inject new card at top of New This Month section
           if [ -f travel-guides.html ]; then
-            NEW_CARD="      <a href=\"$DRAFT_NAME\" class=\"guide-card guide-card--featured\"><div class=\"guide-card__body\"><p class=\"guide-card__meta\">$TODAY<\/p><h2 class=\"guide-card__title\">$TITLE<\/h2><span class=\"guide-card__cta\">Read Guide &rarr;<\/span><\/div><\/a>"
+            NEW_CARD="          <a href=\"$DRAFT_NAME\" class=\"guide-card guide-card--featured\"><div class=\"guide-card__body\"><p class=\"guide-card__meta\">$TODAY<\/p><h2 class=\"guide-card__title\">$TITLE<\/h2><span class=\"guide-card__cta\">Read Guide &rarr;<\/span><\/div><\/a>"
             sed -i "s|NEW THIS MONTH|NEW THIS MONTH<\/p>\n$NEW_CARD\n<!--NEWTHISMONTH|" travel-guides.html
           fi
-
-          # Update archive.html
+          # Update archive.html - inject into guide-list
           if [ -f archive.html ]; then
-            ENTRY="              <a href=\"$DRAFT_NAME\" class=\"archive-item\"><time datetime=\"$TODAY_ISO\">$TODAY<\/time><span class=\"archive-title\">$TITLE<\/span><span class=\"archive-arrow\">&rarr;<\/span><\/a>"
-            sed -i "s|class=\"archive-list\"|class=\"archive-list\">\n$ENTRY\n<!--ARCHIVELIST|" archive.html
+            ENTRY="          <a href=\"$DRAFT_NAME\" class=\"guide-row\"><div class=\"row-left\"><div class=\"row-cat\">Destination Guide<\/div><div class=\"row-title\">$TITLE<\/div><div class=\"row-date\">$TODAY<\/div><\/div><div class=\"row-arrow\">&rarr;<\/div><\/a>"
+            sed -i "s|class=\"guide-list\"|class=\"guide-list\">\n$ENTRY\n<!--GUIDELIST|" archive.html
           fi
-
+          # Update sitemap.xml - insert new URL before closing tag
+          if [ -f sitemap.xml ]; then
+            NEW_URL="  <url>\n    <loc>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/loc>\n    <changefreq>monthly<\/changefreq>\n    <priority>0.9<\/priority>\n  <\/url>"
+            sed -i "s|<\/urlset>|$NEW_URL\n<\/urlset>|" sitemap.xml
+            # Fix index.html canonical URL if present
+            sed -i "s|stoplookaround.com/index.html|stoplookaround.com/|g" sitemap.xml
+          fi
+          # Update or create feed.xml RSS feed
+          FEED_ENTRY="    <item>\n      <title>$TITLE<\/title>\n      <link>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/link>\n      <pubDate>$(date -R)<\/pubDate>\n      <guid>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/guid>\n    <\/item>"
+          if [ -f feed.xml ]; then
+            sed -i "s|<\/channel>|$FEED_ENTRY\n  <\/channel>|" feed.xml
+          else
+            cat > feed.xml << FEEDEOF
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Stop. Look Around. — Travel Guides</title>
+    <link>https://stoplookaround.com</link>
+    <description>Travel guides for people who actually go places. No selfies. Just places.</description>
+    <language>en-us</language>
+$FEED_ENTRY
+  </channel>
+</rss>
+FEEDEOF
+          fi
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
