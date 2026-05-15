@@ -1,0 +1,130 @@
+name: Bi-Weekly Content Publisher
+
+on:
+  schedule:
+    # Runs every other Thursday at 9am UTC (bi-weekly)
+    # First run: May 29, 2026
+    - cron: '0 9 * * 4/14'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  publish-draft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for draft articles
+        id: check-drafts
+        run: |
+          if [ -d "_drafts" ] && [ "$(ls -A _drafts/*.html 2>/dev/null)" ]; then
+            echo "has_drafts=true" >> $GITHUB_OUTPUT
+            DRAFT=$(ls _drafts/*.html | head -1)
+            echo "draft_file=$DRAFT" >> $GITHUB_OUTPUT
+            echo "draft_name=$(basename $DRAFT)" >> $GITHUB_OUTPUT
+          else
+            echo "has_drafts=false" >> $GITHUB_OUTPUT
+            echo "No draft articles found in _drafts/ folder. Skipping publish."
+          fi
+
+      - name: Publish draft article
+        if: steps.check-drafts.outputs.has_drafts == 'true'
+        run: |
+          DRAFT="${{ steps.check-drafts.outputs.draft_file }}"
+          DRAFT_NAME="${{ steps.check-drafts.outputs.draft_name }}"
+
+          echo "Publishing: $DRAFT_NAME"
+
+          cp "$DRAFT" "$DRAFT_NAME"
+
+          TITLE=$(grep -o '<title>[^<]*</title>' "$DRAFT_NAME" | sed 's/<[^>]*>//g' | sed 's/ — Stop.*$//')
+          TODAY=$(date +"%B %d, %Y")
+          TODAY_ISO=$(date +"%Y-%m-%d")
+
+          echo "Title: $TITLE"
+          echo "Date: $TODAY"
+
+          # Update travel-guides.html - replace the guide in "New This Month" section
+          if [ -f "travel-guides.html" ]; then
+            python3 - <<PYEOF
+import re
+
+with open('travel-guides.html', 'r') as f:
+    content = f.read()
+
+draft_name = "$DRAFT_NAME"
+title = "$TITLE"
+today = "$TODAY"
+today_iso = "$TODAY_ISO"
+
+new_card = f"""    <div class="new-this-month">
+      <p class="section-label">NEW THIS MONTH</p>
+      <a href="{draft_name}" class="guide-card guide-card--featured">
+        <div class="guide-card__body">
+          <p class="guide-card__meta">{today}</p>
+          <h2 class="guide-card__title">{title}</h2>
+          <span class="guide-card__cta">Read Guide →</span>
+        </div>
+      </a>
+    </div>
+"""
+
+content = re.sub(r'<div class="new-this-month">.*?</div>s*</div>', new_card.rstrip(), content, count=1, flags=re.DOTALL)
+
+with open('travel-guides.html', 'w') as f:
+    f.write(content)
+
+print("travel-guides.html updated")
+PYEOF
+          fi
+
+          # Update archive.html
+          if [ -f "archive.html" ]; then
+            python3 - <<PYEOF
+import re
+
+with open('archive.html', 'r') as f:
+    content = f.read()
+
+draft_name = "$DRAFT_NAME"
+title = "$TITLE"
+today = "$TODAY"
+today_iso = "$TODAY_ISO"
+
+new_entry = f"""              <a href="{draft_name}" class="archive-item">
+                <time datetime="{today_iso}">{today}</time>
+                <span class="archive-title">{title}</span>
+                <span class="archive-arrow">→</span>
+              </a>
+"""
+
+content = re.sub(r'(class="archive-list"[^>]*>s*)', r'\1' + new_entry, content, count=1)
+
+with open('archive.html', 'w') as f:
+    f.write(content)
+
+print("archive.html updated")
+PYEOF
+          fi
+
+          rm "$DRAFT"
+          echo "Done publishing $DRAFT_NAME"
+
+      - name: Commit and push changes
+        if: steps.check-drafts.outputs.has_drafts == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Bi-weekly publish: ${{ steps.check-drafts.outputs.draft_name }} [$(date +'%Y-%m-%d')]"
+          git push
+
+      - name: No drafts notification
+        if: steps.check-drafts.outputs.has_drafts == 'false'
+        run: |
+          echo "::warning::No draft articles found in _drafts/ folder."
+          echo "::warning::Add your next article to the _drafts/ folder before the next scheduled run."
