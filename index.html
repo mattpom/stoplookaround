@@ -2128,6 +2128,18 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 </section>
 <script>
 async function slaSubscribe() {
+    const emailInput = document.querySelector('.newsletter-email, #slaEmail, input[type=email]');
+    const email = emailInput ? emailInput.value.trim() : '';
+    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+    try {
+      const r = await fetch('https://formspree.io/f/xpwzdngg', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({email: email, source: 'newsletter-signup'})
+      });
+      if (r.ok) { if (emailInput) emailInput.value = ''; alert('Welcome! You\u2019ll never miss a place.'); }
+      else { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
+    } catch(e) { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
   const email = document.getElementById('sla-email').value;
   if (!email) return;
   const form = document.createElement('form');
@@ -2498,6 +2510,16 @@ async function slaSubscribe() {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSheet(); });
 
   function signupDuty() {
+    const email = document.getElementById('dutyEmail').value.trim();
+    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+    fetch('https://formspree.io/f/xpwzdngg', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+      body: JSON.stringify({email: email, source: 'duty-free-signup'})
+    }).then(r => {
+      if (r.ok) { document.getElementById('dutyEmail').value = ''; alert('You\u2019re on the list! New sheets coming your way.'); }
+      else { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
+    }).catch(() => { alert('Something went wrong. Try again or email hello@stoplookaround.com'); });
     const email = document.getElementById('dutyEmail').value.trim();
     if (!email || !email.includes('@')) {
       document.getElementById('dutyEmail').style.borderColor = 'var(--rust)';
