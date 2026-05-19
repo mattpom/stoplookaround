@@ -1,1 +1,244 @@
-PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CiAgPG1ldGEgY2hhcnNldD0iVVRGLTgiIC8+CiAgPG1ldGEgbmFtZT0idmlld3BvcnQiIGNvbnRlbnQ9IndpZHRoPWRldmljZS13aWR0aCwgaW5pdGlhbC1zY2FsZT0xLjAiIC8+CiAgPHRpdGxlPllvdXIgTXVzaWMgRXhjdXJzaW9uIOKAlCBTdG9wIExvb2sgQXJvdW5kPC90aXRsZT4KICA8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iQ3VyYXRlZCBsaXZlIHBlcmZvcm1hbmNlcyBmcm9tIGV2ZXJ5IGNvcm5lciBvZiB0aGUgd29ybGQuIE5vdCBhIHBsYXlsaXN0LiBOb3QgYW4gYWxnb3JpdGhtLiBTcGVjaWZpYyBhcnRpc3RzLCBzcGVjaWZpYyBjb25jZXJ0cywgc3BlY2lmaWMgbW9tZW50cyB3b3J0aCB3YXRjaGluZy4iIC8+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Music Excursion — Stop Look Around</title>
+<meta name="description" content="Curated live performances from every corner of the world. Not a playlist. Not an algorithm. Specific artists, specific concerts, specific moments worth watching.">
+<link rel="canonical" href="https://stoplookaround.com/music-excursion.html">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTZ0K371Q6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MTZ0K371Q6');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FDFAF4;
+  --ink: #1a1a1a;
+  --rust: #C1440E;
+  --gold: #C9973A;
+  --dusty: #6b6560;
+  --card-bg: #F5F0E8;
+  --border: rgba(107,101,96,0.18);
+  --light-dust: rgba(107,101,96,0.15);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--ink); font-family:'Barlow',sans-serif; line-height:1.7; overflow-x:hidden; }
+nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:18px 48px; background:rgba(253,250,244,0.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--light-dust); }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.12em; color:var(--ink); text-decoration:none; }
+.nav-logo .dot { color:var(--rust); }
+.nav-links { display:flex; gap:24px; list-style:none; align-items:center; }
+.nav-links a { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--dusty); text-decoration:none; transition:color 0.2s; font-weight:500; }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
+.nav-upload { background:var(--rust)!important; color:white!important; padding:8px 16px; font-size:0.7rem!important; letter-spacing:0.12em!important; }
+.nav-upload:hover { background:var(--ink)!important; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--ink); }
+.hero { padding:80px 48px 60px; border-bottom:1px solid var(--border); background:var(--cream); }
+.eyebrow { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rust); margin-bottom:16px; font-weight:500; }
+.hero-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(4rem,9vw,7rem); letter-spacing:0.04em; color:var(--ink); line-height:0.92; margin-bottom:16px; }
+.hero-tagline { font-family:'Playfair Display',serif; font-style:italic; font-size:clamp(1rem,2.2vw,1.3rem); color:var(--gold); margin-bottom:20px; }
+.hero-sub { font-size:1rem; font-weight:300; color:var(--dusty); max-width:540px; line-height:1.75; }
+.section-label { font-family:'Bebas Neue',sans-serif; font-size:0.8rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--dusty); margin-bottom:24px; display:flex; align-items:center; gap:16px; }
+.section-label::after { content:''; flex:1; height:1px; background:var(--border); }
+.main-wrap { max-width:1100px; padding:60px 48px 80px; }
+.excursion-grid { display:flex; flex-direction:column; gap:0; border:1px solid var(--border); margin-bottom:60px; }
+.excursion-card { display:grid; grid-template-columns:1fr 1fr; border-bottom:1px solid var(--border); background:var(--cream); transition:background 0.2s; }
+.excursion-card:last-child { border-bottom:none; }
+.excursion-card:hover { background:var(--card-bg); }
+.excursion-card.reverse { direction:rtl; }
+.excursion-card.reverse > * { direction:ltr; }
+.card-embed { background:var(--ink); position:relative; overflow:hidden; min-height:280px; }
+.card-embed iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.card-info { padding:2.5rem; display:flex; flex-direction:column; justify-content:center; }
+.card-number { font-family:'Bebas Neue',sans-serif; font-size:0.7rem; letter-spacing:0.3em; color:var(--light-dust); margin-bottom:6px; text-transform:uppercase; }
+.card-genre { font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--rust); margin-bottom:12px; }
+.card-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.6rem,2.5vw,2.2rem); letter-spacing:0.03em; color:var(--ink); line-height:1.05; margin-bottom:10px; }
+.card-subtitle { font-family:'Playfair Display',serif; font-style:italic; font-size:0.9rem; color:var(--gold); margin-bottom:14px; }
+.card-body { font-size:0.85rem; font-weight:300; color:var(--dusty); line-height:1.8; }
+.card-tag-row { display:flex; gap:8px; flex-wrap:wrap; margin-top:16px; }
+.card-tag { border:1px solid var(--border); color:var(--dusty); padding:3px 10px; font-size:0.65rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+.spotify-block { border:1px solid var(--border); background:var(--card-bg); padding:2.5rem; margin-bottom:60px; }
+.spotify-inner { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; }
+.spotify-text h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,3vw,2.4rem); letter-spacing:0.04em; color:var(--ink); margin-bottom:8px; line-height:1.1; }
+.spotify-text p { font-size:0.88rem; font-weight:300; color:var(--dusty); line-height:1.8; }
+.cta-block { background:var(--ink); padding:3rem; text-align:center; }
+.cta-block h2 { font-family:'Bebas Neue',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); letter-spacing:0.06em; color:white; margin-bottom:10px; }
+.cta-block p { font-size:0.9rem; font-weight:300; color:rgba(255,255,255,0.55); line-height:1.7; max-width:420px; margin:0 auto 24px; }
+.btn-primary { background:var(--rust); color:white; border:none; padding:14px 36px; cursor:pointer; font-family:'Bebas Neue',sans-serif; font-size:1rem; letter-spacing:0.16em; text-transform:uppercase; transition:all 0.2s; text-decoration:none; display:inline-block; }
+.btn-primary:hover { background:var(--gold); }
+footer { border-top:1px solid var(--border); padding:28px 48px; text-align:center; }
+footer p { font-size:0.7rem; color:var(--dusty); letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+footer a { color:var(--rust); text-decoration:none; }
+@media(max-width:860px) {
+  nav { padding:16px 24px; }
+  .nav-links { display:none; }
+  .nav-links.open { display:flex; flex-direction:column; position:absolute; top:100%; left:0; right:0; background:var(--cream); border-bottom:1px solid var(--border); padding:20px 24px; gap:16px; }
+  .hamburger { display:flex; }
+  .hero { padding:50px 24px 40px; }
+  .main-wrap { padding:40px 24px 60px; }
+  .excursion-card, .excursion-card.reverse { grid-template-columns:1fr; direction:ltr; }
+  .card-embed { min-height:220px; }
+  .spotify-inner { grid-template-columns:1fr; }
+  .cta-block { padding:2rem 1.5rem; }
+  footer { padding:24px; }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html#explore">Explore</a></li>
+    <li><a href="index.html#dutyfree">Duty Free ✈️</a></li>
+    <li><a href="index.html#wall">The Wall</a></li>
+    <li><a href="travel-guides.html">Guides</a></li>
+    <li><a href="feed-me.html">Feed Me 🍜</a></li>
+    <li><a href="shop.html">Gift Shop</a></li>
+    <li><a href="culture.html">Culture</a></li>
+    <li><a href="quiz.html">Quiz</a></li>
+    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="hero">
+  <div class="eyebrow">StopLookAround · Music Excursion</div>
+  <h1 class="hero-title">YOUR MUSIC<br>EXCURSION</h1>
+  <p class="hero-tagline">Not a playlist. Not an algorithm.</p>
+  <p class="hero-sub">Curated live performances from every corner of the world. Specific artists, specific concerts, specific moments worth watching. Press play and go somewhere.</p>
+</div>
+<div class="main-wrap">
+  <div class="section-label">Live Performances Worth Your Time</div>
+  <div class="excursion-grid">
+    <div class="excursion-card">
+      <div class="card-embed">
+        <iframe src="https://www.youtube.com/embed/NkmGue2WQyg" title="Cecile McLorin Salvant NPR Tiny Desk Concert" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="card-info">
+        <div class="card-number">01</div>
+        <div class="card-genre">Jazz · Vocal</div>
+        <h2 class="card-title">CECILE MCLORIN SALVANT</h2>
+        <p class="card-subtitle">NPR Tiny Desk Concert</p>
+        <p class="card-body">She walks into a conference room and turns it into Carnegie Hall. Jazz vocal at its most precise and playful — phrasing, storytelling, and a control of silence that most singers never find.</p>
+        <div class="card-tag-row">
+          <span class="card-tag">Jazz</span>
+          <span class="card-tag">Vocal</span>
+          <span class="card-tag">Live</span>
+          <span class="card-tag">USA</span>
+        </div>
+      </div>
+    </div>
+    <div class="excursion-card reverse">
+      <div class="card-embed">
+        <iframe src="https://www.youtube.com/embed/wTqCthvtL8k" title="Hermanos Gutierrez NPR Tiny Desk Concert" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="card-info">
+        <div class="card-number">02</div>
+        <div class="card-genre">Latin · Guitar</div>
+        <h2 class="card-title">HERMANOS GUTIERREZ</h2>
+        <p class="card-subtitle">NPR Tiny Desk Concert</p>
+        <p class="card-body">Two Swiss-Ecuadorian brothers who play like they invented a new language. Desert-dream guitar instrumentals that move between Latin America and the American Southwest without ever choosing a side.</p>
+        <div class="card-tag-row">
+          <span class="card-tag">Guitar</span>
+          <span class="card-tag">Instrumental</span>
+          <span class="card-tag">Latin</span>
+          <span class="card-tag">Switzerland</span>
+        </div>
+      </div>
+    </div>
+    <div class="excursion-card">
+      <div class="card-embed">
+        <iframe src="https://www.youtube.com/embed/Rx_IibJH4rA" title="Yo-Yo Ma Bach Cello Suite No 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="card-info">
+        <div class="card-number">03</div>
+        <div class="card-genre">Classical · Cello</div>
+        <h2 class="card-title">YO-YO MA</h2>
+        <p class="card-subtitle">Bach Cello Suite No. 1 — Live</p>
+        <p class="card-body">340 years old and it still stops the room. Yo-Yo Ma plays the Prelude like it is a conversation — unhurried, inevitable, and built from pure intention. A performance that earns its reputation every time.</p>
+        <div class="card-tag-row">
+          <span class="card-tag">Classical</span>
+          <span class="card-tag">Cello</span>
+          <span class="card-tag">Bach</span>
+          <span class="card-tag">Solo</span>
+        </div>
+      </div>
+    </div>
+    <div class="excursion-card reverse">
+      <div class="card-embed">
+        <iframe src="https://www.youtube.com/embed/hhwI8ITv_Is" title="Burna Boy Live Performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="card-info">
+        <div class="card-number">04</div>
+        <div class="card-genre">Afrobeats · Global</div>
+        <h2 class="card-title">BURNA BOY</h2>
+        <p class="card-subtitle">Live — Stadium Scale</p>
+        <p class="card-body">He calls himself the African Giant and the stage confirms it. Afrobeats at a size that should not work — a wall of horns, a crowd that knows every word, and a performer who makes enormous look effortless.</p>
+        <div class="card-tag-row">
+          <span class="card-tag">Afrobeats</span>
+          <span class="card-tag">Nigeria</span>
+          <span class="card-tag">Stadium</span>
+          <span class="card-tag">Live</span>
+        </div>
+      </div>
+    </div>
+    <div class="excursion-card">
+      <div class="card-embed">
+        <iframe src="https://www.youtube.com/embed/7IZOdI2jdKU" title="Nils Frahm All Melody" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="card-info">
+        <div class="card-number">05</div>
+        <div class="card-genre">Neoclassical · Piano</div>
+        <h2 class="card-title">NILS FRAHM</h2>
+        <p class="card-subtitle">All Melody</p>
+        <p class="card-body">Piano, organ, prepared strings, and a room that becomes an instrument. The Berlin composer builds worlds out of repetition and restraint — music that asks nothing of you except attention.</p>
+        <div class="card-tag-row">
+          <span class="card-tag">Neoclassical</span>
+          <span class="card-tag">Piano</span>
+          <span class="card-tag">Germany</span>
+          <span class="card-tag">Ambient</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-label">Deeper Listening</div>
+  <div class="spotify-block">
+    <div class="spotify-inner">
+      <div class="spotify-text">
+        <h2>KHRUANGBIN<br>CON TODO EL MUNDO</h2>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);margin:8px 0 14px;font-size:0.9rem;">Houston · Global</p>
+        <p>Three musicians, a sound that belongs to no single country, and a record that fuses Thai funk, Lebanese psych-pop, and Texas minimalism into something unhurried and entirely their own. Start here and let it play.</p>
+      </div>
+      <div>
+        <iframe style="border-radius:0" src="https://open.spotify.com/embed/album/42j41uUwuHZT3bnedq2XtM?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+    </div>
+  </div>
+  <div class="section-label">Also Worth Playing</div>
+  <div class="spotify-block">
+    <div class="spotify-inner">
+      <div>
+        <iframe style="border-radius:0" src="https://open.spotify.com/embed/album/69TYdq2UOhXr1OpIN9kdwJ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div class="spotify-text">
+        <h2>CECILE MCLORIN SALVANT<br>GHOST SONG</h2>
+        <p style="font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);margin:8px 0 14px;font-size:0.9rem;">Grammy-Winning · 2022</p>
+        <p>An album built from song fragments, half-remembered melodies, and original compositions that feel ancient. Avant-garde jazz with the architecture of a haunted house — every room connected, nothing wasted.</p>
+      </div>
+    </div>
+  </div>
+  <div class="cta-block">
+    <h2>KNOW A PERFORMANCE WORTH ADDING?</h2>
+    <p>We are always curating. If there is a live set, a tiny desk, a concert film that belongs here — tell us.</p>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="btn-primary">Submit a Recommendation</a>
+  </div>
+</div>
+<footer><p>© 2026 <a href="/index.html">StopLookAround.com</a> — No faces · Just places · <a href="https://x.com/stoplookco" target="_blank" rel="noopener">X Follow</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/affiliate.html">Affiliate Disclosure</a> · <a href="/cookie.html">Cookie Policy</a></p></footer>
+</body>
+</html>
