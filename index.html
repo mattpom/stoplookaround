@@ -2167,32 +2167,7 @@ async function slaSubscribe() {
   document.getElementById('sla-msg').textContent = 'Thanks! Check your inbox.';
   document.getElementById('sla-msg').style.color = '#C1440E';
   return;
-  // original code below kept for reference
-  const _unused = async function() {
-  const email = document.getElementById('sla-email').value.trim();
-  const msg = document.getElementById('sla-msg');
-  if (!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email address.'; msg.style.color='#C1440E'; return; }
-  msg.textContent = 'Subscribing...'; msg.style.color='rgba(253,250,244,0.4)';
-  // Brevo API — SLA list
-  try {
-    const res = await fetch('https://api.brevo.com/v3/contacts', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'api-key': 'BREVO_API_KEY_PLACEHOLDER' },
-      body: JSON.stringify({ email, listIds: [SLA_LIST_ID_PLACEHOLDER], updateEnabled: true, attributes: { SOURCE: 'SLA Website' } })
-    });
-    if (res.ok || res.status === 204) {
-      msg.textContent = '✓ You're in. Welcome to the community.';
-      msg.style.color = '#C9973A';
-      document.getElementById('sla-email').value = '';
-    } else {
-      throw new Error('API error');
-    }
-  } catch(e) {
-    msg.textContent = 'Something went wrong. Try again or email hello@stoplookaround.com';
-    msg.style.color = '#C1440E';
-  }
-}
-}}; document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
+}; document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
 </script>
 
 <footer>
