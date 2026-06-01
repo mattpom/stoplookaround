@@ -2146,10 +2146,10 @@ async function slaSubscribe() {
   form.method = 'POST';
   form.action = 'https://179420ee.sibforms.com/serve/MUIFAOzSXt3ibAJ-VGbA5dCb0e4OViDlrCM-3--0Tatf0r8jdWsbLhCmcWmpLV34OzfqsRuNi-7svCr4v4sG-rh2hlJ6qy7Wx-7t2VdlXZ99LUt5RoT4PZ0WbhoMsBwB-anJwjx2gHZ6BO_dIV3yVnzPKX-s48PSpijww4Y40Wei7i0jGiQIyYfuxWQT8iUsTpyCSlKS4zBY5UzJyg==';
   form.target = '_blank';
-  const emailInput = document.createElement('input');
-  emailInput.type = 'hidden';
-  emailInput.name = 'EMAIL';
-  emailInput.value = email;
+  const emailHiddenInput = document.createElement('input');
+  emailHiddenInput.type = 'hidden';
+  emailHiddenInput.name = 'EMAIL';
+  emailHiddenInput.value = email;
   const check = document.createElement('input');
   check.type = 'hidden';
   check.name = 'email_address_check';
@@ -2158,7 +2158,7 @@ async function slaSubscribe() {
   locale.type = 'hidden';
   locale.name = 'locale';
   locale.value = 'en';
-  form.appendChild(emailInput);
+  form.appendChild(emailHiddenInput);
   form.appendChild(check);
   form.appendChild(locale);
   document.body.appendChild(form);
@@ -2520,7 +2520,6 @@ async function slaSubscribe() {
       if (r.ok) { document.getElementById('dutyEmail').value = ''; alert('You\u2019re on the list! New sheets coming your way.'); }
       else { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
     }).catch(() => { alert('Something went wrong. Try again or email hello@stoplookaround.com'); });
-    const email = document.getElementById('dutyEmail').value.trim();
     if (!email || !email.includes('@')) {
       document.getElementById('dutyEmail').style.borderColor = 'var(--rust)';
       return;
