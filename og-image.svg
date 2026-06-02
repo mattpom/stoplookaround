@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f7f2e8"/>
+      <stop offset="100%" style="stop-color:#e8e0d0"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Rust accent bar top -->
+  <rect width="1200" height="6" fill="#c4522a"/>
+  <!-- Decorative camera frame -->
+  <rect x="800" y="80" width="340" height="470" rx="12" fill="none" stroke="#c4522a" stroke-width="3" opacity="0.15"/>
+  <rect x="820" y="100" width="300" height="430" rx="8" fill="none" stroke="#c4522a" stroke-width="1" opacity="0.1"/>
+  <!-- Main title - large -->
+  <text x="80" y="200" font-family="Georgia, serif" font-size="86" font-weight="900" fill="#1c1c1c" letter-spacing="-1">STOP.</text>
+  <text x="80" y="300" font-family="Georgia, serif" font-size="86" font-weight="900" fill="#1c1c1c" letter-spacing="-1">LOOK.</text>
+  <text x="80" y="400" font-family="Georgia, serif" font-size="86" font-weight="900" fill="#c4522a" letter-spacing="-1">AROUND.</text>
+  <!-- Tagline -->
+  <text x="80" y="470" font-family="Georgia, sans-serif" font-size="26" fill="#555555" letter-spacing="6">NO FACES. JUST PLACES.</text>
+  <!-- Decorative lines -->
+  <line x1="80" y1="495" x2="680" y2="495" stroke="#c4522a" stroke-width="2" opacity="0.4"/>
+  <!-- URL -->
+  <text x="80" y="540" font-family="Arial, sans-serif" font-size="22" fill="#c4522a" letter-spacing="2">stoplookaround.com</text>
+  <!-- Decorative circles (camera lens suggestion) -->
+  <circle cx="970" cy="315" r="140" fill="none" stroke="#c4522a" stroke-width="2" opacity="0.12"/>
+  <circle cx="970" cy="315" r="100" fill="none" stroke="#1c1c1c" stroke-width="1" opacity="0.08"/>
+  <circle cx="970" cy="315" r="60" fill="#c4522a" opacity="0.06"/>
+</svg>
