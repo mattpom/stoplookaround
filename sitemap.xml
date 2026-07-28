@@ -205,4 +205,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-</urlset>
+<url>
+  <loc>https://stoplookaround.com/deeper-dive.html</loc>
+    <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      </url>
+      </urlset>
