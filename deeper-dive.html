@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Deeper Dive -- StopLookAround</title>
+<link rel="canonical" href="https://stoplookaround.com/deeper-dive.html">
+<meta name="description" content="More places, more finds, more visual inspiration -- the deeper dive behind StopLookAround.">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTZ0K371Q6"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-MTZ0K371Q6');
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,400&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+--cream: #FDFAF4; --ink: #1a1a1a; --rust: #C1440E;
+--gold: #C9973A; --dusty: #6b6560; --card-bg: #F5F0E8;
+--border: rgba(107,101,96,0.18); --light-dust: rgba(107,101,96,0.15);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--cream); color:var(--ink); font-family:'Barlow',sans-serif; line-height:1.7; overflow-x:hidden; }
+nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-between; align-items:center; padding:18px 48px; background:rgba(253,250,244,0.94); backdrop-filter:blur(8px); border-bottom:1px solid var(--light-dust); }
+.nav-logo { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.12em; color:var(--ink); text-decoration:none; }
+.nav-logo .dot { color:var(--rust); }
+.nav-links { display:flex; gap:24px; list-style:none; align-items:center; }
+.nav-links a { font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--dusty); text-decoration:none; transition:color 0.2s; font-weight:500; }
+.nav-links a:hover, .nav-links a.active { color:var(--ink); }
+.nav-upload { background:var(--rust)!important; color:white!important; padding:8px 16px; font-size:0.7rem!important; letter-spacing:0.12em!important; }
+.nav-upload:hover { background:var(--ink)!important; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span { display:block; width:22px; height:2px; background:var(--ink); }
+.hero { padding:80px 48px 60px; border-bottom:1px solid var(--border); }
+.eyebrow { font-size:0.7rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--rust); margin-bottom:16px; font-weight:500; }
+.hero h1 { font-family:'Bebas Neue',sans-serif; font-size:clamp(3rem,7vw,5rem); letter-spacing:0.04em; color:var(--ink); margin-bottom:12px; }
+.hero p { font-size:1rem; font-weight:300; color:var(--dusty); max-width:560px; line-height:1.75; }
+.main-wrap { max-width:860px; margin:0 auto; padding:3rem 48px 5rem; }
+.section { margin-bottom:2.5rem; }
+.section h2 { font-family:'Bebas Neue',sans-serif; font-size:1.5rem; letter-spacing:0.06em; color:var(--ink); margin-bottom:0.8rem; }
+.section p { font-size:0.9rem; font-weight:300; color:var(--dusty); line-height:1.8; margin-bottom:1rem; }
+.section a { color:var(--rust); text-decoration:none; }
+.section a:hover { text-decoration:underline; }
+.pin-embed-wrap { background:var(--card-bg); border:1px solid var(--border); padding:2rem; margin-top:1.5rem; min-height:200px; }
+footer { border-top:1px solid var(--border); padding:28px 48px; text-align:center; }
+footer p { font-size:0.7rem; color:var(--dusty); letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
+footer a { color:var(--rust); text-decoration:none; }
+@media(max-width:768px) { nav { padding:16px 24px; } .hamburger { display:flex; } .nav-links { display:none; } .hero { padding:60px 24px 40px; } .main-wrap { padding:2rem 24px 4rem; } footer { padding:24px; } }
+</style>
+</head>
+<body>
+<nav>
+<a href="index.html" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="index.html#explore">Explore</a></li>
+<li><a href="index.html#dutyfree">Duty Free &#9992;&#65039;</a></li>
+<li><a href="index.html#wall">The Wall</a></li>
+<li><a href="travel-guides.html">Guides</a></li>
+<li><a href="feed-me.html">Feed Me &#127837;</a></li>
+<li><a href="shop.html">Gift Shop</a></li>
+<li><a href="culture.html">Culture</a></li>
+<li><a href="quiz.html">Quiz</a></li>
+<li><a href="deeper-dive.html" class="active">Deeper Dive</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload &rarr;</a></li>
+</ul>
+<button class="hamburger" onclick="document.getElementById('navLinks').classList.toggle('open')" aria-label="Menu">
+<span></span><span></span><span></span>
+</button>
+</nav>
+<div class="hero">
+<div class="eyebrow">More To See</div>
+<h1>DEEPER DIVE</h1>
+<p>The visual side of Stop. Look. Around. -- finds, inspiration, and extras pulled straight from a living Pinterest board. No faces. Just places.</p>
+</div>
+<div class="main-wrap">
+<div class="section">
+<h2>What This Is</h2>
+<p>Not every place worth seeing fits into a destination guide. This page is where the extra finds live -- the images and references that inform the guides published elsewhere on this site.</p>
+<p>It updates as new pins get added, so check back for more.</p>
+</div>
+<div class="section">
+<h2>The Board</h2>
+<div class="pin-embed-wrap">
+<a data-pin-do="embedUser" href="https://www.pinterest.com/luxmodestudio/" data-pin-board-width="900" data-pin-scale-height="240" data-pin-scale-width="80"></a>
+</div>
+</div>
+</div>
+<footer><p>&copy; 2026 <a href="/index.html">StopLookAround.com</a> -- No faces &middot; Just places &middot; <a href="https://x.com/stoplookco" target="_blank" rel="noopener">&#120143; Follow</a> &middot; <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a> &middot; <a href="/affiliate.html">Affiliate Disclosure</a> &middot; <a href="/cookie.html">Cookie Policy</a></p></footer>
+<script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
+</body>
+</html>
