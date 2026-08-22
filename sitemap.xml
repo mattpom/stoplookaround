@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stoplookaround.com/archive.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/best-hidden-gems-in-europe.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -111,6 +116,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stoplookaround.com/bhutan-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/blue-mosque-istanbul-six-minarets.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/budget-travel-tips-europe.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -129,6 +144,16 @@
     <loc>https://stoplookaround.com/culture.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/ephesus-nike-goddess-ruins.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/ethiopia-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://stoplookaround.com/feed-me.html</loc>
@@ -176,12 +201,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://stoplookaround.com/total-solar-eclipse-2024.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://stoplookaround.com/travel-guides.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stoplookaround.com/travel-photography-gear-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/vegemite-australia-culture.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -196,18 +231,8 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://stoplookaround.com/feed.xml</loc>
+    <loc>https://stoplookaround.com/deeper-dive.html</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://stoplookaround.com/ethiopia-travel-guide.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-<url>
-  <loc>https://stoplookaround.com/deeper-dive.html</loc>
-    <changefreq>weekly</changefreq>
-      <priority>0.8</priority>
-      </url>
-      </urlset>
+</urlset>
