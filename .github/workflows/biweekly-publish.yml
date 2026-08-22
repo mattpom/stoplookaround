@@ -2,7 +2,11 @@ name: Bi-Weekly Content Publisher
 
 on:
   schedule:
-    - cron: '0 9 * * 4/14'
+    # GitHub Actions cron has no true "every 2 weeks" step value - a day-of-week
+    # step like */14 is silently reduced to "every Thursday" by most parsers.
+    # This runs every Thursday and the first step below skips odd ISO weeks,
+    # producing a real biweekly cadence instead of a weekly one.
+    - cron: '0 9 * * 4'
   workflow_dispatch:
 
 jobs:
@@ -15,7 +19,21 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Check biweekly schedule
+        id: schedule
+        run: |
+          WEEK=$(date +%V)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          elif [ $(( 10#$WEEK % 2 )) -ne 0 ]; then
+            echo "::notice::Off week ($WEEK) - skipping, next run in 1 week"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Find and publish draft
+        if: steps.schedule.outputs.skip != 'true'
         run: |
           if ! ls _drafts/*.html > /dev/null 2>&1; then
             echo "::warning::No drafts found in _drafts/ - add next article before scheduled run"
@@ -29,32 +47,61 @@ jobs:
           TODAY=$(date +"%B %-d, %Y")
           TODAY_ISO=$(date +"%Y-%m-%d")
           echo "Publishing: $DRAFT_NAME | $TITLE | $TODAY"
-          # Update travel-guides.html - inject new card at top of New This Month section
+
+          # Update travel-guides.html - insert directly below the stable marker
+          # inside the "New This Month" grid (idempotent, always lands the newest
+          # entry first). & is escaped in replacement text because sed treats a
+          # literal & in s/// replacement as "the whole match", not a character.
           if [ -f travel-guides.html ]; then
-            NEW_CARD="          <a href=\"$DRAFT_NAME\" class=\"guide-card guide-card--featured\"><div class=\"guide-card__body\"><p class=\"guide-card__meta\">$TODAY<\/p><h2 class=\"guide-card__title\">$TITLE<\/h2><span class=\"guide-card__cta\">Read Guide &rarr;<\/span><\/div><\/a>"
-            sed -i "s|NEW THIS MONTH|NEW THIS MONTH<\/p>\n$NEW_CARD\n<!--NEWTHISMONTH|" travel-guides.html
+            CARD="<a href=\"$DRAFT_NAME\" class=\"guide-card\" style=\"border-left:2px solid var(--red)\">\n<span class=\"guide-cat\" style=\"color:var(--red)\">NEW &middot; Destination<\/span>\n<span class=\"guide-title\">$TITLE<\/span>\n<span class=\"guide-desc\"><\/span>\n<\/a>"
+            CARD_SAFE=$(printf '%s' "$CARD" | sed -e 's/&/\\\&/g')
+            if grep -q '<!-- NEW_THIS_MONTH_INSERT_POINT -->' travel-guides.html; then
+              sed -i "s|<!-- NEW_THIS_MONTH_INSERT_POINT -->|<!-- NEW_THIS_MONTH_INSERT_POINT -->\n$CARD_SAFE|" travel-guides.html
+            else
+              echo "::error::NEW_THIS_MONTH_INSERT_POINT marker not found in travel-guides.html - skipping to avoid corrupting the file. Add the marker back manually."
+            fi
           fi
-          # Update archive.html - inject into guide-list
+
+          # Update archive.html - insert after the stable marker (idempotent,
+          # always lands the newest entry directly below the marker = newest-first
+          # order). Uses a literal arrow character instead of the &rarr; HTML
+          # entity for the same sed & reason as above.
           if [ -f archive.html ]; then
-            ENTRY="          <a href=\"$DRAFT_NAME\" class=\"guide-row\"><div class=\"row-left\"><div class=\"row-cat\">Destination Guide<\/div><div class=\"row-title\">$TITLE<\/div><div class=\"row-date\">$TODAY<\/div><\/div><div class=\"row-arrow\">&rarr;<\/div><\/a>"
-            sed -i "s|class=\"guide-list\"|class=\"guide-list\">\n$ENTRY\n<!--GUIDELIST|" archive.html
+            ENTRY="<a href=\"$DRAFT_NAME\" class=\"guide-row\"><div class=\"row-left\"><div class=\"row-cat\">Destination Guide<\/div><div class=\"row-title\">$TITLE<\/div><div class=\"row-date\">$TODAY<\/div><\/div><div class=\"row-arrow\">→<\/div><\/a>"
+            ENTRY_SAFE=$(printf '%s' "$ENTRY" | sed -e 's/&/\\\&/g')
+            if grep -q '<!-- ARCHIVE_INSERT_POINT -->' archive.html; then
+              sed -i "s|<!-- ARCHIVE_INSERT_POINT -->|<!-- ARCHIVE_INSERT_POINT -->\n$ENTRY_SAFE|" archive.html
+            else
+              echo "::error::ARCHIVE_INSERT_POINT marker not found in archive.html - skipping to avoid corrupting the file. Add the marker back manually."
+            fi
+            # NOTE: the "New This Month" hero card near the top of archive.html
+            # (single featured entry, separate from the marker above) is
+            # hand-curated and intentionally not touched by this workflow -
+            # update its href/title/date manually when a new article should
+            # be featured there.
           fi
+
           # Update sitemap.xml - insert new URL before closing tag
           if [ -f sitemap.xml ]; then
             NEW_URL="  <url>\n    <loc>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/loc>\n    <changefreq>monthly<\/changefreq>\n    <priority>0.9<\/priority>\n  <\/url>"
             sed -i "s|<\/urlset>|$NEW_URL\n<\/urlset>|" sitemap.xml
-            # Fix index.html canonical URL if present
             sed -i "s|stoplookaround.com/index.html|stoplookaround.com/|g" sitemap.xml
           fi
-          # Update or create feed.xml RSS feed
-          FEED_ENTRY="    <item>\n      <title>$TITLE<\/title>\n      <link>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/link>\n      <pubDate>$(date -R)<\/pubDate>\n      <guid>https:\/\/stoplookaround.com\/$DRAFT_NAME<\/guid>\n    <\/item>"
+
+          # Update or create feed.xml RSS feed. Titles are XML-escaped (raw & is
+          # invalid in XML text), and the whole entry is sed-escaped before use as
+          # replacement text for the same reason as the archive.html entry above.
+          TITLE_XML=$(printf '%s' "$TITLE" | sed 's/&/\&amp;/g')
+          FEED_ENTRY="    <item>\n      <title>$TITLE_XML</title>\n      <link>https://stoplookaround.com/$DRAFT_NAME</link>\n      <pubDate>$(date -R)</pubDate>\n      <guid>https://stoplookaround.com/$DRAFT_NAME</guid>\n    </item>"
+          FEED_ENTRY_SAFE=$(printf '%s' "$FEED_ENTRY" | sed -e 's/&/\\\&/g')
           if [ -f feed.xml ]; then
-            sed -i "s|<\/channel>|$FEED_ENTRY\n  <\/channel>|" feed.xml
+            sed -i "s|<\/channel>|$FEED_ENTRY_SAFE\n  <\/channel>|" feed.xml
           else
             printf '%s\n' '<?xml version="1.0" encoding="UTF-8"?>' '<rss version="2.0">' '  <channel>' '    <title>Stop. Look Around. — Travel Guides</title>' '    <link>https://stoplookaround.com</link>' '    <description>Travel guides for people who actually go places. No selfies. Just places.</description>' '    <language>en-us</language>' > feed.xml
-            echo "$FEED_ENTRY" >> feed.xml
+            echo -e "$FEED_ENTRY" >> feed.xml
             printf '%s\n' '  </channel>' '</rss>' >> feed.xml
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
