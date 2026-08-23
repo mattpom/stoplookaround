@@ -2140,47 +2140,36 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
   </div>
 </section>
 <script>
-async function slaSubscribe() {
-    const emailInput = document.querySelector('.newsletter-email, #slaEmail, input[type=email]');
-    const email = (emailInput ? emailInput.value.trim() : '') || document.getElementById('sla-email')?.value?.trim() || '';
-    if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-    try {
-      const r = await fetch('https://formspree.io/f/xpwzdngg', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-        body: JSON.stringify({email: email, source: 'newsletter-signup'})
-      });
-      if (r.ok) { if (emailInput) emailInput.value = ''; alert('Welcome! You\u2019ll never miss a place.'); }
-      else { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
-    } catch(e) { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
-  // email already declared above
-  if (!email) return;
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = 'https://179420ee.sibforms.com/serve/MUIFAOzSXt3ibAJ-VGbA5dCb0e4OViDlrCM-3--0Tatf0r8jdWsbLhCmcWmpLV34OzfqsRuNi-7svCr4v4sG-rh2hlJ6qy7Wx-7t2VdlXZ99LUt5RoT4PZ0WbhoMsBwB-anJwjx2gHZ6BO_dIV3yVnzPKX-s48PSpijww4Y40Wei7i0jGiQIyYfuxWQT8iUsTpyCSlKS4zBY5UzJyg==';
-  form.target = '_blank';
-  const emailHiddenInput = document.createElement('input');
-  emailHiddenInput.type = 'hidden';
-  emailHiddenInput.name = 'EMAIL';
-  emailHiddenInput.value = email;
-  const check = document.createElement('input');
-  check.type = 'hidden';
-  check.name = 'email_address_check';
-  check.value = '';
-  const locale = document.createElement('input');
-  locale.type = 'hidden';
-  locale.name = 'locale';
-  locale.value = 'en';
-  form.appendChild(emailHiddenInput);
-  form.appendChild(check);
-  form.appendChild(locale);
-  document.body.appendChild(form);
-  form.submit();
-  document.body.removeChild(form);
-  document.getElementById('sla-msg').textContent = 'Thanks! Check your inbox.';
-  document.getElementById('sla-msg').style.color = '#C1440E';
-  return;
-}; document.getElementById('sla-email').addEventListener('keydown', e => { if(e.key==='Enter') slaSubscribe(); });
+function slaSubscribe(e) {
+  if (e && e.preventDefault) e.preventDefault();
+  var emailInput = document.getElementById('sla-email');
+  var email = emailInput ? emailInput.value.trim() : '';
+  var msg = document.getElementById('sla-msg');
+  if (!email || !email.includes('@')) {
+    if (msg) { msg.textContent = 'Please enter a valid email address.'; msg.style.color = '#C1440E'; }
+    return false;
+  }
+  if (msg) { msg.textContent = 'Subscribing...'; msg.style.color = 'rgba(253,250,244,0.4)'; }
+  fetch('https://sla-newsletter-signup.mattpom01.workers.dev', {
+    method: 'POST',
+    headers: {'content-type': 'application/json'},
+    body: JSON.stringify({email: email})
+  }).then(function(r) {
+    return r.json().then(function(d) { return {ok: r.ok, data: d}; });
+  }).then(function(res) {
+    if (res.ok) {
+      if (msg) { msg.textContent = 'You\'re in. Welcome to the list.'; msg.style.color = '#C1440E'; }
+      if (emailInput) emailInput.value = '';
+      if (typeof gtag !== 'undefined') { gtag('event', 'newsletter_signup', {method: 'homepage_section', list: 'stop_look_around'}); }
+    } else {
+      if (msg) { msg.textContent = (res.data && res.data.error) || 'Something went wrong. Try again.'; msg.style.color = '#C1440E'; }
+    }
+  }).catch(function() {
+    if (msg) { msg.textContent = 'Something went wrong. Try again.'; msg.style.color = '#C1440E'; }
+  });
+  return false;
+}
+document.getElementById('sla-email').addEventListener('keydown', function(e) { if (e.key === 'Enter') slaSubscribe(e); });
 </script>
 
 <footer>
@@ -2504,16 +2493,16 @@ async function slaSubscribe() {
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
       body: JSON.stringify({email: email, source: 'duty-free-signup'})
     }).then(r => {
-      if (r.ok) { document.getElementById('dutyEmail').value = ''; alert('You\u2019re on the list! New sheets coming your way.'); }
-      else { alert('Something went wrong. Try again or email hello@stoplookaround.com'); }
+      if (r.ok) {
+        document.getElementById('dutyEmail').value = '';
+        document.querySelector('.email-capture button').textContent = "You're In ✓";
+        document.querySelector('.email-capture button').style.background = 'var(--sage)';
+        document.getElementById('dutyEmail').disabled = true;
+        alert('You\u2019re on the list! New sheets coming your way.');
+      } else {
+        alert('Something went wrong. Try again or email hello@stoplookaround.com');
+      }
     }).catch(() => { alert('Something went wrong. Try again or email hello@stoplookaround.com'); });
-    if (!email || !email.includes('@')) {
-      document.getElementById('dutyEmail').style.borderColor = 'var(--rust)';
-      return;
-    }
-    document.querySelector('.email-capture button').textContent = "You're In ✓";
-    document.querySelector('.email-capture button').style.background = 'var(--sage)';
-    document.getElementById('dutyEmail').disabled = true;
   }
 
   function filterGear(btn, cat) {
@@ -2599,5 +2588,5 @@ async function slaSubscribe() {
   })();
   </script>
   <!-- End Enhanced GA4 Event Tracking -->
-<!-- Newsletter Signup Section --><section id="newsletter" style="background:#1c1c1c;padding:80px 24px;text-align:center;"><div style="max-width:600px;margin:0 auto;"><p style="font-family:'Karla',sans-serif;font-size:11px;letter-spacing:0.15em;text-transform:uppercase;color:#c4522a;margin:0 0 16px;">NO SPAM. EVER.</p><h2 style="font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,6vw,4rem);color:#f7f2e8;line-height:1;margin:0 0 20px;">GET THE PLACES.<br>NOT THE SELFIES.</h2><p style="font-family:'Lora',serif;font-style:italic;color:#8c7b6b;font-size:1.05rem;line-height:1.6;margin:0 0 36px;">New travel guides, hidden gems, and the occasional place that deserves more than a hashtag. Straight to your inbox.</p><form id="sla-newsletter-form" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;" action="https://179420ee.sibforms.com/serve/MUIFAOzSXt3ibAJ-VGbA5dCb0e4OViDlrCM-3--0Tatf0r8jdWsbLhCmcWmpLV34OzfqsRuNi-7svCr4v4sG-rh2hlJ6qy7Wx-7t2VdlXZ99LUt5RoT4PZ0WbhoMsBwB-anJwjx2gHZ6BO_dIV3yVnzPKX-s48PSpijww4Y40Wei" method="POST" target="_blank"><input type="email" id="sla-email" placeholder="your@email.com" required style="flex:1;min-width:240px;max-width:360px;padding:14px 20px;font-family:'Karla',sans-serif;font-size:1rem;background:#2a2a2a;color:#f7f2e8;border:1px solid #3a3a3a;border-radius:2px;outline:none;" /><button type="submit" style="padding:14px 32px;background:#c4522a;color:#f7f2e8;font-family:'Karla',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border:none;border-radius:2px;cursor:pointer;white-space:nowrap;">JOIN THE LIST</button></form><p id="sla-newsletter-msg" style="font-family:'Karla',sans-serif;font-size:0.9rem;color:#d4a843;margin:20px 0 0;min-height:1.2em;"></p></div></section><script>function slaSubscribe(e){e.preventDefault();var email=document.getElementById('sla-email').value.trim();var msg=document.getElementById('sla-newsletter-msg');if(!email){msg.textContent='Please enter your email.';return false;}msg.textContent='Subscribing...';fetch('https://sla-newsletter-signup.mattpom01.workers.dev',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({email:email})}).then(function(r){return r.json().then(function(d){return {ok:r.ok,data:d};});}).then(function(res){if(res.ok){msg.textContent='You\'re in. Welcome to the list.';document.getElementById('sla-email').value='';if(typeof gtag!=='undefined'){gtag('event','newsletter_signup',{method:'homepage_section',list:'stop_look_around'});}}else{msg.textContent=res.data.error||'Something went wrong. Try again.';}}).catch(function(){msg.textContent='Something went wrong. Try again.';});return false;}</script></body>
+</body>
 </html>
