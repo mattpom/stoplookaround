@@ -564,6 +564,16 @@
     text-transform: uppercase;
     color: white;
   }
+  .destination-sheet-link {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--mustard);
+    cursor: pointer;
+  }
+  .destination-sheet-link:hover { color: white; text-decoration: underline; }
 
   .destination-empty {
     display: none;
@@ -1843,7 +1853,9 @@
   }
   .secondary-drawer > summary strong { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
   .secondary-drawer[open] > summary { border-bottom: 2px solid var(--ink); background: var(--mustard); }
-  .secondary-drawer[open] > summary strong::after { content: " Close"; }
+  .drawer-label-close { display: none; }
+  .secondary-drawer[open] > summary .drawer-label-open { display: none; }
+  .secondary-drawer[open] > summary .drawer-label-close { display: inline; }
   .secondary-drawer .drawer-content { overflow: hidden; }
   .principles-drawer .manifesto { margin-top: 0; }
   .duty-drawer { border-bottom: 2px solid var(--ink); }
@@ -2003,25 +2015,25 @@
 
     <div class="destination-grid" id="destinationGrid">
       <a class="destination-card" href="best-places-to-visit-in-japan.html" data-search="japan kyoto tokyo culture food temples rail city hidden" style="--card-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Japan</span><h3>KYOTO &amp; BEYOND</h3><p>Temple mornings, tiny counters and trains that make sense.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Japan</span><h3>KYOTO &amp; BEYOND</h3><p>Temple mornings, tiny counters and trains that make sense.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Japan', 'JP');">Grab the Japan Sheet →</span></div>
       </a>
       <a class="destination-card" href="best-places-to-visit-in-portugal.html" data-search="portugal lisbon porto sintra food coast culture city hidden" style="--card-image:url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Portugal</span><h3>LISBON TO PORTO</h3><p>Tiles, hills, Atlantic light and lunch that takes its time.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Portugal</span><h3>LISBON TO PORTO</h3><p>Tiles, hills, Atlantic light and lunch that takes its time.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Portugal', 'PT');">Grab the Portugal Sheet →</span></div>
       </a>
       <a class="destination-card" href="best-places-to-visit-in-morocco.html" data-search="morocco marrakech fez sahara desert markets food culture hidden" style="--card-image:url('https://images.unsplash.com/photo-1568454537842-d933259bb258?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Morocco</span><h3>MARRAKECH &amp; THE DESERT</h3><p>Medinas, mint tea and roads that run into the sand.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Morocco</span><h3>MARRAKECH &amp; THE DESERT</h3><p>Medinas, mint tea and roads that run into the sand.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Morocco', 'MA');">Grab the Morocco Sheet →</span></div>
       </a>
       <a class="destination-card" href="best-places-to-visit-in-italy.html" data-search="italy amalfi dolomites rome coast food mountains culture" style="--card-image:url('https://images.unsplash.com/photo-1518638150340-f706e86654de?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Italy</span><h3>AMALFI TO THE DOLOMITES</h3><p>Coast roads, mountain air and very serious pasta.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Italy</span><h3>AMALFI TO THE DOLOMITES</h3><p>Coast roads, mountain air and very serious pasta.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Italy', 'IT');">Grab the Italy Sheet →</span></div>
       </a>
       <a class="destination-card" href="best-places-to-visit-in-greece.html" data-search="greece athens meteora islands ruins coast culture hidden" style="--card-image:url('https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Greece</span><h3>ATHENS, ISLANDS &amp; METEORA</h3><p>Old stones, blue water and villages above the clouds.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Greece</span><h3>ATHENS, ISLANDS &amp; METEORA</h3><p>Old stones, blue water and villages above the clouds.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Greece', 'GR');">Grab the Greece Sheet →</span></div>
       </a>
       <a class="destination-card" href="budapest-hungary-travel-guide.html" data-search="hungary budapest danube parliament thermal baths food culture city hidden nightlife central europe" style="--card-image:url('https://images.unsplash.com/photo-1756413664903-159797c47477?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Hungary</span><h3>BUDAPEST</h3><p>Two cities, one river, thermal water and architecture that refuses to whisper.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Hungary</span><h3>BUDAPEST</h3><p>Two cities, one river, thermal water and architecture that refuses to whisper.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Hungary', 'HU');">Grab the Hungary Sheet →</span></div>
       </a>
       <a class="destination-card" href="best-places-to-visit-in-spain.html" data-search="spain barcelona seville san sebastian food coast culture city hidden" style="--card-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1000&amp;q=82&amp;fit=crop')">
-        <div><span class="destination-card-country">Spain</span><h3>BARCELONA TO SEVILLE</h3><p>Markets, late nights and architecture with no indoor voice.</p><span class="destination-arrow">Open the guide →</span></div>
+        <div><span class="destination-card-country">Spain</span><h3>BARCELONA TO SEVILLE</h3><p>Markets, late nights and architecture with no indoor voice.</p><span class="destination-arrow">Open the guide →</span><span class="destination-sheet-link" onclick="event.preventDefault(); event.stopPropagation(); grabSheet('Spain', 'ES');">Grab the Spain Sheet →</span></div>
       </a>
     </div>
 
@@ -2185,7 +2197,8 @@
 <details class="secondary-drawer principles-drawer">
   <summary>
     <span>What we stand for</span>
-    <strong>No faces. Just places. See the simple rules →</strong>
+    <strong class="drawer-label-open">No faces. Just places. See the simple rules →</strong>
+    <strong class="drawer-label-close">Close</strong>
   </summary>
   <div class="drawer-content">
 <!-- ── MARQUEE ── -->
@@ -2392,7 +2405,8 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 <details class="secondary-drawer community-drawer" id="community">
   <summary>
     <span>Community</span>
-    <strong>Travel notes, submissions &amp; photo standards →</strong>
+    <strong class="drawer-label-open">Travel notes, submissions &amp; photo standards →</strong>
+    <strong class="drawer-label-close">Close</strong>
   </summary>
   <div class="drawer-content">
 <!-- ── GRAFFITI WALL ── -->
@@ -2546,7 +2560,8 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 <details class="secondary-drawer duty-drawer" id="free-guides">
   <summary>
     <span>Duty Free</span>
-    <strong>Open the free AI travel sheets →</strong>
+    <strong class="drawer-label-open">Open the free AI travel sheets →</strong>
+    <strong class="drawer-label-close">Close</strong>
   </summary>
   <div class="drawer-content">
 <!-- ── IT'S YOUR DUTY FREE ── -->
@@ -3403,14 +3418,34 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
 
 <script id="sla-home-clarity-js">
   (function () {
-    function revealHashTarget() {
-      if (!window.location.hash) return;
-      var target = document.querySelector(window.location.hash);
+    function openDetailsFor(hash) {
+      if (!hash) return;
+      var target = document.querySelector(hash);
       var parent = target && target.closest('details');
       if (parent) parent.open = true;
     }
-    window.addEventListener('hashchange', revealHashTarget);
-    revealHashTarget();
+    // Handles direct/bookmarked loads with a hash already in the URL
+    openDetailsFor(window.location.hash);
+    // Handles the hash actually changing
+    window.addEventListener('hashchange', function () { openDetailsFor(window.location.hash); });
+    // Handles clicking a link whose target hash matches the CURRENT hash
+    // (hashchange never fires in that case, so the drawer would otherwise never open)
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        openDetailsFor(this.getAttribute('href'));
+      });
+    });
+    // Deep-link straight to a specific country sheet: index.html?sheet=Italy&code=IT#dutyfree
+    // Used by "Grab the X Sheet" links on individual guide pages.
+    var params = new URLSearchParams(window.location.search);
+    var sheetCountry = params.get('sheet');
+    var sheetCode = params.get('code');
+    if (sheetCountry && sheetCode) {
+      window.addEventListener('DOMContentLoaded', function () {
+        openDetailsFor('#dutyfree');
+        if (typeof grabSheet === 'function') grabSheet(sheetCountry, sheetCode);
+      });
+    }
   })();
 </script>
 
