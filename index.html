@@ -1614,9 +1614,12 @@
 
   @media (max-width: 900px) {
     .dutyfree-section, .biggerbag-section { padding: 60px 24px; }
-    .sheets-grid { grid-template-columns: 1fr; }
+    .sheets-grid { grid-template-columns: 1fr 1fr; }
     .gear-grid { grid-template-columns: 1fr 1fr; }
     .sheet-modal { padding: 28px; }
+  }
+  @media (max-width: 600px) {
+    .sheets-grid { grid-template-columns: 1fr; }
   }
 
   @media print {
