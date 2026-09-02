@@ -77,6 +77,23 @@
   .gear-card p { font-size: 0.78rem; color: rgba(247,242,232,0.4); line-height: 1.55; margin-bottom: 12px; }
   .gear-link { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mustard); }
   .gear-disclaimer { margin-top: 24px; font-size: 0.72rem; color: rgba(247,242,232,0.2); border-top: 1px solid rgba(247,242,232,0.06); padding-top: 16px; }
+
+  .forgot-section { margin: 3rem 0; background: var(--ink); color: var(--cream); border-top: 5px solid var(--rust); padding: 34px; }
+  .forgot-kicker { display: block; color: var(--mustard); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 8px; }
+  .article-body .forgot-section h2 { color: var(--cream); font-size: clamp(2.3rem, 6vw, 3.5rem); line-height: 0.95; margin: 0 0 10px; }
+  .article-body .forgot-intro { color: rgba(247,242,232,0.62); max-width: 650px; margin: 0 0 24px; font-size: 0.92rem; line-height: 1.65; }
+  .forgot-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+  .forgot-card { background: var(--cream); color: var(--ink); border-left: 4px solid var(--rust); padding: 20px; text-decoration: none; display: flex; flex-direction: column; min-height: 190px; transition: transform 0.2s, background 0.2s; }
+  .forgot-card:hover { transform: translateY(-2px); background: #fff; }
+  .forgot-card:focus-visible { outline: 3px solid var(--mustard); outline-offset: 3px; }
+  .forgot-card.optional { border-left-color: var(--mustard); }
+  .forgot-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 18px; }
+  .forgot-number { font-family: 'Bebas Neue', sans-serif; color: var(--rust); font-size: 1.25rem; letter-spacing: 0.08em; }
+  .forgot-tag { color: var(--dusty); border: 1px solid var(--light-dust); padding: 4px 7px; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .forgot-card h3 { font-family: 'Lora', serif; color: var(--ink); font-size: 1rem; line-height: 1.35; margin: 0 0 8px; }
+  .article-body .forgot-card p { color: #625b54; font-size: 0.79rem; line-height: 1.55; margin: 0 0 16px; }
+  .forgot-buy { color: var(--rust); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; margin-top: auto; }
+  .article-body .forgot-disclosure { color: rgba(247,242,232,0.35); font-size: 0.68rem; line-height: 1.5; margin: 18px 0 0; padding-top: 16px; border-top: 1px solid rgba(247,242,232,0.08); }
   .related-strip { padding: 60px 72px; background: var(--cream); }
   .related-strip-inner { max-width: 860px; margin: 0 auto; }
   .related-strip .overline { font-size: 0.72rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rust); display: block; margin-bottom: 12px; }
@@ -93,6 +110,7 @@
     .article-hero { padding: 100px 24px 48px; }
     .article-body { padding: 40px 24px 60px; }
     .gear-strip { padding: 48px 24px; } .gear-grid { grid-template-columns: 1fr 1fr; }
+    .forgot-section { margin: 2.4rem 0; padding: 26px 20px; } .forgot-grid { grid-template-columns: 1fr; } .forgot-card { min-height: 0; }
     .related-strip { padding: 48px 24px; } .related-grid { grid-template-columns: 1fr; }
   }
 
@@ -231,6 +249,58 @@ A TWO-WEEK TRIP</h1>
     <tr><td>Comfort</td><td>Neck pillow (inflatable), sleep mask, earplugs</td><td>Overnight trains and budget flights need these</td></tr>
   </tbody>
 </table>
+
+
+<section class="forgot-section" id="forgot-that" aria-labelledby="forgot-that-title">
+  <span class="forgot-kicker">The last-minute save</span>
+  <h2 id="forgot-that-title">OOPS. FORGOT THAT.</h2>
+  <p class="forgot-intro">The small things that become expensive airport purchases—or inconvenient problems—when they miss the first packing pass.</p>
+  <div class="forgot-grid">
+    <a class="forgot-card" href="https://www.amazon.com/dp/B078S3M2NX?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B078S3M2NX">
+      <span class="forgot-card-top"><span class="forgot-number">01</span><span class="forgot-tag">Power</span></span>
+      <h3>EPICKA Universal Travel Adapter</h3>
+      <p>Covers the plug problem in most destinations. It changes the plug shape—not the voltage—so check heat tools first.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card" href="https://www.amazon.com/dp/B014VBGUCA?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B014VBGUCA">
+      <span class="forgot-card-top"><span class="forgot-number">02</span><span class="forgot-tag">Organization</span></span>
+      <h3>Amazon Basics Packing Cubes</h3>
+      <p>Separates clean, worn, and easy-access clothes. They organize space; they do not make an overweight bag lighter.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card" href="https://www.amazon.com/dp/B0D5CLSMFB?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B0D5CLSMFB">
+      <span class="forgot-card-top"><span class="forgot-number">03</span><span class="forgot-tag">Backup</span></span>
+      <h3>Anker PowerCore 10K Power Bank</h3>
+      <p>A compact reserve for navigation-heavy days. Lithium power banks belong in your carry-on, never in checked luggage.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card" href="https://www.amazon.com/dp/B088NMR44C?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B088NMR44C">
+      <span class="forgot-card-top"><span class="forgot-number">04</span><span class="forgot-tag">Cable</span></span>
+      <h3>Anker USB-C Cable 2-Pack</h3>
+      <p>One in the day bag, one at the hotel. Confirm your phone uses USB-C before ordering; older iPhones need Lightning.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card" href="https://www.amazon.com/dp/B0933BVK6T?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B0933BVK6T">
+      <span class="forgot-card-top"><span class="forgot-number">05</span><span class="forgot-tag">Luggage</span></span>
+      <h3>Apple AirTag</h3>
+      <p>Useful for locating a delayed bag through Apple’s Find My network. It is a tracker, not a lock or theft guarantee.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card" href="https://www.amazon.com/dp/B07CLFX2V4?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B07CLFX2V4">
+      <span class="forgot-card-top"><span class="forgot-number">06</span><span class="forgot-tag">Documents</span></span>
+      <h3>Zoppen RFID Passport Wallet</h3>
+      <p>Keeps a passport, cards, and boarding documents in one place. Best for travelers who want organization over a bare cover.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+    <a class="forgot-card optional" href="https://www.amazon.com/dp/B010U13F50?tag=stoplookaround-20" target="_blank" rel="noopener sponsored nofollow" data-product="B010U13F50">
+      <span class="forgot-card-top"><span class="forgot-number">07</span><span class="forgot-tag">Optional</span></span>
+      <h3>Peak Gear RFID Money Belt</h3>
+      <p>A situational choice for crowded transit days or carrying backup cash. Wear it under clothing; skip it when you do not need it.</p>
+      <span class="forgot-buy">View exact product →</span>
+    </a>
+  </div>
+  <p class="forgot-disclosure">Affiliate links. You pay the same price; Stop Look Around may earn a commission. Product availability can change.</p>
+</section>
 
 <h2>WHAT TO LEAVE BEHIND</h2>
 <ul>
