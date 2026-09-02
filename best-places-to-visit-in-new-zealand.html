@@ -59,6 +59,23 @@ footer{border-top:1px solid var(--border);padding:28px 48px;text-align:center}
 footer p{font-size:0.7rem;color:var(--dusty);letter-spacing:0.1em;text-transform:uppercase;font-weight:500}
 footer a{color:var(--rust);text-decoration:none}
 @media(max-width:768px){nav{padding:16px 24px}.nav-links{display:none}.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--border);padding:20px 24px;gap:16px}.hamburger{display:flex}.hero{padding:50px 24px 40px}.main{padding:2rem 24px 4rem}.gear-grid{grid-template-columns:1fr}footer{padding:24px}}
+
+<style id="sla-trip-planner-styles">
+.sla-trip-planner{max-width:1120px;margin:30px auto 0;padding:0 48px}
+.sla-trip-planner-inner{background:#1c1c1c;border-top:4px solid #c4522a;padding:28px 30px;color:#f7f2e8}
+.sla-trip-planner-kicker{display:block;color:#d4a843;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px}
+.sla-trip-planner h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.9rem,4vw,2.8rem);letter-spacing:.05em;line-height:1;margin:0 0 8px;color:#f7f2e8}
+.sla-trip-planner-copy{color:rgba(247,242,232,.62);font-size:.9rem;line-height:1.65;margin:0 0 20px;max-width:720px}
+.sla-trip-planner-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sla-trip-planner-link{display:block;background:#f7f2e8;color:#1c1c1c;text-decoration:none;padding:17px 18px;border-left:4px solid #c4522a;transition:transform .2s,background .2s}
+.sla-trip-planner-link:hover{transform:translateY(-2px);background:#fff}
+.sla-trip-planner-partner{display:block;color:#c4522a;font-size:.66rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.sla-trip-planner-link strong{display:block;font-size:1rem;line-height:1.25;margin-bottom:4px}
+.sla-trip-planner-link small{display:block;color:#6b6560;font-size:.78rem;line-height:1.4}
+.sla-trip-planner-disclosure{font-size:.68rem;color:rgba(247,242,232,.35);line-height:1.5;margin:14px 0 0}
+.sla-trip-planner-link:focus-visible{outline:3px solid #d4a843;outline-offset:3px}
+@media(max-width:700px){.sla-trip-planner{padding:0 20px;margin-top:22px}.sla-trip-planner-inner{padding:24px 20px}.sla-trip-planner-actions{grid-template-columns:1fr}}
+</style>
 </style>
 </head>
 <body>
@@ -84,6 +101,16 @@ footer a{color:var(--rust);text-decoration:none}
   <h1 class="hero-title">NEW ZEALAND</h1>
   <p class="hero-sub">Three hours of flying time separates two islands that contain more landscape variety than most continents. Fiords, glaciers, geothermal valleys, vineyard plains, and beaches in the same small country.</p>
 </div>
+
+<section class="sla-trip-planner" id="sla-trip-planner" aria-labelledby="sla-trip-planner-title">
+  <div class="sla-trip-planner-inner">
+    <span class="sla-trip-planner-kicker">Ready to go?</span>
+    <h2 id="sla-trip-planner-title">TURN THIS GUIDE INTO A TRIP</h2>
+    <p class="sla-trip-planner-copy">Use the guide first. Then compare a practical place to stay and book one experience worth building the day around.</p>
+    <div class="sla-trip-planner-actions"><a class="sla-trip-planner-link" href="https://www.booking.com/search.html?ss=New%2BZealand&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="sla-trip-planner-partner">Stay · Booking.com</span><strong>New+Zealand</strong><small>Compare places to stay →</small></a><a class="sla-trip-planner-link" href="https://www.getyourguide.com/s/?q=milford+sound+cruise&amp;partner_id=X8AICJ6&amp;utm_medium=online_publisher&amp;utm_source=stoplookaround" target="_blank" rel="noopener sponsored" data-affiliate-partner="GetYourGuide"><span class="sla-trip-planner-partner">Do · GetYourGuide</span><strong>Milford Sound Cruise</strong><small>Check tours and availability →</small></a></div>
+    <p class="sla-trip-planner-disclosure">Affiliate links. You pay the same price; Stop Look Around may earn a commission.</p>
+  </div>
+</section>
 <div class="main">
   <div class="article-h2">FIORDLAND: MILFORD SOUND</div>
 <div class="article-body"><p>Milford Sound receives an average of 7 meters of rainfall per year — making it one of the wettest inhabited places on Earth and producing the waterfalls that cascade down its cliff faces after every rain. The boat cruise through the fiord passes Mitre Peak (rising 1,692 meters directly from the water), fur seal colonies on the rocks, and, on clear days, the Tasman Sea at the fiord mouth. The drive from Queenstown through the Homer Tunnel is itself one of the great alpine road journeys.</p></div>
@@ -124,5 +151,25 @@ footer a{color:var(--rust);text-decoration:none}
   </div>
 </div>
 <footer><p>© 2026 <a href="/index.html">StopLookAround.com</a> — No faces · Just places · <a href="https://x.com/stoplookco" target="_blank" rel="noopener">𝕏 Follow</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a> · <a href="/affiliate.html">Affiliate Disclosure</a> · <a href="/cookie.html">Cookie Policy</a></p><p>Owned and operated by Mattpom Digital Ventures LLC.</p></footer>
+
+<script id="sla-travel-affiliate-tracking">
+(function(){
+  if(window.__slaTravelAffiliateTracking)return;
+  window.__slaTravelAffiliateTracking=true;
+  document.addEventListener('click',function(event){
+    var link=event.target.closest&&event.target.closest('a[href*="booking.com"],a[href*="getyourguide.com"]');
+    if(!link)return;
+    var partner=link.href.indexOf('booking.com')!==-1?'Booking.com':'GetYourGuide';
+    if(typeof gtag==='function'){
+      gtag('event','travel_affiliate_click',{
+        affiliate_partner:partner,
+        link_url:link.href,
+        link_text:(link.textContent||'').trim().slice(0,100),
+        page_path:window.location.pathname
+      });
+    }
+  });
+})();
+</script>
 </body>
 </html>
