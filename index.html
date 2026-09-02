@@ -365,6 +365,239 @@
     line-height: 1.3;
   }
 
+
+  /* ── DESTINATION FINDER ── */
+  .destination-finder {
+    background: var(--cream);
+    padding: 88px 72px 96px;
+    border-bottom: 1px solid var(--light-dust);
+  }
+
+  .destination-finder-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .destination-finder-head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: end;
+    margin-bottom: 36px;
+  }
+
+  .destination-kicker {
+    display: block;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 14px;
+  }
+
+  .destination-finder h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    line-height: 0.88;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+  }
+
+  .destination-finder h2 em {
+    color: var(--rust);
+    font-style: normal;
+  }
+
+  .destination-search-copy {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--dusty);
+    line-height: 1.7;
+    margin-bottom: 18px;
+    max-width: 520px;
+  }
+
+  .destination-search-form {
+    display: flex;
+    background: var(--warm-white);
+    border: 2px solid var(--ink);
+    box-shadow: 7px 7px 0 var(--mustard);
+  }
+
+  .destination-search-form input {
+    min-width: 0;
+    flex: 1;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    padding: 16px 18px;
+    font: 400 0.92rem 'Karla', sans-serif;
+    outline: none;
+  }
+
+  .destination-search-form input::placeholder { color: var(--dusty); }
+
+  .destination-search-form button {
+    border: 0;
+    background: var(--ink);
+    color: var(--cream);
+    padding: 0 22px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.14em;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .destination-search-form button:hover { background: var(--rust); }
+
+  .destination-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 0 0 24px;
+  }
+
+  .destination-filter {
+    border: 1px solid var(--dusty);
+    background: transparent;
+    color: var(--dusty);
+    padding: 8px 15px;
+    font: 500 0.68rem 'Karla', sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .destination-filter:hover,
+  .destination-filter.active {
+    background: var(--rust);
+    border-color: var(--rust);
+    color: white;
+  }
+
+  .destination-results {
+    min-height: 20px;
+    margin-left: auto;
+    align-self: center;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dusty);
+  }
+
+  .destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .destination-card {
+    min-height: 310px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    text-decoration: none;
+    color: white;
+    isolation: isolate;
+  }
+
+  .destination-card[hidden] { display: none; }
+
+  .destination-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--card-image);
+    background-size: cover;
+    background-position: center;
+    filter: saturate(0.82);
+    transition: transform 0.45s ease, filter 0.45s ease;
+  }
+
+  .destination-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(to top, rgba(28,28,28,0.94) 0%, rgba(28,28,28,0.18) 70%);
+  }
+
+  .destination-card:hover::before {
+    transform: scale(1.055);
+    filter: saturate(1);
+  }
+
+  .destination-card-country {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.66rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--mustard);
+  }
+
+  .destination-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.25rem;
+    letter-spacing: 0.05em;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .destination-card p {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.72);
+  }
+
+  .destination-arrow {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: white;
+  }
+
+  .destination-empty {
+    display: none;
+    border: 2px dashed var(--light-dust);
+    padding: 32px;
+    text-align: center;
+    color: var(--dusty);
+  }
+
+  .destination-empty.show { display: block; }
+  .destination-empty a { color: var(--rust); }
+
+  .destination-filter:focus-visible,
+  .destination-search-form input:focus-visible,
+  .destination-search-form button:focus-visible,
+  .destination-card:focus-visible {
+    outline: 3px solid var(--mustard);
+    outline-offset: 3px;
+  }
+
+  @media (max-width: 900px) {
+    .destination-finder { padding: 64px 28px 72px; }
+    .destination-finder-head { grid-template-columns: 1fr; gap: 28px; }
+    .destination-grid { grid-template-columns: 1fr 1fr; }
+    .destination-card { min-height: 280px; }
+    .destination-results { width: 100%; margin-left: 0; }
+  }
+
+  @media (max-width: 560px) {
+    .destination-grid { grid-template-columns: 1fr; }
+    .destination-card { min-height: 260px; }
+    .destination-search-form { box-shadow: 5px 5px 0 var(--mustard); }
+    .destination-search-form button { padding: 0 15px; }
+  }
+
   /* ── MANIFESTO STRIP ── */
   .manifesto {
     background: var(--ink);
@@ -1516,7 +1749,7 @@
       Life moves fast. Real fast. So put the selfie stick down and share the <strong>world</strong> — not your face in front of it. Mountains, street food, stadiums, back roads — if it's a place and not a face, it belongs here.
     </p>
     <div class="hero-cta">
-      <a href="#explore" class="btn-main">See the World</a>
+      <a href="#destination-finder" class="btn-main">Find a Place</a>
       <a href="#upload" class="btn-text">Share a Place →</a>
     </div>
   </div>
@@ -1541,6 +1774,111 @@
     </div>
   </div>
 </section>
+
+
+<!-- ── DESTINATION FINDER ── -->
+<section class="destination-finder" id="destination-finder" aria-labelledby="destination-finder-title">
+  <div class="destination-finder-inner">
+    <div class="destination-finder-head">
+      <div>
+        <span class="destination-kicker">Start with a place</span>
+        <h2 id="destination-finder-title">WHERE DO YOU<br><em>WANT TO GO?</em></h2>
+      </div>
+      <div>
+        <p class="destination-search-copy">Country, city, coast, street food, old stones. Type what you are chasing. We will point you somewhere worth looking at.</p>
+        <form class="destination-search-form" id="destinationSearchForm" role="search">
+          <input id="destinationSearch" type="search" list="destinationSuggestions" placeholder="Try “Kyoto”, “food” or “coast”" autocomplete="off" aria-label="Search destinations by country, city or experience">
+          <datalist id="destinationSuggestions">
+            <option value="Kyoto"><option value="Lisbon"><option value="Marrakech">
+            <option value="Amalfi Coast"><option value="Meteora"><option value="Barcelona">
+            <option value="Food"><option value="Coast"><option value="Culture"><option value="Hidden gems">
+          </datalist>
+          <button type="submit">Find it →</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="destination-filters" aria-label="Filter destinations by experience">
+      <button class="destination-filter active" type="button" data-filter="all" aria-pressed="true">All places</button>
+      <button class="destination-filter" type="button" data-filter="food" aria-pressed="false">Eat well</button>
+      <button class="destination-filter" type="button" data-filter="coast" aria-pressed="false">Find water</button>
+      <button class="destination-filter" type="button" data-filter="culture" aria-pressed="false">Get cultured</button>
+      <button class="destination-filter" type="button" data-filter="hidden" aria-pressed="false">Go sideways</button>
+      <span class="destination-results" id="destinationResults" aria-live="polite">6 places to start</span>
+    </div>
+
+    <div class="destination-grid" id="destinationGrid">
+      <a class="destination-card" href="best-places-to-visit-in-japan.html" data-search="japan kyoto tokyo culture food temples rail city hidden" style="--card-image:url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Japan</span><h3>KYOTO &amp; BEYOND</h3><p>Temple mornings, tiny counters and trains that make sense.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+      <a class="destination-card" href="best-places-to-visit-in-portugal.html" data-search="portugal lisbon porto sintra food coast culture city hidden" style="--card-image:url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Portugal</span><h3>LISBON TO PORTO</h3><p>Tiles, hills, Atlantic light and lunch that takes its time.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+      <a class="destination-card" href="best-places-to-visit-in-morocco.html" data-search="morocco marrakech fez sahara desert markets food culture hidden" style="--card-image:url('https://images.unsplash.com/photo-1568454537842-d933259bb258?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Morocco</span><h3>MARRAKECH &amp; THE DESERT</h3><p>Medinas, mint tea and roads that run into the sand.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+      <a class="destination-card" href="best-places-to-visit-in-italy.html" data-search="italy amalfi dolomites rome coast food mountains culture" style="--card-image:url('https://images.unsplash.com/photo-1518638150340-f706e86654de?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Italy</span><h3>AMALFI TO THE DOLOMITES</h3><p>Coast roads, mountain air and very serious pasta.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+      <a class="destination-card" href="best-places-to-visit-in-greece.html" data-search="greece athens meteora islands ruins coast culture hidden" style="--card-image:url('https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Greece</span><h3>ATHENS, ISLANDS &amp; METEORA</h3><p>Old stones, blue water and villages above the clouds.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+      <a class="destination-card" href="best-places-to-visit-in-spain.html" data-search="spain barcelona seville san sebastian food coast culture city hidden" style="--card-image:url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1000&amp;q=82&amp;fit=crop')">
+        <div><span class="destination-card-country">Spain</span><h3>BARCELONA TO SEVILLE</h3><p>Markets, late nights and architecture with no indoor voice.</p><span class="destination-arrow">Open the guide →</span></div>
+      </a>
+    </div>
+
+    <div class="destination-empty" id="destinationEmpty">
+      Nothing in this short list. Yet. <a href="travel-guides.html">See every destination guide →</a>
+    </div>
+  </div>
+</section>
+<script>
+(function () {
+  var input = document.getElementById('destinationSearch');
+  var form = document.getElementById('destinationSearchForm');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.destination-card'));
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.destination-filter'));
+  var results = document.getElementById('destinationResults');
+  var empty = document.getElementById('destinationEmpty');
+  var activeFilter = 'all';
+
+  function applyDestinationFilter() {
+    var query = input.value.trim().toLowerCase();
+    var visible = 0;
+    cards.forEach(function (card) {
+      var terms = card.getAttribute('data-search') || '';
+      var matchesQuery = !query || terms.indexOf(query) !== -1;
+      var matchesFilter = activeFilter === 'all' || terms.indexOf(activeFilter) !== -1;
+      card.hidden = !(matchesQuery && matchesFilter);
+      if (!card.hidden) visible += 1;
+    });
+    results.textContent = visible === 1 ? '1 place matches' : visible + ' places match';
+    empty.classList.toggle('show', visible === 0);
+    return visible;
+  }
+
+  input.addEventListener('input', applyDestinationFilter);
+
+  filters.forEach(function (button) {
+    button.addEventListener('click', function () {
+      activeFilter = button.getAttribute('data-filter');
+      filters.forEach(function (item) {
+        var selected = item === button;
+        item.classList.toggle('active', selected);
+        item.setAttribute('aria-pressed', selected ? 'true' : 'false');
+      });
+      applyDestinationFilter();
+    });
+  });
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var visibleCards = cards.filter(function (card) { return !card.hidden; });
+    if (visibleCards.length === 1) window.location.href = visibleCards[0].href;
+  });
+})();
+</script>
 
 <!-- ── MARQUEE ── -->
 <div class="manifesto">
