@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <link rel="canonical" href="https://stoplookaround.com/">
 <meta name="google-site-verification" content="PFUPEFBCGDPRyviqfV0IuyvWDq4Y8t7rzKtCN0J8_-E">
-<meta name="description" content="StopLookAround.com — A travel photo community for people who love places more than selfies. No faces. Just places. Free AI travel sheets.">
+<meta name="description" content="Stop Look Around is a website for travelers, not vacationers—honest destination guides, food, culture, stories and travel gear.">
 <meta name="keywords" content="travel photos, no selfies, travel community, free travel guides, places not faces">
 <meta property="og:title" content="Stop. Look. Around. — No Faces. Just Places.">
 <meta property="og:description" content="Share travel photos without the selfie stick. Free AI travel sheets. Curated gear.">
@@ -19,7 +19,7 @@
 <meta name="twitter:description" content="Share travel photos without the selfie stick. Free AI travel sheets. Curated gear.">
 <meta name="twitter:image" content="https://stoplookaround.com/og-image.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stop. Look Around. — Travel photos without the selfie stick</title>
+<title>Stop Look Around — A Website for Travelers, Not Vacationers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;1,400&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -1734,6 +1734,156 @@
     gtag('js', new Date());
     gtag('config', 'G-MTZ0K371Q6');
   </script>
+
+<style id="sla-home-clarity">
+  /* A calmer homepage hierarchy */
+  .hero {
+    height: auto !important;
+    min-height: 0 !important;
+    grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr);
+    gap: clamp(32px, 5vw, 76px);
+    padding: 124px clamp(28px, 6vw, 88px) 72px;
+    align-items: center;
+  }
+  .hero-left { max-width: 610px; }
+  .hero-tag {
+    display: inline-block;
+    margin-bottom: 24px;
+    padding: 8px 12px;
+    border: 1px solid var(--ink);
+    background: var(--warm-white);
+    font-weight: 500;
+    letter-spacing: .08em;
+  }
+  .hero h1 { font-size: clamp(5rem, 9vw, 9rem); line-height: .78; }
+  .hero-sub { max-width: 540px; font-size: clamp(1.05rem, 1.5vw, 1.28rem); line-height: 1.6; }
+  .hero-right { min-height: 0; display: block; position: relative; }
+  .hero-visual {
+    position: relative;
+    height: clamp(360px, 47vw, 620px);
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    background: var(--light-dust);
+    box-shadow: 14px 14px 0 var(--mustard);
+    transform: rotate(1deg);
+  }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-visual figcaption {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 12px;
+    background: rgba(253,250,244,.92);
+    border: 1px solid rgba(28,28,28,.3);
+    font-size: .72rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .hero-visual figcaption a { color: var(--dusty); }
+  .hero-stamp { right: -18px; bottom: -24px; transform: rotate(-8deg) scale(.82); }
+
+  .primary-paths {
+    padding: clamp(64px, 8vw, 112px) clamp(24px, 6vw, 88px);
+    background: var(--warm-white);
+    border-top: 2px solid var(--ink);
+  }
+  .primary-paths-intro { max-width: 700px; margin-bottom: 34px; }
+  .primary-paths h2 {
+    margin-top: 8px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 5vw, 5.2rem);
+    line-height: .92;
+    letter-spacing: .02em;
+  }
+  .path-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); border: 2px solid var(--ink); }
+  .path-card {
+    min-height: 300px;
+    padding: 28px;
+    color: var(--ink);
+    text-decoration: none;
+    background: var(--cream);
+    border-right: 2px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, background .18s ease;
+  }
+  .path-card:last-child { border-right: 0; }
+  .path-card:hover { background: var(--mustard); transform: translateY(-6px); }
+  .path-number { font-size: .72rem; letter-spacing: .14em; color: var(--rust); }
+  .path-card h3 { margin: auto 0 12px; font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: .04em; }
+  .path-card p { min-height: 76px; line-height: 1.5; }
+  .path-card strong { margin-top: 22px; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; }
+
+  .secondary-drawer {
+    border: 0;
+    border-top: 2px solid var(--ink);
+    background: var(--cream);
+  }
+  .secondary-drawer > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 27px clamp(24px, 6vw, 88px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .secondary-drawer > summary::-webkit-details-marker { display: none; }
+  .secondary-drawer > summary span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 3vw, 3rem);
+    letter-spacing: .04em;
+  }
+  .secondary-drawer > summary strong { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--rust); }
+  .secondary-drawer[open] > summary { border-bottom: 2px solid var(--ink); background: var(--mustard); }
+  .secondary-drawer[open] > summary strong::after { content: " Close"; }
+  .secondary-drawer .drawer-content { overflow: hidden; }
+  .principles-drawer .manifesto { margin-top: 0; }
+  .duty-drawer { border-bottom: 2px solid var(--ink); }
+
+  .nav-more { width: 100%; border-top: 1px solid var(--light-dust); border-bottom: 1px solid var(--light-dust); }
+  .nav-more summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 16px 0;
+    font-size: .78rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+  .nav-more summary::-webkit-details-marker { display: none; }
+  .nav-more a { padding-left: 18px; font-size: .9rem; }
+  .nav-mobile-upload { margin-top: 8px; background: var(--rust); color: white !important; text-align: center; }
+
+  @media (max-width: 980px) {
+    .hero { grid-template-columns: 1fr; padding-top: 112px; }
+    .hero-left { max-width: 720px; }
+    .hero-right { width: min(100%, 720px); }
+    .path-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .path-card:nth-child(2) { border-right: 0; }
+    .path-card:nth-child(-n+2) { border-bottom: 2px solid var(--ink); }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 14px 18px; }
+    .hero { padding: 100px 20px 52px; gap: 34px; }
+    .hero h1 { font-size: clamp(4.3rem, 23vw, 6.5rem); }
+    .hero-cta { align-items: flex-start; }
+    .hero-visual { height: 420px; box-shadow: 8px 8px 0 var(--mustard); }
+    .hero-visual figcaption { flex-direction: column; gap: 3px; }
+    .hero-stamp { right: -8px; }
+    .primary-paths { padding: 58px 18px; }
+    .path-grid { grid-template-columns: 1fr; }
+    .path-card { min-height: 235px; border-right: 0; border-bottom: 2px solid var(--ink); }
+    .path-card:last-child { border-bottom: 0; }
+    .path-card p { min-height: 0; }
+    .secondary-drawer > summary { align-items: flex-start; flex-direction: column; padding: 22px 20px; gap: 7px; }
+  }
+</style>
+
 </head>
 <body>
 
@@ -1756,86 +1906,59 @@
 
 <!-- ── NAV ── -->
 <nav>
-  <a href="#" class="nav-logo">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
-  <ul class="nav-links">
-    <li><a href="#explore">Explore</a></li>
-    <li><a href="#dutyfree">Duty Free ✈️</a></li>
-    <li><a href="#wall">The Wall</a></li>
-    <li><a href="travel-guides.html">Guides</a></li>
-    <li><a href="feed-me.html">Feed Me 🍜</a></li>
-    <li><a href="world-music.html">World Music 🎵</a></li>
-    <li><a href="sleep-here.html">Sleep Here 🛏️</a></li>
-    <li><a href="shop.html">Gift Shop</a></li>
-    <li><a href="culture.html">Culture</a></li>
-    <li><a href="quiz.html">Quiz</a></li>
-    <li><a href="archive.html">Archive</a></li>
-    <li><a href="deeper-dive.html">Deeper Dive</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload">Upload →</a></li>
+  <a href="#" class="nav-logo" aria-label="Stop Look Around home">STOP<span class="dot">.</span>LOOK<span class="dot">.</span>AROUND</a>
+  <ul class="nav-links" aria-label="Primary navigation">
+    <li><a href="#destination-finder">Destinations</a></li>
+    <li><a href="feed-me.html">Food &amp; Culture</a></li>
+    <li><a href="deeper-dive.html">Stories</a></li>
+    <li><a href="#bag">Travel Gear</a></li>
   </ul>
-  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 </nav>
 
 <div class="nav-mobile" id="navMobile">
-  <a href="#explore">Explore</a>
-  <a href="#dutyfree">Duty Free ✈️</a>
-  <a href="#wall">The Wall</a>
-  <a href="travel-guides.html">Guides</a>
-  <a href="feed-me.html">Feed Me 🍜</a>
-  <a href="world-music.html">World Music 🎵</a>
-  <a href="sleep-here.html">Sleep Here 🛏️</a>
-  <a href="shop.html">Gift Shop</a>
-  <a href="culture.html">Culture</a>
-  <a href="quiz.html">Quiz</a>
-  <a href="archive.html">Archive</a>
-  <a href="deeper-dive.html">Deeper Dive</a>
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLScASY0wmrfXAfDQE9wfb2B9jhDKXsVoaJcHQ0mefRmYI5Y99A/viewform" target="_blank" class="nav-upload-mobile">Upload →</a>
+  <a href="#destination-finder">Destinations</a>
+  <a href="feed-me.html">Food &amp; Culture</a>
+  <a href="deeper-dive.html">Stories</a>
+  <a href="#bag">Travel Gear</a>
+  <details class="nav-more">
+    <summary>More from Stop Look Around</summary>
+    <a href="#explore">Photo Wall</a>
+    <a href="#free-guides">Free Travel Sheets</a>
+    <a href="sleep-here.html">Sleep Here</a>
+    <a href="world-music.html">World Music</a>
+    <a href="culture.html">Culture</a>
+    <a href="quiz.html">Quiz</a>
+    <a href="archive.html">Archive</a>
+  </details>
+  <a href="#upload" class="nav-mobile-upload">Share a Place</a>
 </div>
-<script>
-(function(){
-  var ham = document.getElementById('navHamburger');
-  var mob = document.getElementById('navMobile');
-  if(ham) ham.addEventListener('click', function(){ mob.classList.toggle('open'); });
-  document.querySelectorAll('.nav-mobile a').forEach(function(a){ a.addEventListener('click', function(){ mob.classList.remove('open'); }); });
-})();
-</script>
 
 <!-- ── HERO ── -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-tag">A travel photo community</div>
+    <div class="hero-tag">A website for travelers, not vacationers.</div>
     <h1>
       <span class="line-rust">STOP.</span><br>
       LOOK<br>
       <span class="line-mustard">AROUND.</span>
     </h1>
-    <p class="hero-sub">
-      Life moves fast. Real fast. So put the selfie stick down and share the <strong>world</strong> — not your face in front of it. Mountains, street food, stadiums, back roads — if it's a place and not a face, it belongs here.
-    </p>
+    <p class="hero-sub">Find the place first. Then get the honest guide, the food, the story and the gear worth taking.</p>
     <div class="hero-cta">
-      <a href="#destination-finder" class="btn-main">Find a Place</a>
-      <a href="#upload" class="btn-text">Share a Place →</a>
+      <a href="#destination-finder" class="btn-main">Find a Destination</a>
+      <a href="travel-guides.html" class="btn-text">Browse Every Guide →</a>
     </div>
   </div>
 
   <div class="hero-right">
-    <div class="polaroid-stack">
-      <div class="polaroid">
-        <div class="polaroid-img p-desert">🏜️</div>
-        <p class="polaroid-caption">Sahara, Morocco</p>
-      </div>
-      <div class="polaroid">
-        <div class="polaroid-img p-coast">🌊</div>
-        <p class="polaroid-caption">Amalfi, Italy</p>
-      </div>
-      <div class="polaroid">
-        <div class="polaroid-img p-mountain">🏔️</div>
-        <p class="polaroid-caption">Patagonia, Argentina</p>
-      </div>
-    </div>
-    <div class="hero-stamp">
-      <span>NO<br>SELFIES<br>EVER</span>
-    </div>
+    <figure class="hero-visual">
+      <img src="https://images.unsplash.com/photo-1756413664903-159797c47477?w=1400&amp;q=84&amp;fit=crop" alt="Budapest cityscape along the Danube" width="1400" height="1050" fetchpriority="high">
+      <figcaption>
+        <span>Budapest, Hungary</span>
+        <a href="https://unsplash.com/photos/s8khmvGXWo0" target="_blank" rel="noopener">Photo: Himmel S.</a>
+      </figcaption>
+    </figure>
+    <div class="hero-stamp" aria-hidden="true"><span>NO<br>SELFIES<br>EVER</span></div>
   </div>
 </section>
 
@@ -2001,6 +2124,46 @@
 })();
 </script>
 
+<!-- ── START HERE ── -->
+<section class="primary-paths" aria-labelledby="start-here-title">
+  <div class="primary-paths-intro">
+    <span class="overline">Start here</span>
+    <h2 id="start-here-title">WHAT KIND OF TRAVELER ARE YOU TODAY?</h2>
+  </div>
+  <div class="path-grid">
+    <a class="path-card" href="travel-guides.html">
+      <span class="path-number">01</span>
+      <h3>Destinations</h3>
+      <p>Country and city guides built around what is actually worth your time.</p>
+      <strong>Find a place →</strong>
+    </a>
+    <a class="path-card" href="feed-me.html">
+      <span class="path-number">02</span>
+      <h3>Food &amp; Culture</h3>
+      <p>Eat through a place and understand what is behind the plate.</p>
+      <strong>Follow your appetite →</strong>
+    </a>
+    <a class="path-card" href="deeper-dive.html">
+      <span class="path-number">03</span>
+      <h3>Stories</h3>
+      <p>The history, habits and odd details that make a place memorable.</p>
+      <strong>Read deeper →</strong>
+    </a>
+    <a class="path-card" href="#bag">
+      <span class="path-number">04</span>
+      <h3>Travel Gear</h3>
+      <p>Useful things for the road—chosen because they earn their space.</p>
+      <strong>Pack smarter →</strong>
+    </a>
+  </div>
+</section>
+
+<details class="secondary-drawer principles-drawer">
+  <summary>
+    <span>What we stand for</span>
+    <strong>No faces. Just places. See the simple rules →</strong>
+  </summary>
+  <div class="drawer-content">
 <!-- ── MARQUEE ── -->
 <div class="manifesto">
   <div class="manifesto-track">
@@ -2077,6 +2240,10 @@
     </div>
   </div>
 </section>
+
+
+  </div>
+</details>
 
 <!-- ── PHOTO WALL ── -->
 <section class="wall-section" id="explore">
@@ -2198,6 +2365,12 @@ async function loadApprovedPhotos() {
 document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
 </script>
 
+<details class="secondary-drawer community-drawer" id="community">
+  <summary>
+    <span>Community</span>
+    <strong>Travel notes, submissions &amp; photo standards →</strong>
+  </summary>
+  <div class="drawer-content">
 <!-- ── GRAFFITI WALL ── -->
 <section class="graffiti-section" id="wall">
   <div class="graffiti-header">
@@ -2281,6 +2454,77 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
   </div>
 </section>
 
+
+  </div>
+</details>
+
+<!-- ── I NEED A BIGGER BAG ── -->
+<section class="biggerbag-section" id="bag">
+  <div class="biggerbag-inner">
+    <span class="overline">Gear for people who actually go places</span>
+    <h2>I NEED A<br><em>BIGGER BAG</em> 🎒</h2>
+    <p class="biggerbag-tagline">Curated travel gear picked for people who stop looking at their phone and start looking at the world. No sponsored garbage — just stuff worth packing.</p>
+    <div class="gear-categories">
+      <button class="gear-cat active" onclick="filterGear(this, 'all')">All Gear</button>
+      <button class="gear-cat" onclick="filterGear(this, 'camera')">📷 Cameras</button>
+      <button class="gear-cat" onclick="filterGear(this, 'carry')">🎒 Carry</button>
+      <button class="gear-cat" onclick="filterGear(this, 'sleep')">🏕️ Sleep</button>
+      <button class="gear-cat" onclick="filterGear(this, 'analog')">📓 Analog</button>
+      <button class="gear-cat" onclick="filterGear(this, 'audio')">🎧 Audio</button>
+    </div>
+    <div class="gear-grid">
+      <a href="best-budget-travel-photography-kit.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="camera">
+        <span class="gear-icon">📷</span><h3>Fujifilm Disposable Camera</h3>
+        <p>27 shots, no filters, no regrets. Forces you to actually look before you shoot.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-travel-essentials-under-50.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="analog">
+        <span class="gear-icon">📓</span><h3>Travel Journal</h3>
+        <p>Write down where you were, what you ate, what surprised you. Future you will thank present you.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
+        <span class="gear-icon">🎒</span><h3>Travel Backpack</h3>
+        <p>One bag. Everything fits. No checked luggage fees. Best travel upgrade you can make.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-budget-travel-photography-kit.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="camera">
+        <span class="gear-icon">🎞️</span><h3>Compact Camera</h3>
+        <p>Better than your phone, smaller than a DSLR. Real photos without carrying a film crew.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-long-flight-essentials.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="audio">
+        <span class="gear-icon">🎧</span><h3>Noise Cancelling Headphones</h3>
+        <p>Long flights, train stations, hostel common rooms. Not a luxury — survival equipment.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
+        <span class="gear-icon">🧳</span><h3>Packing Cubes</h3>
+        <p>Life before packing cubes was chaos. One of those purchases you wonder how you survived without.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-travel-essentials-under-50.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="sleep">
+        <span class="gear-icon">🏕️</span><h3>Travel Hammock</h3>
+        <p>Two trees and you have a bed with the best view you've ever slept in. Weighs almost nothing.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
+        <span class="gear-icon">🛂</span><h3>Passport Holder</h3>
+        <p>Keep passport, cards, cash in one slim wallet. Obvious but often overlooked.</p>
+        <span class="gear-link">Shop on Amazon</span>
+      </a>
+    </div>
+    <p class="gear-disclaimer">Some links above are affiliate links — if you buy something we earn a small commission at no extra cost to you. We only list gear we'd actually pack. StopLookAround.com does not accept paid placements.</p>
+  </div>
+</section>
+
+
+<details class="secondary-drawer duty-drawer" id="free-guides">
+  <summary>
+    <span>Duty Free</span>
+    <strong>Open the free AI travel sheets →</strong>
+  </summary>
+  <div class="drawer-content">
 <!-- ── IT'S YOUR DUTY FREE ── -->
 <section class="dutyfree-section" id="dutyfree">
   <div class="dutyfree-inner">
@@ -2482,65 +2726,9 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
   </div>
 </section>
 
-<!-- ── I NEED A BIGGER BAG ── -->
-<section class="biggerbag-section" id="bag">
-  <div class="biggerbag-inner">
-    <span class="overline">Gear for people who actually go places</span>
-    <h2>I NEED A<br><em>BIGGER BAG</em> 🎒</h2>
-    <p class="biggerbag-tagline">Curated travel gear picked for people who stop looking at their phone and start looking at the world. No sponsored garbage — just stuff worth packing.</p>
-    <div class="gear-categories">
-      <button class="gear-cat active" onclick="filterGear(this, 'all')">All Gear</button>
-      <button class="gear-cat" onclick="filterGear(this, 'camera')">📷 Cameras</button>
-      <button class="gear-cat" onclick="filterGear(this, 'carry')">🎒 Carry</button>
-      <button class="gear-cat" onclick="filterGear(this, 'sleep')">🏕️ Sleep</button>
-      <button class="gear-cat" onclick="filterGear(this, 'analog')">📓 Analog</button>
-      <button class="gear-cat" onclick="filterGear(this, 'audio')">🎧 Audio</button>
-    </div>
-    <div class="gear-grid">
-      <a href="best-budget-travel-photography-kit.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="camera">
-        <span class="gear-icon">📷</span><h3>Fujifilm Disposable Camera</h3>
-        <p>27 shots, no filters, no regrets. Forces you to actually look before you shoot.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-travel-essentials-under-50.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="analog">
-        <span class="gear-icon">📓</span><h3>Travel Journal</h3>
-        <p>Write down where you were, what you ate, what surprised you. Future you will thank present you.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
-        <span class="gear-icon">🎒</span><h3>Travel Backpack</h3>
-        <p>One bag. Everything fits. No checked luggage fees. Best travel upgrade you can make.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-budget-travel-photography-kit.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="camera">
-        <span class="gear-icon">🎞️</span><h3>Compact Camera</h3>
-        <p>Better than your phone, smaller than a DSLR. Real photos without carrying a film crew.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-long-flight-essentials.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="audio">
-        <span class="gear-icon">🎧</span><h3>Noise Cancelling Headphones</h3>
-        <p>Long flights, train stations, hostel common rooms. Not a luxury — survival equipment.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
-        <span class="gear-icon">🧳</span><h3>Packing Cubes</h3>
-        <p>Life before packing cubes was chaos. One of those purchases you wonder how you survived without.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-travel-essentials-under-50.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="sleep">
-        <span class="gear-icon">🏕️</span><h3>Travel Hammock</h3>
-        <p>Two trees and you have a bed with the best view you've ever slept in. Weighs almost nothing.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-      <a href="best-carry-on-organization-gear.html" data-retired-affiliate="true" target="_blank" rel="noopener sponsored" class="gear-card" data-cat="carry">
-        <span class="gear-icon">🛂</span><h3>Passport Holder</h3>
-        <p>Keep passport, cards, cash in one slim wallet. Obvious but often overlooked.</p>
-        <span class="gear-link">Shop on Amazon</span>
-      </a>
-    </div>
-    <p class="gear-disclaimer">Some links above are affiliate links — if you buy something we earn a small commission at no extra cost to you. We only list gear we'd actually pack. StopLookAround.com does not accept paid placements.</p>
+
   </div>
-</section>
+</details>
 
 <!-- ── FERRIS QUOTE ── -->
 <section class="ferris-section">
@@ -3047,5 +3235,19 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
   })();
   </script>
   <!-- End Enhanced GA4 Event Tracking -->
+
+<script id="sla-home-clarity-js">
+  (function () {
+    function revealHashTarget() {
+      if (!window.location.hash) return;
+      var target = document.querySelector(window.location.hash);
+      var parent = target && target.closest('details');
+      if (parent) parent.open = true;
+    }
+    window.addEventListener('hashchange', revealHashTarget);
+    revealHashTarget();
+  })();
+</script>
+
 </body>
 </html>
