@@ -110,6 +110,29 @@
     letter-spacing: 0.1em !important;
     transition: background 0.2s !important;
   }
+  /* Desktop "More" dropdown -- parity with the mobile menu's More section */
+  .nav-links-more { position: relative; list-style: none; }
+  .nav-links-more > summary {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--dusty); cursor: pointer; list-style: none;
+  }
+  .nav-links-more > summary::-webkit-details-marker { display: none; }
+  .nav-links-more > summary:hover { color: var(--ink); }
+  .nav-links-more[open] > summary { color: var(--ink); }
+  .nav-links-more-panel {
+    position: absolute; top: 28px; right: 0;
+    background: var(--warm-white); border: 1px solid var(--light-dust);
+    box-shadow: 0 12px 32px rgba(28,28,28,0.1);
+    display: flex; flex-direction: column; min-width: 190px; z-index: 250;
+  }
+  .nav-links-more-panel a {
+    font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--dusty); text-decoration: none; padding: 12px 18px;
+    border-bottom: 1px solid var(--light-dust); white-space: nowrap;
+  }
+  .nav-links-more-panel a:last-child { border-bottom: none; }
+  .nav-links-more-panel a:hover { color: var(--ink); background: var(--cream); }
+  @media (max-width: 900px) { .nav-links-more { display: none; } }
 
   /* HAMBURGER */
   .nav-hamburger {
@@ -127,6 +150,17 @@
     height: 2px;
     background: var(--ink);
     transition: all 0.3s;
+  }
+  /* Actual markup uses class="hamburger" id="hamburger" -- match it directly */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 4px 6px;
   }
 
   /* MOBILE MENU */
@@ -1367,6 +1401,7 @@
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
     .nav-hamburger { display: flex; }
+    .hamburger { display: block; }
 
     .hero { grid-template-columns: 1fr; min-height: auto; }
     .hero-left { padding: 60px 28px 40px; }
@@ -1929,6 +1964,20 @@
     <li><a href="feed-me.html">Food &amp; Culture</a></li>
     <li><a href="deeper-dive.html">Stories</a></li>
     <li><a href="#bag">Travel Gear</a></li>
+    <li>
+      <details class="nav-links-more">
+        <summary>More &#9662;</summary>
+        <div class="nav-links-more-panel">
+          <a href="#explore">Photo Wall</a>
+          <a href="#free-guides">Free Travel Sheets</a>
+          <a href="sleep-here.html">Sleep Here</a>
+          <a href="world-music.html">World Music</a>
+          <a href="culture.html">Culture</a>
+          <a href="quiz.html">Quiz</a>
+          <a href="archive.html">Archive</a>
+        </div>
+      </details>
+    </li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 </nav>
@@ -3416,6 +3465,24 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
   </script>
   <!-- End Enhanced GA4 Event Tracking -->
 
+<script id="sla-hamburger-fix-js">
+  (function () {
+    var burger = document.getElementById('hamburger');
+    var mobileMenu = document.getElementById('navMobile');
+    if (burger && mobileMenu) {
+      burger.addEventListener('click', function () {
+        var isOpen = mobileMenu.classList.toggle('open');
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      mobileMenu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>
 <script id="sla-home-clarity-js">
   (function () {
     function openDetailsFor(hash) {
