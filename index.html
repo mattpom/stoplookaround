@@ -1824,7 +1824,10 @@
     box-shadow: 14px 14px 0 var(--mustard);
     transform: rotate(1deg);
   }
-  .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-guide-link { display: block; width: 100%; height: 100%; }
+  .hero-guide-link:focus-visible { outline: 4px solid var(--mustard); outline-offset: -4px; }
+  .hero-visual img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .25s ease; }
+  .hero-guide-link:hover img { transform: scale(1.015); }
   .hero-visual figcaption {
     position: absolute;
     left: 16px;
@@ -2027,7 +2030,9 @@
 
   <div class="hero-right">
     <figure class="hero-visual">
-      <img src="https://images.unsplash.com/photo-1756413664903-159797c47477?w=1400&amp;q=84&amp;fit=crop" alt="Budapest cityscape along the Danube" width="1400" height="1050" fetchpriority="high">
+      <a class="hero-guide-link" href="budapest-hungary-travel-guide.html" aria-label="Open the Budapest, Hungary travel guide">
+        <img src="https://images.unsplash.com/photo-1756413664903-159797c47477?w=1400&amp;q=84&amp;fit=crop" alt="Budapest cityscape along the Danube" width="1400" height="1050" fetchpriority="high">
+      </a>
       <figcaption>
         <span>Budapest, Hungary</span>
         <a href="https://unsplash.com/photos/s8khmvGXWo0" target="_blank" rel="noopener">Photo: Himmel S.</a>
