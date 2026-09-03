@@ -3508,10 +3508,10 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
     var sheetCountry = params.get('sheet');
     var sheetCode = params.get('code');
     if (sheetCountry && sheetCode) {
-      window.addEventListener('DOMContentLoaded', function () {
-        openDetailsFor('#dutyfree');
-        if (typeof grabSheet === 'function') grabSheet(sheetCountry, sheetCode);
-      });
+      // This script runs at the end of <body>, so DOMContentLoaded has
+      // already fired by now -- call directly instead of listening for it.
+      openDetailsFor('#dutyfree');
+      if (typeof grabSheet === 'function') grabSheet(sheetCountry, sheetCode);
     }
   })();
 </script>
