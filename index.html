@@ -7,7 +7,7 @@
 <meta name="description" content="Stop Look Around is a website for travelers, not vacationers—honest destination guides, food, culture, stories and travel gear.">
 <meta name="keywords" content="travel photos, no selfies, travel community, free travel guides, places not faces">
 <meta property="og:title" content="Stop. Look. Around. — No Faces. Just Places.">
-<meta property="og:description" content="Share travel photos without the selfie stick. Free AI travel sheets. Curated gear.">
+<meta property="og:description" content="Share travel photos without the selfie stick. Free practical travel sheets. Curated gear.">
 <meta property="og:url" content="https://stoplookaround.com">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Stop Look Around">
@@ -16,7 +16,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@stoplookaround">
 <meta name="twitter:title" content="Stop. Look. Around. — No Faces. Just Places.">
-<meta name="twitter:description" content="Share travel photos without the selfie stick. Free AI travel sheets. Curated gear.">
+<meta name="twitter:description" content="Share travel photos without the selfie stick. Free practical travel sheets. Curated gear.">
 <meta name="twitter:image" content="https://stoplookaround.com/og-image.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Stop Look Around — A Website for Travelers, Not Vacationers</title>
@@ -1493,6 +1493,15 @@
     font-size: 0.95rem;
   }
   .sheet-content { line-height: 1.75; }
+  .sheet-notice {
+    margin: 0 0 24px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--ochre);
+    background: rgba(212, 168, 67, 0.12);
+    color: var(--ink);
+    font-size: 0.88rem;
+    line-height: 1.55;
+  }
   .sheet-content h3 {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 1.2rem;
@@ -2109,7 +2118,7 @@
 {"href":"best-places-to-visit-in-sweden.html","category":"Sweden","title":"Best Places to Visit in Sweden","description":"Stockholm, Gothenburg, the archipelagos, Gotland, and Lapland.","search":"sweden best places to visit in sweden stockholm, gothenburg, the archipelagos, gotland, and lapland. sweden stockholm gothenburg archipelago gotland lapland coast culture city"},
 {"href":"best-places-to-visit-in-denmark.html","category":"Denmark","title":"Best Places to Visit in Denmark","description":"Copenhagen, Aarhus, Jutland, Funen, and Bornholm.","search":"denmark best places to visit in denmark copenhagen, aarhus, jutland, funen, and bornholm. denmark copenhagen aarhus jutland funen bornholm coast food culture city"},
 {"href":"best-places-to-visit-in-poland.html","category":"Poland","title":"Best Places to Visit in Poland","description":"Kraków, Warsaw, Gdańsk, Wrocław, and the Tatras.","search":"poland best places to visit in poland kraków, warsaw, gdańsk, wrocław, and the tatras. poland krakow warsaw gdansk wroclaw tatras food culture city"},
-{"href":"moscow-st-petersburg-travel-guide.html","category":"Russia","title":"Moscow and St. Petersburg Travel Guide","description":"Russia's two essential cities, with current travel conditions checked first.","search":"russia moscow and st. petersburg travel guide russia's two essential cities, with current travel conditions checked first. russia moscow st petersburg saint petersburg kremlin hermitage culture city"},
+{"href":"moscow-st-petersburg-travel-guide.html","category":"Russia","title":"Moscow and St. Petersburg Travel Guide","description":"Moscow and St. Petersburg in context, with official travel advisories checked before any planning.","search":"russia moscow and st. petersburg travel guide official travel advisory current conditions moscow st petersburg saint petersburg kremlin hermitage culture city"},
 {"href":"beijing-travel-guide.html","category":"China","title":"Beijing Travel Guide","description":"The Forbidden City, the Great Wall, hutongs, and imperial Beijing.","search":"china beijing travel guide the forbidden city, the great wall, hutongs, and imperial beijing. china beijing forbidden city great wall hutong food culture city"},
 {"href":"hong-kong-travel-guide.html","category":"Hong Kong","title":"Hong Kong Travel Guide","description":"Harbor views, neighborhoods, trails, ferries, and islands.","search":"hong kong hong kong travel guide harbor views, neighborhoods, trails, ferries, and islands. hong kong kowloon lantau victoria peak food coast culture city"},
 {"href":"macau-travel-guide.html","category":"Macau","title":"Macau Travel Guide","description":"Historic streets, Macanese culture, Taipa, Coloane, and Cotai.","search":"macau macau travel guide historic streets, macanese culture, taipa, coloane, and cotai. macau macao taipa coloane cotai food culture city"}];
@@ -2618,7 +2627,7 @@ document.addEventListener('DOMContentLoaded', loadApprovedPhotos);
   <div class="dutyfree-inner">
     <span class="overline">Always free. No catches. Ever.</span>
     <h2>IT'S YOUR<br><em>DUTY FREE</em> ✈️</h2>
-    <p class="dutyfree-tagline">Free AI travel sheets for people whose passport is fuller than their bank account. Entry requirements, best spots, local tips, what to eat — one clean page per country. Generated fresh, just for you.</p>
+    <p class="dutyfree-tagline">Free practical travel sheets for people whose passport is fuller than their bank account. Entry requirements, best spots, local tips, what to eat — one clean page per country. Generated fresh, just for you.</p>
 
     <div class="sheets-grid">
       <div class="sheet-card">
@@ -3099,69 +3108,6 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
 <p>Owned and operated by Mattpom Digital Ventures LLC.</p></footer>
 
 <script>
-  // Button health monitor - ensures grab and print buttons always work
-  (function() {
-    function ensureButtonsWork() {
-      // Ensure all grab sheet buttons are wired
-      document.querySelectorAll('.sheet-grab').forEach(function(btn) {
-        var onclick = btn.getAttribute('onclick');
-        if (!onclick) return;
-        btn.style.pointerEvents = 'auto';
-        btn.style.cursor = 'pointer';
-        // Re-attach if grabSheet not defined
-        if (typeof grabSheet === 'undefined') {
-          console.warn('grabSheet not defined - check JS errors');
-        }
-      });
-
-      // Ensure print button works
-      var printBtn = document.getElementById('printBtn');
-      if (printBtn) {
-        printBtn.style.pointerEvents = 'auto';
-        printBtn.style.cursor = 'pointer';
-        if (typeof printSheet === 'undefined') {
-          console.warn('printSheet not defined - check JS errors');
-        }
-      }
-
-      // Ensure modal close button works
-      var closeBtn = document.querySelector('.sheet-modal-close');
-      if (closeBtn && typeof closeSheet === 'function') {
-        closeBtn.onclick = function() { closeSheet(); };
-      }
-    }
-
-    // Run on load
-    document.addEventListener('DOMContentLoaded', function() {
-      ensureButtonsWork();
-    });
-
-    // Run after any dynamic content changes
-    var mo = new MutationObserver(function(mutations) {
-      mutations.forEach(function(m) {
-        if (m.addedNodes.length) ensureButtonsWork();
-      });
-    });
-    mo.observe(document.body, { childList: true, subtree: true });
-
-    // Catch and report JS errors that would break buttons
-    window.addEventListener('error', function(e) {
-      console.error('JS Error breaking buttons:', e.message, 'at line', e.lineno);
-    });
-
-    // Global safety net - if grabSheet somehow gets clobbered, restore it
-    window.addEventListener('load', function() {
-      ensureButtonsWork();
-      // Test that all critical functions exist
-      var required = ['grabSheet', 'closeSheet', 'printSheet', 'addNote', 'filterGear', 'signupDuty'];
-      required.forEach(function(fn) {
-        if (typeof window[fn] !== 'function') {
-          console.error('MISSING FUNCTION: ' + fn + ' - buttons will not work');
-        }
-      });
-    });
-  })();
-</script><script>
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -3286,6 +3232,20 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
     }
   });
 
+  function sanitizeSheetHtml(html) {
+    const parsed = new DOMParser().parseFromString(html, 'text/html');
+    const allowed = new Set(['H2', 'H3', 'H4', 'P', 'UL', 'OL', 'LI', 'STRONG', 'EM', 'B', 'A', 'BR']);
+    [...parsed.body.querySelectorAll('*')].forEach(function(el) {
+      if (!allowed.has(el.tagName)) { el.replaceWith(...el.childNodes); return; }
+      [...el.attributes].forEach(function(attr) {
+        const safeLink = el.tagName === 'A' && attr.name === 'href' && /^https?:\/\//i.test(attr.value);
+        if (!safeLink) el.removeAttribute(attr.name);
+      });
+      if (el.tagName === 'A') { el.setAttribute('target', '_blank'); el.setAttribute('rel', 'noopener'); }
+    });
+    return parsed.body.innerHTML;
+  }
+
   // ── AI TRAVEL SHEETS ──
   async function grabSheet(country, flag) {
     document.getElementById('modalCountry').textContent = flag + ' ' + country;
@@ -3305,7 +3265,17 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
         body: JSON.stringify({ country })
       });
       const data = await response.json();
-      const content = data.content || 'Something went wrong — try again.';
+      let content = data.content || 'Something went wrong — try again.';
+      if (country === 'Russia') {
+        content = `
+          <h3>Current travel status</h3>
+          <p><strong>For U.S. travelers, the U.S. Department of State says: Do not travel to Russia for any reason.</strong> It cites wrongful-detention risk, arbitrary enforcement of local laws, terrorism, the war in Ukraine, and limited U.S. consular assistance.</p>
+          <p><a href="https://travel.state.gov/en/international-travel/travel-advisories/russia.html">Read the current U.S. advisory →</a></p>
+          <h3>Payment access</h3>
+          <p>U.S.-issued credit and debit cards do not work in Russia, and electronic transfers from the United States are extremely limited. Do not rely on ordinary card or ATM access.</p>
+          <h3>Before any travel decision</h3>
+          <ul><li>Check the advisory immediately before planning.</li><li>Verify visa, insurance, flight, border, and payment requirements through official sources.</li><li>Do not treat this sheet as a recommendation to travel.</li></ul>`;
+      }
       // Strip markdown code fences the AI sometimes adds
       let clean = content.replace(/```html/gi, '').replace(/```/g, '').trim();
       // Fix plain text bullet lines — convert "- item" or "• item" to proper <li>
@@ -3336,9 +3306,13 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
         <div style="height:2px; background:linear-gradient(to right, #c4522a, #d4a843, transparent); margin-bottom:24px;"></div>`;
 
       const body = document.createElement('div');
-      body.innerHTML = clean;
+      body.innerHTML = sanitizeSheetHtml(clean);
 
+      const notice = document.createElement('div');
+      notice.className = 'sheet-notice';
+      notice.innerHTML = '<strong>AI-assisted planning starting point.</strong> Entry rules, advisories, payment access, transport, health guidance, and opening procedures change. Verify them with your government and the destination\'s official sources before booking.';
       wrapper.appendChild(header);
+      wrapper.appendChild(notice);
       wrapper.appendChild(body);
       document.getElementById('sheetBody').innerHTML = '';
       document.getElementById('sheetBody').appendChild(wrapper);
