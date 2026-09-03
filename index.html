@@ -1494,13 +1494,13 @@
   }
   .sheet-content { line-height: 1.75; }
   .sheet-notice {
-    margin: 0 0 24px;
-    padding: 14px 16px;
-    border-left: 4px solid var(--ochre);
-    background: rgba(212, 168, 67, 0.12);
-    color: var(--ink);
-    font-size: 0.88rem;
-    line-height: 1.55;
+    margin: -4px 0 18px;
+    padding: 9px 0;
+    border-top: 1px solid var(--light-dust);
+    border-bottom: 1px solid var(--light-dust);
+    color: var(--dusty);
+    font-size: 0.76rem;
+    line-height: 1.45;
   }
   .sheet-content h3 {
     font-family: 'Bebas Neue', sans-serif;
@@ -3292,9 +3292,8 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
       const header = document.createElement('div');
       header.style.cssText = 'margin-bottom: 28px;';
       header.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 2px solid #c4522a; padding-bottom: 12px; margin-bottom: 20px;">
+        <div style="border-bottom:2px solid #c4522a; padding-bottom:12px; margin-bottom:20px;">
           <div style="font-family:'Bebas Neue',sans-serif; font-size:1.1rem; letter-spacing:0.15em; color:#c4522a;">STOP<span style="color:#d4a843">.</span>LOOK<span style="color:#d4a843">.</span>AROUND</div>
-          <div style="font-size:0.68rem; letter-spacing:0.15em; text-transform:uppercase; color:#8c7b6b;">stoplookaround.com &nbsp;·&nbsp; It's Your Duty Free ✈️</div>
         </div>
         <div style="display:flex; align-items:center; gap:16px; margin-bottom:8px;">
           <div style="display:inline-flex;align-items:center;justify-content:center;background:#c4522a;color:#f7f2e8;font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;width:60px;height:60px;border-radius:50%;border:2px solid #c4522a;outline:2px solid #1c1c1c;outline-offset:2px;flex-shrink:0;">${flag}</div>
@@ -3310,7 +3309,7 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
 
       const notice = document.createElement('div');
       notice.className = 'sheet-notice';
-      notice.innerHTML = '<strong>AI-assisted planning starting point.</strong> Entry rules, advisories, payment access, transport, health guidance, and opening procedures change. Verify them with your government and the destination\'s official sources before booking.';
+      notice.innerHTML = '<strong>Planning note:</strong> Verify changing entry, health, payment and transport details with official sources before booking.';
       wrapper.appendChild(header);
       wrapper.appendChild(notice);
       wrapper.appendChild(body);
