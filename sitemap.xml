@@ -266,4 +266,34 @@
   <url><loc>https://stoplookaround.com/hong-kong-travel-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://stoplookaround.com/macau-travel-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://stoplookaround.com/godzilla-store-tokyo.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  </urlset>
+    <url>
+    <loc>https://stoplookaround.com/argentina-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/jordan-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/chile-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/india-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/south-africa-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://stoplookaround.com/singapore-travel-guide.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+</urlset>
