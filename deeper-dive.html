@@ -54,9 +54,10 @@ nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-b
 .section a { color:var(--rust); text-decoration:none; }
 .section a:hover { text-decoration:underline; }
 .pin-embed-wrap { background:var(--card-bg); border:1px solid var(--border); padding:2rem; margin-top:1.5rem; min-height:200px; }
-.featured-card { display:block; background:var(--card-bg); border:1px solid var(--border); padding:0; overflow:hidden; text-decoration:none; color:var(--ink); transition:border-color 0.2s, transform 0.2s; margin-top:1.5rem; }
+.featured-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; margin-top:1.5rem; }
+.featured-card { display:block; background:var(--card-bg); border:1px solid var(--border); padding:0; overflow:hidden; text-decoration:none; color:var(--ink); transition:border-color 0.2s, transform 0.2s; }
 .featured-card:hover { border-color:var(--rust); transform:translateY(-2px); text-decoration:none; }
-.featured-image { display:block; width:100%; height:clamp(220px,38vw,390px); object-fit:cover; }
+.featured-image { display:block; width:100%; aspect-ratio:2/3; object-fit:cover; background:#e6dccb; }
 .featured-copy { display:block; padding:2rem; }
 .featured-tag { font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--rust); margin-bottom:0.8rem; }
 .featured-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.03em; color:var(--ink); margin-bottom:0.6rem; line-height:1.2; }
@@ -65,7 +66,7 @@ nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-b
 footer { border-top:1px solid var(--border); padding:28px 48px; text-align:center; }
 footer p { font-size:0.7rem; color:var(--dusty); letter-spacing:0.1em; text-transform:uppercase; font-weight:500; }
 footer a { color:var(--rust); text-decoration:none; }
-@media(max-width:768px) { nav { padding:16px 24px; } .hamburger { display:flex; } .nav-links { display:none; } .hero { padding:60px 24px 40px; } .main-wrap { padding:2rem 24px 4rem; } footer { padding:24px; } }
+@media(max-width:768px) { nav { padding:16px 24px; } .hamburger { display:flex; } .nav-links { display:none; } .hero { padding:60px 24px 40px; } .main-wrap { padding:2rem 24px 4rem; } .featured-grid { grid-template-columns:1fr; } footer { padding:24px; } }
 </style>
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Deeper Dive -- StopLookAround","description":"More places, more finds, more visual inspiration -- the deeper dive behind StopLookAround.","url":"https://stoplookaround.com/deeper-dive.html","publisher":{"@type":"Organization","name":"Stop Look Around","url":"https://stoplookaround.com"}}</script>
@@ -101,8 +102,9 @@ footer a { color:var(--rust); text-decoration:none; }
 </div>
 <div class="section">
 <h2>Featured</h2>
+<div class="featured-grid">
 <a href="/godzilla-store-tokyo.html" class="featured-card">
-<img class="featured-image" src="godzilla-shinjuku.jpg" alt="Godzilla head above the Toho Building in Shinjuku, Tokyo" loading="eager">
+<img class="featured-image" src="godzilla-store-pin.png" alt="Original Godzilla Store Tokyo story artwork" loading="eager">
 <span class="featured-copy">
 <div class="featured-tag">Culture &middot; Japan</div>
 <h3 class="featured-title">Godzilla Store Tokyo: Inside Shinjuku’s Shrine to the King of the Monsters</h3>
@@ -112,7 +114,7 @@ footer a { color:var(--rust); text-decoration:none; }
 </a>
 
 <a href="/point-zero-paris-roads-france.html" class="featured-card">
-<img class="featured-image" src="point-zero-paris.jpg" alt="Point Zero marker outside Notre-Dame in Paris" loading="lazy">
+<img class="featured-image" src="point-zero-paris-pin.png" alt="Original Point Zéro Paris story artwork" loading="lazy">
 <span class="featured-copy">
 <div class="featured-tag">History &middot; France</div>
 <h3 class="featured-title">Point Zéro, Paris: Where Every Road Begins</h3>
@@ -121,7 +123,7 @@ footer a { color:var(--rust); text-decoration:none; }
 </span>
 </a>
 <a href="/blue-mosque-istanbul-six-minarets.html" class="featured-card">
-<img class="featured-image" src="blue-mosque-istanbul.jpg" alt="Blue Mosque in Istanbul with its six minarets at dusk" loading="lazy">
+<img class="featured-image" src="blue-mosque-istanbul-pin.png" alt="Original Blue Mosque Istanbul story artwork" loading="lazy">
 <span class="featured-copy">
 <div class="featured-tag">History &middot; Turkey</div>
 <h3 class="featured-title">Blue Mosque, Istanbul: The Six Minarets That Almost Caused a Diplomatic Incident</h3>
@@ -130,7 +132,7 @@ footer a { color:var(--rust); text-decoration:none; }
 </span>
 </a>
 <a href="/vegemite-australia-culture.html" class="featured-card">
-<img class="featured-image" src="vegemite-toast.jpg" alt="Vegemite served thinly on toast with coffee" loading="lazy">
+<img class="featured-image" src="vegemite-pin.png" alt="Original Vegemite Australia story artwork" loading="lazy">
 <span class="featured-copy">
 <div class="featured-tag">Culture &middot; Australia</div>
 <h3 class="featured-title">Vegemite: The Test Every Traveler to Australia Takes</h3>
@@ -139,7 +141,7 @@ footer a { color:var(--rust); text-decoration:none; }
 </span>
 </a>
 <a href="/ephesus-nike-goddess-ruins.html" class="featured-card">
-<img class="featured-image" src="nike-relief-ephesus.jpg" alt="Ancient relief of the goddess Nike at Ephesus" loading="lazy">
+<img class="featured-image" src="ephesus-nike-pin.png" alt="Original Ephesus and Nike story artwork" loading="lazy">
 <span class="featured-copy">
 <div class="featured-tag">History &middot; Turkey</div>
 <h3 class="featured-title">Ephesus, Turkey: The Ruins That Named Your Sneakers</h3>
@@ -148,7 +150,7 @@ footer a { color:var(--rust); text-decoration:none; }
 </span>
 </a>
 <a href="/total-solar-eclipse-2024.html" class="featured-card">
-<img class="featured-image" src="eclipse-2024-corona.jpg" alt="Solar corona during the total eclipse of April 8, 2024" loading="lazy">
+<img class="featured-image" src="total-solar-eclipse-pin.png" alt="Original Lifetime Memories total solar eclipse artwork" loading="lazy">
 <span class="featured-copy">
 <div class="featured-tag">Astronomy &middot; North America</div>
 <h3 class="featured-title">When Day Turned to Night: The Total Solar Eclipse of April 8, 2024</h3>
@@ -156,6 +158,7 @@ footer a { color:var(--rust); text-decoration:none; }
 <span class="featured-link">Read the Story &rarr;</span>
 </span>
 </a>
+</div>
 </div>
 <div class="section">
 <h2>The Board</h2>
