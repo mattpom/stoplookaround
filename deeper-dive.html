@@ -54,8 +54,10 @@ nav { position:sticky; top:0; z-index:100; display:flex; justify-content:space-b
 .section a { color:var(--rust); text-decoration:none; }
 .section a:hover { text-decoration:underline; }
 .pin-embed-wrap { background:var(--card-bg); border:1px solid var(--border); padding:2rem; margin-top:1.5rem; min-height:200px; }
-.featured-card { display:block; background:var(--card-bg); border:1px solid var(--border); padding:2rem; text-decoration:none; color:var(--ink); transition:border-color 0.2s, transform 0.2s; margin-top:1.5rem; }
+.featured-card { display:block; background:var(--card-bg); border:1px solid var(--border); padding:0; overflow:hidden; text-decoration:none; color:var(--ink); transition:border-color 0.2s, transform 0.2s; margin-top:1.5rem; }
 .featured-card:hover { border-color:var(--rust); transform:translateY(-2px); text-decoration:none; }
+.featured-image { display:block; width:100%; height:clamp(220px,38vw,390px); object-fit:cover; }
+.featured-copy { display:block; padding:2rem; }
 .featured-tag { font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--rust); margin-bottom:0.8rem; }
 .featured-title { font-family:'Bebas Neue',sans-serif; font-size:1.6rem; letter-spacing:0.03em; color:var(--ink); margin-bottom:0.6rem; line-height:1.2; }
 .featured-desc { font-size:0.9rem; font-weight:300; color:var(--dusty); line-height:1.7; margin-bottom:1rem; }
@@ -100,41 +102,59 @@ footer a { color:var(--rust); text-decoration:none; }
 <div class="section">
 <h2>Featured</h2>
 <a href="/godzilla-store-tokyo.html" class="featured-card">
+<img class="featured-image" src="godzilla-shinjuku.jpg" alt="Godzilla head above the Toho Building in Shinjuku, Tokyo" loading="eager">
+<span class="featured-copy">
 <div class="featured-tag">Culture &middot; Japan</div>
 <h3 class="featured-title">Godzilla Store Tokyo: Inside Shinjuku’s Shrine to the King of the Monsters</h3>
 <p class="featured-desc">The official flagship store, what visitors actually find there, and the second Godzilla landmark waiting above Kabukicho.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 
 <a href="/point-zero-paris-roads-france.html" class="featured-card">
+<img class="featured-image" src="point-zero-paris.jpg" alt="Point Zero marker outside Notre-Dame in Paris" loading="lazy">
+<span class="featured-copy">
 <div class="featured-tag">History &middot; France</div>
 <h3 class="featured-title">Point Zéro, Paris: Where Every Road Begins</h3>
 <p class="featured-desc">The marker outside Notre-Dame anchors road distances from Paris—and carries centuries of history beneath it.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 <a href="/blue-mosque-istanbul-six-minarets.html" class="featured-card">
+<img class="featured-image" src="blue-mosque-istanbul.jpg" alt="Blue Mosque in Istanbul with its six minarets at dusk" loading="lazy">
+<span class="featured-copy">
 <div class="featured-tag">History &middot; Turkey</div>
 <h3 class="featured-title">Blue Mosque, Istanbul: The Six Minarets That Almost Caused a Diplomatic Incident</h3>
 <p class="featured-desc">Sultan Ahmed I wanted gold minarets. He got six instead -- and nearly outranked Mecca.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 <a href="/vegemite-australia-culture.html" class="featured-card">
+<img class="featured-image" src="vegemite-toast.jpg" alt="Vegemite served thinly on toast with coffee" loading="lazy">
+<span class="featured-copy">
 <div class="featured-tag">Culture &middot; Australia</div>
 <h3 class="featured-title">Vegemite: The Test Every Traveler to Australia Takes</h3>
 <p class="featured-desc">A thin scrape of black paste, and suddenly you know whether you're a tourist or you're not.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 <a href="/ephesus-nike-goddess-ruins.html" class="featured-card">
+<img class="featured-image" src="nike-relief-ephesus.jpg" alt="Ancient relief of the goddess Nike at Ephesus" loading="lazy">
+<span class="featured-copy">
 <div class="featured-tag">History &middot; Turkey</div>
 <h3 class="featured-title">Ephesus, Turkey: The Ruins That Named Your Sneakers</h3>
 <p class="featured-desc">A carving of the goddess Nike still stands in the ruins of Ephesus -- two thousand years before anyone put her name on a shoebox.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 <a href="/total-solar-eclipse-2024.html" class="featured-card">
+<img class="featured-image" src="eclipse-2024-corona.jpg" alt="Solar corona during the total eclipse of April 8, 2024" loading="lazy">
+<span class="featured-copy">
 <div class="featured-tag">Astronomy &middot; North America</div>
 <h3 class="featured-title">When Day Turned to Night: The Total Solar Eclipse of April 8, 2024</h3>
 <p class="featured-desc">For a few minutes, daylight disappeared, the horizon changed, and millions of people simply stopped and looked up.</p>
 <span class="featured-link">Read the Story &rarr;</span>
+</span>
 </a>
 </div>
 <div class="section">
@@ -148,4 +168,3 @@ footer a { color:var(--rust); text-decoration:none; }
 <script async defer src="https://assets.pinterest.com/js/pinit.js"></script>
 </body>
 </html>
-
