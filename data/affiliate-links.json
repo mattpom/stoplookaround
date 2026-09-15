@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "last_verified": "2026-09-15",
   "policy": {
     "never_deploy_unverified_ids": true,
@@ -47,6 +47,54 @@
       "page_slug": "budapest-hungary-travel-guide.html",
       "merchant": "Booking.com|GetYourGuide",
       "placement": "bottom",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "morocco-trip-planner",
+      "page_slug": "best-places-to-visit-in-morocco.html",
+      "merchant": "Booking.com|GetYourGuide",
+      "placement": "trip-planner",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "budget-europe-stay",
+      "page_slug": "budget-travel-tips-europe.html",
+      "merchant": "Booking.com",
+      "placement": "stay",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "budget-europe-experiences",
+      "page_slug": "budget-travel-tips-europe.html",
+      "merchant": "GetYourGuide",
+      "placement": "experiences",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "japan-trip-planner",
+      "page_slug": "best-places-to-visit-in-japan.html",
+      "merchant": "Booking.com|GetYourGuide",
+      "placement": "trip-planner",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "portugal-trip-planner",
+      "page_slug": "best-places-to-visit-in-portugal.html",
+      "merchant": "Booking.com|GetYourGuide",
+      "placement": "trip-planner",
+      "active": true,
+      "last_verified": "2026-09-15"
+    },
+    {
+      "id": "italy-trip-planner",
+      "page_slug": "best-places-to-visit-in-italy.html",
+      "merchant": "Booking.com|GetYourGuide",
+      "placement": "trip-planner",
       "active": true,
       "last_verified": "2026-09-15"
     }
