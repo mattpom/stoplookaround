@@ -1,0 +1,24 @@
+{
+  "version": 3,
+  "last_verified": "2026-09-15",
+  "policy": {
+    "never_deploy_unverified_ids": true,
+    "required_rel": "sponsored noopener",
+    "analytics_event": "travel_affiliate_click"
+  },
+  "partners": {
+    "booking": {"merchant":"Booking.com","verified_from_live_repository":true,"tracking_parameter":"aid","tracking_id":"2860959","default_campaign":"stoplookaround-travel","active":true},
+    "getyourguide": {"merchant":"GetYourGuide","verified_from_live_repository":true,"tracking_parameter":"partner_id","tracking_id":"X8AICJ6","utm_medium":"online_publisher","utm_source":"stoplookaround","active":true}
+  },
+  "placements": [
+    {"id":"budapest-stay","page_slug":"budapest-hungary-travel-guide.html","merchant":"Booking.com","placement":"stay","active":true,"last_verified":"2026-09-15","remediation_status":"reference"},
+    {"id":"budapest-experiences","page_slug":"budapest-hungary-travel-guide.html","merchant":"GetYourGuide","placement":"experiences","active":true,"last_verified":"2026-09-15","remediation_status":"reference"},
+    {"id":"budapest-trip-planner","page_slug":"budapest-hungary-travel-guide.html","merchant":"Booking.com|GetYourGuide","placement":"bottom","active":true,"last_verified":"2026-09-15","remediation_status":"reference"},
+    {"id":"morocco-trip-planner","page_slug":"best-places-to-visit-in-morocco.html","merchant":"Booking.com|GetYourGuide","placement":"trip-planner","active":true,"last_verified":"2026-09-15","remediation_status":"branch-corrected","correction_commit":"73a7ea946eba0c33f8d58d944625c532e5999066"},
+    {"id":"budget-europe-stay","page_slug":"budget-travel-tips-europe.html","merchant":"Booking.com","placement":"stay","active":true,"last_verified":"2026-09-15","remediation_status":"pending"},
+    {"id":"budget-europe-experiences","page_slug":"budget-travel-tips-europe.html","merchant":"GetYourGuide","placement":"experiences","active":true,"last_verified":"2026-09-15","remediation_status":"pending"},
+    {"id":"japan-trip-planner","page_slug":"best-places-to-visit-in-japan.html","merchant":"Booking.com|GetYourGuide","placement":"trip-planner","active":true,"last_verified":"2026-09-15","remediation_status":"pending"},
+    {"id":"portugal-trip-planner","page_slug":"best-places-to-visit-in-portugal.html","merchant":"Booking.com|GetYourGuide","placement":"trip-planner","active":true,"last_verified":"2026-09-15","remediation_status":"pending"},
+    {"id":"italy-trip-planner","page_slug":"best-places-to-visit-in-italy.html","merchant":"Booking.com|GetYourGuide","placement":"trip-planner","active":true,"last_verified":"2026-09-15","remediation_status":"branch-corrected","correction_commit":"209330f2e3fd8ebb2648de165cd50fb6b46c8292"}
+  ]
+}
