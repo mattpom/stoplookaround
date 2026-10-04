@@ -3328,10 +3328,10 @@ document.getElementById('sla-email').addEventListener('keydown', function(e) { i
   function signupDuty() {
     const email = document.getElementById('dutyEmail').value.trim();
     if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
-    fetch('https://formspree.io/f/xpwzdngg', {
+    fetch('https://sla-newsletter-signup.mattpom01.workers.dev', {
       method: 'POST',
       headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
-      body: JSON.stringify({email: email, source: 'duty-free-signup'})
+      body: JSON.stringify({email: email})
     }).then(r => {
       if (r.ok) {
         document.getElementById('dutyEmail').value = '';
