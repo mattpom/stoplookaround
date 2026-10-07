@@ -11,6 +11,7 @@
     if (/(^|\.)amazon\.com$/.test(url.hostname)) {kind=url.searchParams.has('tag')?'affiliate':'retailer_reference';network='Amazon';}
     else if (/(^|\.)booking\.com$/.test(url.hostname)) {kind=url.searchParams.has('aid')?'affiliate':'retailer_reference';network='Booking.com';}
     else if (/(^|\.)getyourguide\.com$/.test(url.hostname)) {kind=url.searchParams.has('partner_id')?'affiliate':'retailer_reference';network='GetYourGuide';}
+    else if (/(^|\.)awin1\.com$/.test(url.hostname) && url.searchParams.has('awinmid') && url.searchParams.has('awinaffid')) {kind='affiliate';network='Awin';}
     else if (/(^|\.)etsy\.com$/.test(url.hostname)) kind='own_product';
     if (!kind) return;
     var asin=url.pathname.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})/i);
@@ -21,7 +22,8 @@
       product_id:asin?asin[1]:(listing?listing[1]:''),
       source_site:window.location.hostname,
       source_page:window.location.pathname,
-      affiliate_id:url.searchParams.get('tag')||url.searchParams.get('aid')||url.searchParams.get('partner_id')||'',
+      affiliate_id:url.searchParams.get('tag')||url.searchParams.get('aid')||url.searchParams.get('partner_id')||url.searchParams.get('awinaffid')||'',
+      advertiser_id:url.searchParams.get('awinmid')||'',
       tracking_status:kind==='affiliate'?'identifier_present_unverified':(kind==='retailer_reference'?'missing_affiliate_identifier':'not_applicable'),
       destination_path:url.origin+url.pathname,
       link_position:link.dataset.position||link.dataset.product||'existing-link',

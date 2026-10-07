@@ -148,10 +148,10 @@ footer{background:var(--ink);color:var(--cream);padding:48px 72px;font-size:.8re
 <section class="dark-section" aria-labelledby="stay-title">
 <div class="dark-inner"><span class="overline">Choose your base</span><h2 id="stay-title">STAY HERE 🛏️</h2>
 <div class="action-grid">
-<a class="action-card" href="https://www.booking.com/searchresults.html?ss=District+V+Budapest+Hungary&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="action-icon">🏛️</span><h3>District V</h3><p>The easiest first-visit base near Parliament, the river and several metro lines.</p><span class="action-link">Compare stays →</span></a>
-<a class="action-card" href="https://www.booking.com/searchresults.html?ss=District+VI+Budapest+Hungary&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="action-icon">🎭</span><h3>District VI</h3><p>Grand architecture and central access without committing to the loudest streets.</p><span class="action-link">Compare stays →</span></a>
-<a class="action-card" href="https://www.booking.com/searchresults.html?ss=Castle+District+Budapest+Hungary&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="action-icon">🌉</span><h3>Castle District</h3><p>Quiet Buda evenings, old streets and the best morning views across the river.</p><span class="action-link">Compare stays →</span></a>
-</div><p class="affiliate-note">Affiliate links via Booking.com. Stop Look Around may earn a commission at no extra cost to you.</p></div>
+<a class="action-card" href="https://www.booking.com/searchresults.html?ss=District+V+Budapest+Hungary" target="_blank" rel="noopener" data-affiliate-status="editorial"><span class="action-icon">🏛️</span><h3>District V</h3><p>The easiest first-visit base near Parliament, the river and several metro lines.</p><span class="action-link">Compare stays →</span></a>
+<a class="action-card" href="https://www.booking.com/searchresults.html?ss=District+VI+Budapest+Hungary" target="_blank" rel="noopener" data-affiliate-status="editorial"><span class="action-icon">🎭</span><h3>District VI</h3><p>Grand architecture and central access without committing to the loudest streets.</p><span class="action-link">Compare stays →</span></a>
+<a class="action-card" href="https://www.booking.com/searchresults.html?ss=Castle+District+Budapest+Hungary" target="_blank" rel="noopener" data-affiliate-status="editorial"><span class="action-icon">🌉</span><h3>Castle District</h3><p>Quiet Buda evenings, old streets and the best morning views across the river.</p><span class="action-link">Compare stays →</span></a>
+</div><p class="affiliate-note">Hotel links open Booking.com for comparison.</p></div>
 </section>
 
 <section class="dark-section" style="background:#171717" aria-labelledby="do-title">
@@ -169,11 +169,11 @@ footer{background:var(--ink);color:var(--cream);padding:48px 72px;font-size:.8re
 <h2 id="trip-title">TURN THIS GUIDE INTO A TRIP</h2>
 <p class="trip-copy">Choose the right side of the river first. Then book one Budapest experience worth giving a fixed place in the day.</p>
 <div class="trip-actions">
-<a class="trip-link" href="https://www.booking.com/searchresults.html?ss=Budapest+Hungary&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="trip-partner">Stay · Booking.com</span><strong>Budapest, Hungary</strong><small>Compare places to stay →</small></a>
+<a class="trip-link" href="https://www.booking.com/searchresults.html?ss=Budapest+Hungary" target="_blank" rel="noopener" data-affiliate-status="editorial"><span class="trip-partner">Stay · Booking.com</span><strong>Budapest, Hungary</strong><small>Compare places to stay →</small></a>
 <a class="trip-link" href="https://www.getyourguide.com/s/?q=budapest+danube+evening+cruise&amp;partner_id=X8AICJ6&amp;utm_medium=online_publisher&amp;utm_source=stoplookaround" target="_blank" rel="noopener sponsored" data-affiliate-partner="GetYourGuide"><span class="trip-partner">Do · GetYourGuide</span><strong>Danube Evening Cruise</strong><small>Check tours and availability →</small></a>
 <a class="trip-link" href="index.html?sheet=Hungary&code=HU#dutyfree" data-affiliate-partner="none"><span class="trip-partner">Free · AI Travel Sheet</span><strong>Grab the Hungary Sheet</strong><small>Visa, currency, best time, food →</small></a>
 </div>
-<p class="trip-disclosure">Affiliate links. You pay the same price; Stop Look Around may earn a commission.</p>
+<p class="trip-disclosure">Some tour links may earn us a commission at no extra cost to you. Hotel links are editorial references.</p>
 </div>
 </section>
 
@@ -191,7 +191,7 @@ if(window.__slaTravelAffiliateTracking)return;window.__slaTravelAffiliateTrackin
 document.addEventListener('click',function(event){
 var link=event.target.closest&&event.target.closest('a[href*="booking.com"],a[href*="getyourguide.com"]');if(!link)return;
 var partner=link.href.indexOf('booking.com')!==-1?'Booking.com':'GetYourGuide';
-if(typeof gtag==='function'){gtag('event','travel_affiliate_click',{affiliate_partner:partner,link_url:link.href,link_text:(link.textContent||'').trim().slice(0,100),page_path:window.location.pathname})}
+if(typeof gtag==='function'){gtag('event','travel_outbound_click',{affiliate_partner:partner,link_url:link.href,link_text:(link.textContent||'').trim().slice(0,100),page_path:window.location.pathname})}
 });
 })();
 </script>

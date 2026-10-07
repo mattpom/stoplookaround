@@ -131,7 +131,7 @@ footer a{color:var(--rust);text-decoration:none}
   <span class="gear-desc">The Nasrid Palaces require advance booking. A guided tour includes priority access.</span>
   <span class="gear-link">Book on GetYourGuide →</span>
 </a>
-<a class="gear-card" href="https://www.booking.com/searchresults.html?ss=Spain&aid=2860959" target="_blank" rel="noopener sponsored">
+<a class="gear-card" href="https://www.booking.com/searchresults.html?ss=Spain" target="_blank" rel="noopener">
   <span class="gear-cat">Hotels</span>
   <span class="gear-name">Hotels in Spain</span>
   <span class="gear-desc">From Barcelona design hotels to Andalusian paradores (converted castles and monasteries).</span>
@@ -145,8 +145,8 @@ footer a{color:var(--rust);text-decoration:none}
     <span class="sla-trip-planner-kicker">Ready to go?</span>
     <h2 id="sla-trip-planner-title">TURN THIS GUIDE INTO A TRIP</h2>
     <p class="sla-trip-planner-copy">Use the guide first. Then compare a practical place to stay and book one experience worth building the day around.</p>
-    <div class="sla-trip-planner-actions"><a class="sla-trip-planner-link" href="https://www.booking.com/searchresults.html?ss=Spain&amp;aid=2860959" target="_blank" rel="noopener sponsored" data-affiliate-partner="Booking.com"><span class="sla-trip-planner-partner">Stay · Booking.com</span><strong>Spain</strong><small>Compare places to stay →</small></a><a class="sla-trip-planner-link" href="https://www.getyourguide.com/s/?q=alhambra+guided+tour+granada&amp;partner_id=X8AICJ6&amp;utm_medium=online_publisher&amp;utm_source=stoplookaround" target="_blank" rel="noopener sponsored" data-affiliate-partner="GetYourGuide"><span class="sla-trip-planner-partner">Do · GetYourGuide</span><strong>Alhambra Guided Tour Granada</strong><small>Check tours and availability →</small></a><a class="sla-trip-planner-link" href="index.html?sheet=Spain&code=ES#dutyfree" data-affiliate-partner="none"><span class="sla-trip-planner-partner">Free · AI Travel Sheet</span><strong>Grab the Spain Sheet</strong><small>Visa, currency, best time, food →</small></a></div>
-    <p class="sla-trip-planner-disclosure">Affiliate links. You pay the same price; Stop Look Around may earn a commission.</p>
+    <div class="sla-trip-planner-actions"><a class="sla-trip-planner-link" href="https://www.booking.com/searchresults.html?ss=Spain" target="_blank" rel="noopener" data-affiliate-status="editorial"><span class="sla-trip-planner-partner">Stay · Booking.com</span><strong>Spain</strong><small>Compare places to stay →</small></a><a class="sla-trip-planner-link" href="https://www.getyourguide.com/s/?q=alhambra+guided+tour+granada&amp;partner_id=X8AICJ6&amp;utm_medium=online_publisher&amp;utm_source=stoplookaround" target="_blank" rel="noopener sponsored" data-affiliate-partner="GetYourGuide"><span class="sla-trip-planner-partner">Do · GetYourGuide</span><strong>Alhambra Guided Tour Granada</strong><small>Check tours and availability →</small></a><a class="sla-trip-planner-link" href="index.html?sheet=Spain&code=ES#dutyfree" data-affiliate-partner="none"><span class="sla-trip-planner-partner">Free · AI Travel Sheet</span><strong>Grab the Spain Sheet</strong><small>Visa, currency, best time, food →</small></a></div>
+    <p class="sla-trip-planner-disclosure">Some tour links may earn us a commission at no extra cost to you. Hotel links are editorial references.</p>
   </div>
 </section>
 
@@ -168,7 +168,7 @@ footer a{color:var(--rust);text-decoration:none}
     if(!link)return;
     var partner=link.href.indexOf('booking.com')!==-1?'Booking.com':'GetYourGuide';
     if(typeof gtag==='function'){
-      gtag('event','travel_affiliate_click',{
+      gtag('event','travel_outbound_click',{
         affiliate_partner:partner,
         link_url:link.href,
         link_text:(link.textContent||'').trim().slice(0,100),
