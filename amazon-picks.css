@@ -19,3 +19,9 @@ a.amazon-card:focus-visible,a.amazon-action:focus-visible{outline:3px solid var(
 @media(prefers-reduced-motion:reduce){.amazon-card{transition:none!important;transform:none!important}}
 
 .gear-card.amazon-card p{color:#bcb6ac!important;font-size:.93rem!important;line-height:1.65!important}
+
+/* Keep the buying action aligned across cards with different copy lengths. */
+a.amazon-card{display:flex!important;flex-direction:column!important}
+.amazon-card .product-desc,.amazon-card .top10-card-desc,.gear-card.amazon-card p{flex:1}
+.amazon-card .amazon-cta{align-self:stretch!important;margin-top:auto!important;width:100%}
+.amazon-card .amazon-cta::after,a.amazon-action::after{content:none!important}
